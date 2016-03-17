@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Revision: 1237 $ -->
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" threshold="all" debug="false">
+    <appender name="LOG" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/var/log/tomcat6/pulse.log"/>
+        <!-- For more information on how to use the date pattern see the javadoc of DailyRollingFileAppender. -->
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p [%-15x] %c - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- special logger definitions for libraries -->
+    <logger name="org.apache">
+        <level value="WARN"/>
+    </logger>
+    <logger name="org.hibernate.tool">
+        <level value="WARN"/>
+    </logger>
+    <logger name="org.hibernate.cfg.annotations">
+        <level value="WARN"/>
+    </logger>
+    <logger name="org.hibernate.cfg.AnnotationBinder">
+        <level value="WARN"/>
+    </logger>
+    <logger name="org.hibernate.cfg.SettingsFactory">
+        <level value="WARN"/>
+    </logger>
+    <logger name="org.hibernate.cache.ReadWriteCache">
+        <level value="WARN"/>
+    </logger>
+    <logger name="org.hibernate.LazyInitializationException">
+        <level value="FATAL"/>
+    </logger>
+    <logger name="org.hibernate.engine.loading.LoadContexts">
+        <level value="WARN"/>
+    </logger>
+    <logger name="com.mchange.v2">
+        <level value="WARN"/>
+    </logger>
+
+    <!-- overall definitions for pulse -->
+    <logger name="org.torweg.pulse">
+        <level value="DEBUG"/>
+    </logger>
+
+    <logger name="org.torweg.pulse.service.request.Command">
+        <level value="TRACE"/>
+    </logger>
+
+    <!-- definitions for the root logger -->
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="LOG"/>
+    </root>
+</log4j:configuration>

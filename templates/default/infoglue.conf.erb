@@ -1,0 +1,17 @@
+<VirtualHost *:8090>
+
+    ProxyRequests Off
+    <Proxy balancer://mycluster>
+        BalancerMember http://localhost:8080
+        Order deny,allow
+        Allow from all
+    </Proxy>
+
+    ProxyPass / balancer://mycluster
+    ProxyPassReverse / balancer://mycluster
+    <Location />
+        Order allow,deny
+        Allow from all
+    </Location>
+
+</VirtualHost>
