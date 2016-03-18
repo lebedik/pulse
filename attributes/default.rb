@@ -1,3 +1,6 @@
+default['mysql']['server_root_password'] = '11111'
+default['mysql']['server_debian_password'] = '11111'
+default['mysql']['server_repl_password'] = '11111'
 default['pulse']['source_location'] = '/opt/pulse/source/'
 default['pulse']['user'] = 'pulse'
 default['pulse']['group'] = 'pulse'

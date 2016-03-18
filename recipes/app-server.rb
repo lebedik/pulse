@@ -19,7 +19,7 @@ end
 
 user node['pulse']['user'] do
   action :create
-  comment "Infoglue user"
+  comment "pulse user"
   uid 1000
   gid "pulse"
 end
@@ -31,12 +31,6 @@ directory "/opt/pulse/" do
 
   action :create
 end
-
-# remote_file '/opt/pulse/pulse.zip' do
-#   source 'https://sourceforge.net/projects/pulse-java/files/pulse/0.7/0.7-final/pulse-0.7-final.zip/download'
-#   owner 'root'
-#   group 'root'
-# end
 
 execute 'download sources' do
   command 'wget --no-check-certificate https://sourceforge.net/projects/pulse-java/files/pulse/0.7/0.7-final/pulse-0.7-final.zip/download -O /opt/pulse/pulse-final.zip'
