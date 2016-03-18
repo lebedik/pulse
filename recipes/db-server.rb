@@ -9,9 +9,9 @@ execute "set root password" do
   not_if {`mysql -uroot -p#{node['mysql']['server_root_password']} -e 'show databases'`.include?('mysql')}
 end
 
-cookbook_file "/tmp/pulse.sql" do
-  source "pulse.sql"
-end
+# cookbook_file "/tmp/pulse.sql" do
+#   source "pulse.sql"
+# end
 
 execute "creating db '#{node['pulse']['db_name']}'" do
   command "mysql -uroot -p#{node['mysql']['server_root_password']} -e 'Create database pulse;';"
