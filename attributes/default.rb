@@ -13,4 +13,4 @@ default['pulse']['main_url'] = 'localhost:8090'
 default['pulse']['admin_name'] = 'root'
 default['pulse']['admin_pass'] = 'gabba'
 default['pulse']['admin_email'] = 'noreply@epam.com'
-default['apache']['listen_ports'] = %w(80 8090)
+default['apache']['listen_ports'] = %w(80)
