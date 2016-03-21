@@ -9,9 +9,9 @@ execute "set root password" do
   not_if {`mysql -uroot -p#{node['mysql']['server_root_password']} -e 'show databases'`.include?('mysql')}
 end
 
-# cookbook_file "/tmp/pulse.sql" do
-#   source "pulse.sql"
-# end
+template "/tmp/pulse.sql" do
+  source "pulse.sql.erb"
+end
 
 execute "creating db '#{node['pulse']['db_name']}'" do
   command "mysql -uroot -p#{node['mysql']['server_root_password']} -e 'Create database pulse;';"
@@ -31,8 +31,8 @@ execute "creating user '#{node['pulse']['db_user']}'" do
 end
 
 
-# execute "setup db" do
-#   command "mysql -uroot -p#{node['mysql']['server_root_password']} #{node['pulse']['db_name']} < /tmp/pulse.sql;"
-#   action :run
-#   not_if {`mysql -uroot -p#{node['mysql']['server_root_password']} #{node['pulse']['db_name']} -e 'show tables'`.include?('cmAccessRightRole')}
-# end
+execute "setup db" do
+  command "mysql -uroot -p#{node['mysql']['server_root_password']} #{node['pulse']['db_name']} < /tmp/pulse.sql;"
+  action :run
+  not_if {`mysql -uroot -p#{node['mysql']['server_root_password']} #{node['pulse']['db_name']} -e 'show tables'`.include?('shopsettings_taxgroup')}
+end
