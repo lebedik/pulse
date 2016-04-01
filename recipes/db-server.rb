@@ -1,7 +1,7 @@
 package 'mysql-server'
 
 service 'mysqld' do
-  action [:start, :start]
+  action [:enable, :start]
 end
 execute "set root password" do
   command "mysqladmin -u root password #{node['mysql']['server_root_password']}"

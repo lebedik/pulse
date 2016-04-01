@@ -4,7 +4,7 @@ package 'java-1.6.0-openjdk-devel'
 package 'mysql'
 package 'tomcat6'
 service 'tomcat6' do
-  action :stop
+  action [:enable, :stop]
 end
 
 

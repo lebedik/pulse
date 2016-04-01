@@ -75,9 +75,9 @@
             <!--  -->
             <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
             <property name="hibernate.connection.url"
-                >jdbc:mysql://127.0.0.1:3306/pulse?autoReconnect=true&amp;characterEncoding=UTF-8</property>
-            <property name="hibernate.connection.username">pulse</property>
-            <property name="hibernate.connection.password">pulse</property>
+                >jdbc:mysql://<%= @node['pulse']['db_host']%>:3306/<%= @node['pulse']['db_name']%>?autoReconnect=true&amp;characterEncoding=UTF-8</property>
+            <property name="hibernate.connection.username"><%= @node['pulse']['db_user']%></property>
+            <property name="hibernate.connection.password"><%= @node['pulse']['db_pass']%></property>
             <!--  -->
             <!-- use c3p0 -->
             <property name="connection.provider_class"
