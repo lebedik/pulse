@@ -63,37 +63,7 @@ template '/opt/pulse/pulse/custom-webapp/WEB-INF/conf/pulse.xml' do
   mode 00744
 end
 
-# package 'git'
-# # Workaround to pull changes from epam repository
-# cookbook_file  '/home/vagrant/.ssh/id_rsa' do
-#   owner 'vagrant'
-#   source 'gitlab.key'
-#   mode 0600
-# end
 
-# directory '/root/.ssh/'
-#
-# file '/root/.ssh/config' do
-#   content 'Host *.epam.com
-#         StrictHostKeyChecking no
-#         UserKnownHostsFile /dev/null
-#         IdentityFile /home/vagrant/.ssh/id_rsa'
-# end
-
-# git node['pulse']['source_location'] do
-#   repository "git@git.epam.com:aliaksei_korneev/pulse-source.git"
-#   timeout 999999
-#   action :sync
-# #  ssh_wrapper "ssh -i /home/vagrant/.ssh/id_rsa"
-# end
-
-# directory node['pulse']['source_location'] do
-#   owner node['pulse']['user']
-#   group node['pulse']['user']
-#   mode "0755"
-#   recursive true
-#   action :create
-# end
 
 # Building application if needed
 package 'ant'
@@ -131,4 +101,21 @@ end
 # end
 service "tomcat6" do
   action :restart
+end
+template '/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/log4j-config.xml' do
+  source 'log4j-config.xml.erb'
+  owner 'root'
+  group 'root'
+  mode 00744
+#  only_if { ::File.exists?('/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/') }
+  notifies :restart, 'service[tomcat6]', :delayed
+end
+
+template '/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/pulse.xml' do
+  source 'pulse.xml.erb'
+  owner 'root'
+  group 'root'
+  mode 00744
+#  only_if { ::File.exists?('/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/') }
+  notifies :restart, 'service[tomcat6]', :delayed
 end
