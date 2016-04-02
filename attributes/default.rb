@@ -10,5 +10,10 @@ default['pulse']['rmi_opts'] = " -Dcom.sun.management.jmxremote -Dcom.sun.manage
 default['pulse']['db_user'] = 'pulse'
 default['pulse']['db_pass'] = 'pulse'
 default['pulse']['db_name'] = 'pulse'
-default['pulse']['db_host'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }[1]['private_ip_address'] || 'localhost'
+if node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }
+   default['pulse']['db_host'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }[1]['private_ip_address'
+else
+   'localhost'
+ end
+#default['pulse']['db_host'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }[1]['private_ip_address'] || 'localhost'
 default['apache']['listen_ports'] = %w(80)
