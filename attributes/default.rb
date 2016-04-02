@@ -9,8 +9,4 @@ default['pulse']['db_user'] = 'pulse'
 default['pulse']['db_pass'] = 'pulse'
 default['pulse']['db_name'] = 'pulse'
 default['pulse']['db_host'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }[1]['private_ip_address'] || 'localhost'
-default['pulse']['main_url'] = 'localhost:8090'
-default['pulse']['admin_name'] = 'root'
-default['pulse']['admin_pass'] = 'gabba'
-default['pulse']['admin_email'] = 'noreply@epam.com'
 default['apache']['listen_ports'] = %w(80)
