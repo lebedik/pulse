@@ -97,6 +97,7 @@ bash 'extract_war' do
   cwd '/usr/share/tomcat6/webapps/'
   code <<-HEREDOC
     unzip pulse.war -d pulse
+    chown tomcat:tomcat -R pulse/
   HEREDOC
   not_if {File.file?('/usr/share/tomcat6/webapps/pulse/login.jsp')}
 end
