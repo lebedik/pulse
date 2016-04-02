@@ -11,7 +11,7 @@ default['pulse']['db_user'] = 'pulse'
 default['pulse']['db_pass'] = 'pulse'
 default['pulse']['db_name'] = 'pulse'
 if node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }
-   default['pulse']['db_host'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }[1]['private_ip_address'
+   default['pulse']['db_host'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }[1]['private_ip_address']
 else
    default['pulse']['db_host'] = 'localhost'
  end
