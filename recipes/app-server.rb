@@ -8,7 +8,12 @@ service 'tomcat6' do
 end
 
 
-
+template '/etc/tomcat6/tomcat6.conf' do
+  source 'tomcat6.conf.erb'
+  owner 'tomcat'
+  group 'tomcat'
+  mode 00744
+end
 # ===================================================
 # getting sources from git.epam.com
 group node['pulse']['group'] do
