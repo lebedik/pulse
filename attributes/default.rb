@@ -13,7 +13,7 @@ default['pulse']['db_name'] = 'pulse'
 if node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }
    default['pulse']['db_host'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }[1]['private_ip_address'
 else
-   'localhost'
+   default['pulse']['db_host'] = 'localhost'
  end
 #default['pulse']['db_host'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'mysql' }[1]['private_ip_address'] || 'localhost'
 default['apache']['listen_ports'] = %w(80)
