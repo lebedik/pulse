@@ -4,7 +4,7 @@ maintainer_email 'aliaksei_korneev@epam.com'
 license 'all_rights'
 description 'Installs/Configures pulse'
 long_description 'Installs/Configures pulse'
-version '0.1.4'
+version '0.1.5'
 
 
 depends 'apache2'
