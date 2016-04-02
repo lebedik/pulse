@@ -93,7 +93,6 @@ end
 #   action :restart
 # end
 bash 'extract_war' do
-  user 'tomcat'
   cwd '/usr/share/tomcat6/webapps/'
   code <<-HEREDOC
     unzip pulse.war -d pulse
