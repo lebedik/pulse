@@ -102,6 +102,17 @@ end
 service "tomcat6" do
   action :restart
 end
+
+
+directory '/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/' do
+  owner 'tomcat'
+  group 'tomcat'
+  mode 00755
+  recursive true
+  action :create
+end
+
+
 template '/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/log4j-config.xml' do
   source 'log4j-config.xml.erb'
   owner 'root'
