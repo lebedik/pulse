@@ -1,28 +1,29 @@
 # <VirtualHost *:80>
-#
-#     ProxyRequests Off
-#     <Proxy balancer://mycluster>
-#         BalancerMember http://192.168.33.111:8080/
-#         #BalancerMember http://192.168.33.111:8080/
-#         Order allow,deny
-#         Allow from all
-#     </Proxy>
-#
-#     ProxyPass / balancer://mycluster/
-#     ProxyPassReverse / balancer://mycluster/
-#     <Location />
-#         Order allow,deny
-#         Allow from all
-#     </Location>
-#
+#   ProxyRequests Off
+#   ProxyPreserveHost on
+#   Header set Access-Control-Allow-Origin "*"
+#   ProxyPass / balancer://mycluster/ nocanon
+#   ProxyPassReverse / balancer://mycluster/
+#   <Proxy balancer://mycluster>
+#     <% @proxy_to.each do |app_srv| %>
+#     BalancerMember http://<%= app_srv %>:8080/
+#     <% end %>
+#     ProxySet lbmethod=byrequests
+#     Order allow,deny
+#     Allow from all
+#   </Proxy>
+#   <Location />
+#     Order allow,deny
+#     Allow from all
+#   </Location>
 # </VirtualHost>
 
 <VirtualHost *:80>
     Header set Access-Control-Allow-Origin "*"
     ProxyRequests Off
     ProxyPreserveHost on
-    ProxyPass / http://192.168.33.111:8080/
-    ProxyPassReverse / http://192.168.33.111:8080/
+    ProxyPass / http://<%= @proxy_to.first %>:8080/
+    ProxyPassReverse / http://<%= @proxy_to.first %>:8080/
     <Location />
         Order allow,deny
         Allow from all

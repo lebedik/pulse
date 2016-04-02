@@ -5,10 +5,16 @@ package 'mysql'
 package 'tomcat6'
 service 'tomcat6' do
   action [:enable, :stop]
+  notifies :restart, 'service[tomcat6]', :delayed
 end
 
 
-
+template '/etc/tomcat6/tomcat6.conf' do
+  source 'tomcat6.conf.erb'
+  owner 'tomcat'
+  group 'tomcat'
+  mode 00744
+end
 # ===================================================
 # getting sources from git.epam.com
 group node['pulse']['group'] do
@@ -49,22 +55,6 @@ execute 'unzip pulse source' do
   not_if {File.exist?("/opt/pulse/pulse")}
 end
 
-template '/opt/pulse/pulse/custom-webapp/WEB-INF/conf/log4j-config.xml' do
-  source 'log4j-config.xml.erb'
-  owner 'root'
-  group 'root'
-  mode 00744
-end
-
-template '/opt/pulse/pulse/custom-webapp/WEB-INF/conf/pulse.xml' do
-  source 'pulse.xml.erb'
-  owner 'root'
-  group 'root'
-  mode 00744
-end
-
-
-
 # Building application if needed
 package 'ant'
 # template "#{node['pulse']['source_location']}/build.properties" do
@@ -88,7 +78,7 @@ bash "copy war file" do
   code <<-EOH
     cp -rf /opt/pulse/pulse/build/pulse.war /usr/share/tomcat6/webapps/
   EOH
-
+  not_if {File.file?('/usr/share/tomcat6/webapps/pulse.war')}
 end
 
 # bash "set permissions webapps for tomcat" do
@@ -99,10 +89,17 @@ end
 # #  not_if {File.exist?("#{node['tomcat']['home']}/webapps/pulseCMS")}
 # #  notifies :restart, "service[#{node['tomcat']['base_instance']}]", :immediately
 # end
-service "tomcat6" do
-  action :restart
+# service "tomcat6" do
+#   action :restart
+# end
+bash 'extract_war' do
+  user 'tomcat'
+  cwd '/usr/share/tomcat6/webapps/'
+  code <<-HEREDOC
+    unzip pulse.war -d pulse
+  HEREDOC
+  not_if {File.file?('/usr/share/tomcat6/webapps/pulse/login.jsp')}
 end
-
 
 directory '/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/' do
   owner 'tomcat'
@@ -115,8 +112,8 @@ end
 
 template '/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/log4j-config.xml' do
   source 'log4j-config.xml.erb'
-  owner 'root'
-  group 'root'
+  owner 'tomcat'
+  group 'tomcat'
   mode 00744
 #  only_if { ::File.exists?('/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/') }
   notifies :restart, 'service[tomcat6]', :delayed
@@ -124,8 +121,8 @@ end
 
 template '/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/pulse.xml' do
   source 'pulse.xml.erb'
-  owner 'root'
-  group 'root'
+  owner 'tomcat'
+  group 'tomcat'
   mode 00744
 #  only_if { ::File.exists?('/usr/share/tomcat6/webapps/pulse/WEB-INF/conf/') }
   notifies :restart, 'service[tomcat6]', :delayed
