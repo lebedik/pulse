@@ -9,8 +9,11 @@ execute "set root password" do
   not_if {`mysql -uroot -p#{node['mysql']['server_root_password']} -e 'show databases'`.include?('mysql')}
 end
 
-template "/tmp/pulse.sql" do
-  source "pulse.sql.erb"
+cookbook_file '/tmp/pulse.sql' do
+  source 'setup_db.sql'
+  owner 'root'
+  group 'root'
+  mode 00644
 end
 
 execute "creating db '#{node['pulse']['db_name']}'" do
