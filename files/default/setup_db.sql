@@ -1,4 +1,27 @@
+-- MySQL dump 10.13  Distrib 5.1.73, for redhat-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: pulse
+-- ------------------------------------------------------
+-- Server version	5.1.73
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `AbstractAttribute`
+--
+
 DROP TABLE IF EXISTS `AbstractAttribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AbstractAttribute` (
   `required` bit(1) NOT NULL,
   `systemAttribute` bit(1) NOT NULL,
@@ -7,10 +30,25 @@ CREATE TABLE `AbstractAttribute` (
   KEY `FK69A3207AA6741773` (`id`),
   CONSTRAINT `FK69A3207AA6741773` FOREIGN KEY (`id`) REFERENCES `Node` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AbstractAttribute`
+--
+
 LOCK TABLES `AbstractAttribute` WRITE;
+/*!40000 ALTER TABLE `AbstractAttribute` DISABLE KEYS */;
 INSERT INTO `AbstractAttribute` VALUES ('\0','',20),('\0','',21),('\0','',22),('\0','',23),('\0','',24),('\0','',25);
+/*!40000 ALTER TABLE `AbstractAttribute` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AbstractQuestion`
+--
+
 DROP TABLE IF EXISTS `AbstractQuestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AbstractQuestion` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `isAllowBlank` bit(1) NOT NULL,
@@ -18,9 +56,24 @@ CREATE TABLE `AbstractQuestion` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AbstractQuestion`
+--
+
 LOCK TABLES `AbstractQuestion` WRITE;
+/*!40000 ALTER TABLE `AbstractQuestion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AbstractQuestion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AbstractRegistryNode`
+--
+
 DROP TABLE IF EXISTS `AbstractRegistryNode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AbstractRegistryNode` (
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
   `id` bigint(20) NOT NULL,
@@ -31,10 +84,25 @@ CREATE TABLE `AbstractRegistryNode` (
   CONSTRAINT `FKB9E41411AF247EF` FOREIGN KEY (`bundle_id`) REFERENCES `Bundle` (`id`),
   CONSTRAINT `FKB9E4141A6741773` FOREIGN KEY (`id`) REFERENCES `Node` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AbstractRegistryNode`
+--
+
 LOCK TABLES `AbstractRegistryNode` WRITE;
+/*!40000 ALTER TABLE `AbstractRegistryNode` DISABLE KEYS */;
 INSERT INTO `AbstractRegistryNode` VALUES ('CMS',4,2),('en_US',5,2),('fr_FR',6,2),('de_DE',7,2),('Store',8,1),('en_US',9,1),('fr_FR',10,1),('de_DE',11,1),('Core',12,3),('en_US',13,3),('fr_FR',14,3),('de_DE',15,3),('Shop',16,6),('en_US',17,6),('fr_FR',18,6),('de_DE',19,6),('Pictures',26,2),('pics',28,2),('Coffee',37,2),('Have a good day',38,2),('Nature',39,2),('Ocean',40,2);
+/*!40000 ALTER TABLE `AbstractRegistryNode` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AbstractTypedAnswer`
+--
+
 DROP TABLE IF EXISTS `AbstractTypedAnswer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AbstractTypedAnswer` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `isValid` bit(1) NOT NULL,
@@ -42,9 +110,24 @@ CREATE TABLE `AbstractTypedAnswer` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AbstractTypedAnswer`
+--
+
 LOCK TABLES `AbstractTypedAnswer` WRITE;
+/*!40000 ALTER TABLE `AbstractTypedAnswer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AbstractTypedAnswer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AbstractTypedCheck`
+--
+
 DROP TABLE IF EXISTS `AbstractTypedCheck`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AbstractTypedCheck` (
   `DTYPE` varchar(31) COLLATE utf8_bin NOT NULL,
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -52,9 +135,24 @@ CREATE TABLE `AbstractTypedCheck` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AbstractTypedCheck`
+--
+
 LOCK TABLES `AbstractTypedCheck` WRITE;
+/*!40000 ALTER TABLE `AbstractTypedCheck` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AbstractTypedCheck` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AbstractValue`
+--
+
 DROP TABLE IF EXISTS `AbstractValue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AbstractValue` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL,
@@ -63,9 +161,24 @@ CREATE TABLE `AbstractValue` (
   KEY `FKB7F9A64F96E83A86` (`user_id`),
   CONSTRAINT `FKB7F9A64F96E83A86` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AbstractValue`
+--
+
 LOCK TABLES `AbstractValue` WRITE;
+/*!40000 ALTER TABLE `AbstractValue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AbstractValue` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Attachment`
+--
+
 DROP TABLE IF EXISTS `Attachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Attachment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -76,18 +189,48 @@ CREATE TABLE `Attachment` (
   KEY `FK1C93543713BFC43` (`file_id`),
   CONSTRAINT `FK1C93543713BFC43` FOREIGN KEY (`file_id`) REFERENCES `VirtualFile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Attachment`
+--
+
 LOCK TABLES `Attachment` WRITE;
+/*!40000 ALTER TABLE `Attachment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Attachment` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AttributeRegistry`
+--
+
 DROP TABLE IF EXISTS `AttributeRegistry`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AttributeRegistry` (
   `id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AttributeRegistry`
+--
+
 LOCK TABLES `AttributeRegistry` WRITE;
+/*!40000 ALTER TABLE `AttributeRegistry` DISABLE KEYS */;
 INSERT INTO `AttributeRegistry` VALUES (1);
+/*!40000 ALTER TABLE `AttributeRegistry` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AttributeRegistry_BundleAttribute`
+--
+
 DROP TABLE IF EXISTS `AttributeRegistry_BundleAttribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AttributeRegistry_BundleAttribute` (
   `AttributeRegistry_id` bigint(20) NOT NULL,
   `rootNodes_id` bigint(20) NOT NULL,
@@ -98,10 +241,25 @@ CREATE TABLE `AttributeRegistry_BundleAttribute` (
   CONSTRAINT `FK33956AB4AEA846CF` FOREIGN KEY (`AttributeRegistry_id`) REFERENCES `AttributeRegistry` (`id`),
   CONSTRAINT `FK33956AB4CB048D5A` FOREIGN KEY (`rootNodes_id`) REFERENCES `BundleAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AttributeRegistry_BundleAttribute`
+--
+
 LOCK TABLES `AttributeRegistry_BundleAttribute` WRITE;
+/*!40000 ALTER TABLE `AttributeRegistry_BundleAttribute` DISABLE KEYS */;
 INSERT INTO `AttributeRegistry_BundleAttribute` VALUES (1,20),(1,21),(1,22),(1,23),(1,24),(1,25);
+/*!40000 ALTER TABLE `AttributeRegistry_BundleAttribute` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `AverageTimePerVisitAggregation`
+--
+
 DROP TABLE IF EXISTS `AverageTimePerVisitAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AverageTimePerVisitAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -114,10 +272,25 @@ CREATE TABLE `AverageTimePerVisitAggregation` (
   KEY `FK109C450A8E487982` (`statisticsServer_id`),
   CONSTRAINT `FK109C450A8E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AverageTimePerVisitAggregation`
+--
+
 LOCK TABLES `AverageTimePerVisitAggregation` WRITE;
+/*!40000 ALTER TABLE `AverageTimePerVisitAggregation` DISABLE KEYS */;
 INSERT INTO `AverageTimePerVisitAggregation` VALUES (1,1459382399999,1459296000000,2,268550.5,1),(2,1459468799999,1459382400000,2,40108,1),(3,1459555199999,1459468800000,3,86791,1);
+/*!40000 ALTER TABLE `AverageTimePerVisitAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `BooleanAttribute`
+--
+
 DROP TABLE IF EXISTS `BooleanAttribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `BooleanAttribute` (
   `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `id` bigint(20) NOT NULL,
@@ -128,9 +301,24 @@ CREATE TABLE `BooleanAttribute` (
   CONSTRAINT `FK8FB5CF7465F7CF3D` FOREIGN KEY (`check_id`) REFERENCES `AbstractTypedCheck` (`id`),
   CONSTRAINT `FK8FB5CF748721794A` FOREIGN KEY (`id`) REFERENCES `AbstractAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BooleanAttribute`
+--
+
 LOCK TABLES `BooleanAttribute` WRITE;
+/*!40000 ALTER TABLE `BooleanAttribute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `BooleanAttribute` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `BooleanValue`
+--
+
 DROP TABLE IF EXISTS `BooleanValue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `BooleanValue` (
   `value` bit(1) DEFAULT NULL,
   `id` bigint(20) NOT NULL,
@@ -141,9 +329,24 @@ CREATE TABLE `BooleanValue` (
   CONSTRAINT `FKCB5EE2491174219F` FOREIGN KEY (`id`) REFERENCES `AbstractValue` (`id`),
   CONSTRAINT `FKCB5EE24917D2ABD` FOREIGN KEY (`attribute_id`) REFERENCES `BooleanAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BooleanValue`
+--
+
 LOCK TABLES `BooleanValue` WRITE;
+/*!40000 ALTER TABLE `BooleanValue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `BooleanValue` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Bundle`
+--
+
 DROP TABLE IF EXISTS `Bundle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Bundle` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -151,10 +354,25 @@ CREATE TABLE `Bundle` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Bundle`
+--
+
 LOCK TABLES `Bundle` WRITE;
+/*!40000 ALTER TABLE `Bundle` DISABLE KEYS */;
 INSERT INTO `Bundle` VALUES (2,'CMS'),(3,'Core'),(6,'Shop'),(4,'Statistics'),(1,'Store'),(5,'Survey');
+/*!40000 ALTER TABLE `Bundle` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `BundleAttribute`
+--
+
 DROP TABLE IF EXISTS `BundleAttribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `BundleAttribute` (
   `id` bigint(20) NOT NULL,
   `bundle_id` bigint(20) DEFAULT NULL,
@@ -164,10 +382,25 @@ CREATE TABLE `BundleAttribute` (
   CONSTRAINT `FK8C4EC41A1AF247EF` FOREIGN KEY (`bundle_id`) REFERENCES `Bundle` (`id`),
   CONSTRAINT `FK8C4EC41A8721794A` FOREIGN KEY (`id`) REFERENCES `AbstractAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BundleAttribute`
+--
+
 LOCK TABLES `BundleAttribute` WRITE;
+/*!40000 ALTER TABLE `BundleAttribute` DISABLE KEYS */;
 INSERT INTO `BundleAttribute` VALUES (21,1),(20,2),(24,3),(22,4),(23,5),(25,6);
+/*!40000 ALTER TABLE `BundleAttribute` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CMSContent`
+--
+
 DROP TABLE IF EXISTS `CMSContent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CMSContent` (
   `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `metaDescription` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -180,10 +413,25 @@ CREATE TABLE `CMSContent` (
   KEY `FKD1BF5710B3E279CF` (`id`),
   CONSTRAINT `FKD1BF5710B3E279CF` FOREIGN KEY (`id`) REFERENCES `Content` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CMSContent`
+--
+
 LOCK TABLES `CMSContent` WRITE;
+/*!40000 ALTER TABLE `CMSContent` DISABLE KEYS */;
 INSERT INTO `CMSContent` VALUES ('',NULL,NULL,'pics','<body><p> q</p></body>\r\n',NULL,2),('',NULL,NULL,'pictures','<body><p>Have a good day!</p><p><img src=\"http://www.coffeearea.org/wp-content/uploads/2014/04/how-to-store-coffee-beans.jpg\" alt=\"\" /></p><p> </p></body>\r\n',NULL,5),('',NULL,NULL,'ocean','<body><p> Nature</p><p><img src=\"https://pixabay.com/static/uploads/photo/2016/02/05/22/00/melbourne-1182174_960_720.jpg\" alt=\"\" /></p></body>\r\n',NULL,6);
+/*!40000 ALTER TABLE `CMSContent` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ChangeEmailRequest`
+--
+
 DROP TABLE IF EXISTS `ChangeEmailRequest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ChangeEmailRequest` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `creationTime` datetime NOT NULL,
@@ -198,9 +446,24 @@ CREATE TABLE `ChangeEmailRequest` (
   KEY `FK9558534396E83A86` (`user_id`),
   CONSTRAINT `FK9558534396E83A86` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ChangeEmailRequest`
+--
+
 LOCK TABLES `ChangeEmailRequest` WRITE;
+/*!40000 ALTER TABLE `ChangeEmailRequest` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ChangeEmailRequest` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ChangePasswordRequest`
+--
+
 DROP TABLE IF EXISTS `ChangePasswordRequest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ChangePasswordRequest` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `creationTime` datetime NOT NULL,
@@ -213,9 +476,24 @@ CREATE TABLE `ChangePasswordRequest` (
   KEY `FKE14BD98496E83A86` (`user_id`),
   CONSTRAINT `FKE14BD98496E83A86` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ChangePasswordRequest`
+--
+
 LOCK TABLES `ChangePasswordRequest` WRITE;
+/*!40000 ALTER TABLE `ChangePasswordRequest` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ChangePasswordRequest` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CommandBuilder`
+--
+
 DROP TABLE IF EXISTS `CommandBuilder`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CommandBuilder` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `action` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -227,10 +505,25 @@ CREATE TABLE `CommandBuilder` (
   KEY `FK7E0CB9F01AF247EF` (`bundle_id`),
   CONSTRAINT `FK7E0CB9F01AF247EF` FOREIGN KEY (`bundle_id`) REFERENCES `Bundle` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CommandBuilder`
+--
+
 LOCK TABLES `CommandBuilder` WRITE;
+/*!40000 ALTER TABLE `CommandBuilder` DISABLE KEYS */;
 INSERT INTO `CommandBuilder` VALUES (4,'displayCMS',NULL,NULL,2);
+/*!40000 ALTER TABLE `CommandBuilder` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CommandBuilder_Parameter`
+--
+
 DROP TABLE IF EXISTS `CommandBuilder_Parameter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CommandBuilder_Parameter` (
   `CommandBuilder_id` bigint(20) NOT NULL,
   `parameters_id` bigint(20) NOT NULL,
@@ -240,9 +533,24 @@ CREATE TABLE `CommandBuilder_Parameter` (
   CONSTRAINT `FKCDD2DBFA70B91909` FOREIGN KEY (`CommandBuilder_id`) REFERENCES `CommandBuilder` (`id`),
   CONSTRAINT `FKCDD2DBFA9D7246A` FOREIGN KEY (`parameters_id`) REFERENCES `Parameter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CommandBuilder_Parameter`
+--
+
 LOCK TABLES `CommandBuilder_Parameter` WRITE;
+/*!40000 ALTER TABLE `CommandBuilder_Parameter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CommandBuilder_Parameter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CommandMatcher`
+--
+
 DROP TABLE IF EXISTS `CommandMatcher`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CommandMatcher` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `action` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -257,10 +565,25 @@ CREATE TABLE `CommandMatcher` (
   CONSTRAINT `FKA26753871AF247EF` FOREIGN KEY (`bundle_id`) REFERENCES `Bundle` (`id`),
   CONSTRAINT `FKA26753871BAB9B06` FOREIGN KEY (`permission_id`) REFERENCES `Permission` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=632 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CommandMatcher`
+--
+
 LOCK TABLES `CommandMatcher` WRITE;
+/*!40000 ALTER TABLE `CommandMatcher` DISABLE KEYS */;
 INSERT INTO `CommandMatcher` VALUES (1,'displayStore',NULL,NULL,1,1),(2,'removeReferenceDuration',NULL,NULL,1,2),(3,'initSummaryEditor',NULL,NULL,1,3),(4,'saveSummary',NULL,NULL,1,2),(5,'loadSummary',NULL,NULL,1,3),(6,'initContentLocalizationMap',NULL,NULL,1,4),(7,'contentLocalizationMapAdd',NULL,NULL,1,5),(8,'contentLocalizationMapRemove',NULL,NULL,1,5),(9,'loadSitemapNodesForContent',NULL,NULL,1,3),(10,'loadAttachmentsForContent',NULL,NULL,1,3),(11,'addAttachmentToContent',NULL,NULL,1,2),(12,'editAttachmentOfContent',NULL,NULL,1,2),(13,'removeAttachmentFromContent',NULL,NULL,1,2),(14,'initAttachmentDescriptionEditor',NULL,NULL,1,2),(15,'loadAttachmentDescription',NULL,NULL,1,2),(16,'saveAttachmentDescriptionEditor',NULL,NULL,1,2),(17,'initFileBrowserForAttachmentsForContent',NULL,NULL,1,2),(18,'initReferenceDurationEditor',NULL,NULL,1,2),(19,'saveContentGroup',NULL,NULL,1,6),(20,'copyContentGroup',NULL,NULL,1,6),(21,'saveContentGroupDescription',NULL,NULL,1,6),(22,'loadContentGroupDescription',NULL,NULL,1,6),(23,'initContentGroupDescriptionEditor',NULL,NULL,1,6),(24,'initContentGroupEditor',NULL,NULL,1,6),(25,'removeReferenceDuration',NULL,NULL,1,7),(26,'initSummaryEditor',NULL,NULL,1,8),(27,'saveSummary',NULL,NULL,1,7),(28,'loadSummary',NULL,NULL,1,8),(29,'initContentLocalizationMap',NULL,NULL,1,9),(30,'contentLocalizationMapAdd',NULL,NULL,1,10),(31,'contentLocalizationMapRemove',NULL,NULL,1,10),(32,'loadSitemapNodesForContent',NULL,NULL,1,8),(33,'loadAttachmentsForContent',NULL,NULL,1,8),(34,'addAttachmentToContent',NULL,NULL,1,7),(35,'editAttachmentOfContent',NULL,NULL,1,7),(36,'removeAttachmentFromContent',NULL,NULL,1,7),(37,'initAttachmentDescriptionEditor',NULL,NULL,1,7),(38,'loadAttachmentDescription',NULL,NULL,1,7),(39,'saveAttachmentDescriptionEditor',NULL,NULL,1,7),(40,'initFileBrowserForAttachmentsForContent',NULL,NULL,1,7),(41,'initReferenceDurationEditor',NULL,NULL,1,7),(42,'saveStoreContent',NULL,NULL,1,11),(43,'initVariantEditor',NULL,NULL,1,11),(44,'createStoreVariant',NULL,NULL,1,11),(45,'createStoreSubVariant',NULL,NULL,1,11),(46,'saveDescription',NULL,NULL,1,11),(47,'loadDescription',NULL,NULL,1,11),(48,'copyStoreContent',NULL,NULL,1,11),(49,'removeAllVariants',NULL,NULL,1,11),(50,'removeVariant',NULL,NULL,1,11),(51,'removeSubVariant',NULL,NULL,1,11),(52,'loadVariantOrOrderCode',NULL,NULL,1,11),(53,'loadVariantOrOrderCodeSubVariant',NULL,NULL,1,11),(54,'initVariantDescriptionEditor',NULL,NULL,1,11),(55,'saveVariantDescription',NULL,NULL,1,11),(56,'loadVariantDescription',NULL,NULL,1,11),(57,'initVariantSummaryEditor',NULL,NULL,1,11),(58,'initDescriptionEditor',NULL,NULL,1,11),(59,'saveVariantSummary',NULL,NULL,1,11),(60,'loadVariantSummary',NULL,NULL,1,11),(61,'initEditor',NULL,NULL,1,11),(62,'removeReferenceDuration',NULL,NULL,1,12),(63,'initSummaryEditor',NULL,NULL,1,13),(64,'saveSummary',NULL,NULL,1,12),(65,'loadSummary',NULL,NULL,1,13),(66,'initContentLocalizationMap',NULL,NULL,1,14),(67,'contentLocalizationMapAdd',NULL,NULL,1,15),(68,'contentLocalizationMapRemove',NULL,NULL,1,15),(69,'loadSitemapNodesForContent',NULL,NULL,1,13),(70,'loadAttachmentsForContent',NULL,NULL,1,13),(71,'addAttachmentToContent',NULL,NULL,1,12),(72,'editAttachmentOfContent',NULL,NULL,1,12),(73,'removeAttachmentFromContent',NULL,NULL,1,12),(74,'initAttachmentDescriptionEditor',NULL,NULL,1,12),(75,'loadAttachmentDescription',NULL,NULL,1,12),(76,'saveAttachmentDescriptionEditor',NULL,NULL,1,12),(77,'initFileBrowserForAttachmentsForContent',NULL,NULL,1,12),(78,'initReferenceDurationEditor',NULL,NULL,1,12),(79,'removeImageGroup',NULL,NULL,1,16),(80,'removeImageGroupVariant',NULL,NULL,1,16),(81,'changeImageGroupImage',NULL,NULL,1,16),(82,'changeImageGroupImageVariant',NULL,NULL,1,16),(83,'renameImageGroup',NULL,NULL,1,16),(84,'saveNewImageGroup',NULL,NULL,1,16),(85,'createNewImageGroup',NULL,NULL,1,16),(86,'saveNewImageGroupVariant',NULL,NULL,1,16),(87,'setMainImageGroup',NULL,NULL,1,16),(88,'setMainImageGroupVariant',NULL,NULL,1,16),(89,'renameImageGroupVariant',NULL,NULL,1,16),(90,'loadImageGroup',NULL,NULL,1,16),(91,'loadImageGroupVariant',NULL,NULL,1,16),(92,'contentRegistryCreate',NULL,NULL,1,17),(93,'createStoreContent',NULL,NULL,1,17),(94,'moveRegistryLocaleNode',NULL,NULL,1,17),(95,'getContentRegistryIdPathContent',NULL,NULL,1,17),(96,'deleteAbstractContentNode',NULL,NULL,1,17),(97,'renameRegistryLocaleNode',NULL,NULL,1,17),(98,'deleteRegistryLocaleNode',NULL,NULL,1,17),(99,'createContentFolderNode',NULL,NULL,1,17),(100,'createContentGroup',NULL,NULL,1,17),(101,'contentRegistryTreeInit',NULL,NULL,1,17),(102,'browseContentRegistrySelect',NULL,NULL,1,17),(103,'browseContentRegistryEdit',NULL,NULL,1,17),(104,'displayCMS',NULL,NULL,2,18),(105,'sendMail',NULL,NULL,2,19),(106,'processForm',NULL,NULL,2,20),(107,'removeReferenceDuration',NULL,NULL,2,21),(108,'initSummaryEditor',NULL,NULL,2,22),(109,'saveSummary',NULL,NULL,2,21),(110,'loadSummary',NULL,NULL,2,22),(111,'initContentLocalizationMap',NULL,NULL,2,23),(112,'contentLocalizationMapAdd',NULL,NULL,2,24),(113,'contentLocalizationMapRemove',NULL,NULL,2,24),(114,'loadSitemapNodesForContent',NULL,NULL,2,22),(115,'loadAttachmentsForContent',NULL,NULL,2,22),(116,'addAttachmentToContent',NULL,NULL,2,21),(117,'editAttachmentOfContent',NULL,NULL,2,21),(118,'removeAttachmentFromContent',NULL,NULL,2,21),(119,'initAttachmentDescriptionEditor',NULL,NULL,2,21),(120,'loadAttachmentDescription',NULL,NULL,2,21),(121,'saveAttachmentDescriptionEditor',NULL,NULL,2,21),(122,'initFileBrowserForAttachmentsForContent',NULL,NULL,2,21),(123,'initReferenceDurationEditor',NULL,NULL,2,21),(124,'saveContentGroup',NULL,NULL,2,25),(125,'copyContentGroup',NULL,NULL,2,25),(126,'saveContentGroupDescription',NULL,NULL,2,25),(127,'loadContentGroupDescription',NULL,NULL,2,25),(128,'initContentGroupDescriptionEditor',NULL,NULL,2,25),(129,'initContentGroupEditor',NULL,NULL,2,25),(130,'removeReferenceDuration',NULL,NULL,2,26),(131,'initSummaryEditor',NULL,NULL,2,27),(132,'saveSummary',NULL,NULL,2,26),(133,'loadSummary',NULL,NULL,2,27),(134,'initContentLocalizationMap',NULL,NULL,2,28),(135,'contentLocalizationMapAdd',NULL,NULL,2,29),(136,'contentLocalizationMapRemove',NULL,NULL,2,29),(137,'loadSitemapNodesForContent',NULL,NULL,2,27),(138,'loadAttachmentsForContent',NULL,NULL,2,27),(139,'addAttachmentToContent',NULL,NULL,2,26),(140,'editAttachmentOfContent',NULL,NULL,2,26),(141,'removeAttachmentFromContent',NULL,NULL,2,26),(142,'initAttachmentDescriptionEditor',NULL,NULL,2,26),(143,'loadAttachmentDescription',NULL,NULL,2,26),(144,'saveAttachmentDescriptionEditor',NULL,NULL,2,26),(145,'initFileBrowserForAttachmentsForContent',NULL,NULL,2,26),(146,'initReferenceDurationEditor',NULL,NULL,2,26),(147,'copyContent',NULL,NULL,2,30),(148,'initEditor',NULL,NULL,2,31),(149,'saveContent',NULL,NULL,2,30),(150,'loadPages',NULL,NULL,2,31),(151,'pageToSummary',NULL,NULL,2,30),(152,'removeReferenceDuration',NULL,NULL,2,32),(153,'initSummaryEditor',NULL,NULL,2,33),(154,'saveSummary',NULL,NULL,2,32),(155,'loadSummary',NULL,NULL,2,33),(156,'initContentLocalizationMap',NULL,NULL,2,34),(157,'contentLocalizationMapAdd',NULL,NULL,2,35),(158,'contentLocalizationMapRemove',NULL,NULL,2,35),(159,'loadSitemapNodesForContent',NULL,NULL,2,33),(160,'loadAttachmentsForContent',NULL,NULL,2,33),(161,'addAttachmentToContent',NULL,NULL,2,32),(162,'editAttachmentOfContent',NULL,NULL,2,32),(163,'removeAttachmentFromContent',NULL,NULL,2,32),(164,'initAttachmentDescriptionEditor',NULL,NULL,2,32),(165,'loadAttachmentDescription',NULL,NULL,2,32),(166,'saveAttachmentDescriptionEditor',NULL,NULL,2,32),(167,'initFileBrowserForAttachmentsForContent',NULL,NULL,2,32),(168,'initReferenceDurationEditor',NULL,NULL,2,32),(169,'initPageEditor',NULL,NULL,2,36),(170,'savePage',NULL,NULL,2,37),(171,'deletePage',NULL,NULL,2,37),(172,'loadPage',NULL,NULL,2,36),(173,'contentRegistryCreate',NULL,NULL,2,38),(174,'createCMSContent',NULL,NULL,2,38),(175,'moveRegistryLocaleNode',NULL,NULL,2,38),(176,'getContentRegistryIdPathContent',NULL,NULL,2,38),(177,'deleteAbstractContentNode',NULL,NULL,2,38),(178,'renameRegistryLocaleNode',NULL,NULL,2,38),(179,'deleteRegistryLocaleNode',NULL,NULL,2,38),(180,'createContentFolderNode',NULL,NULL,2,38),(181,'createContentGroup',NULL,NULL,2,38),(182,'contentRegistryTreeInit',NULL,NULL,2,38),(183,'browseContentRegistrySelect',NULL,NULL,2,38),(184,'browseContentRegistryEdit',NULL,NULL,2,38),(185,'searchSuggestions',NULL,NULL,3,39),(186,'homepage',NULL,NULL,3,40),(187,'findLocalization',NULL,NULL,3,41),(188,'getUploadProgress',NULL,NULL,3,42),(189,'displayCore',NULL,NULL,3,43),(190,'displayURLContent',NULL,NULL,3,44),(191,'filterGetCalendarSheetAJAX',NULL,NULL,3,45),(192,'displayFilter',NULL,NULL,3,45),(193,'displayFilterAJAX',NULL,NULL,3,45),(194,'signUp',NULL,NULL,3,46),(195,'signUpActivate',NULL,NULL,3,46),(196,'signUpResetPassword',NULL,NULL,3,47),(197,'resetPassword',NULL,NULL,3,47),(198,'getFullSitemap',NULL,NULL,3,48),(199,'searchSite',NULL,NULL,3,49),(200,'initAdvancedSearch',NULL,NULL,3,50),(201,'saveUserSelfEdit',NULL,NULL,3,51),(202,'initUserSelfEdit',NULL,NULL,3,52),(203,'userChangePassword',NULL,NULL,3,53),(204,'userChangeEmail',NULL,NULL,3,54),(205,'saveEmailChange',NULL,NULL,3,55),(206,'browseFCKEditor',NULL,NULL,3,56),(207,'initWebsiteAdmin',NULL,NULL,3,57),(208,'status',NULL,NULL,3,58),(209,'accessControlInit',NULL,NULL,3,59),(210,'createUserEditor',NULL,NULL,3,60),(211,'initUserEditor',NULL,NULL,3,61),(212,'loadUserOverviewGrid',NULL,NULL,3,62),(213,'deleteUserEditor',NULL,NULL,3,63),(214,'userOverviewInit',NULL,NULL,3,64),(215,'saveUserEditor',NULL,NULL,3,65),(216,'toggleStateUserEditor',NULL,NULL,3,66),(217,'changePasswordUserEditor',NULL,NULL,3,67),(218,'loadRolesUserEditor',NULL,NULL,3,68),(219,'loadGroupsUserEditor',NULL,NULL,3,69),(220,'loadPermissionsUserEditor',NULL,NULL,3,70),(221,'loadAttributeUserEditor',NULL,NULL,3,71),(222,'createRoleEditor',NULL,NULL,3,72),(223,'initRoleEditor',NULL,NULL,3,73),(224,'loadRoleOverviewGrid',NULL,NULL,3,74),(225,'roleOverviewInit',NULL,NULL,3,75),(226,'deleteRoleEditor',NULL,NULL,3,76),(227,'loadGroupsRoleEditor',NULL,NULL,3,77),(228,'loadPermissionsRoleEditor',NULL,NULL,3,78),(229,'saveRoleEditor',NULL,NULL,3,79),(230,'loadUsersRoleEditor',NULL,NULL,3,80),(231,'createUsergroupEditor',NULL,NULL,3,81),(232,'initUsergroupEditor',NULL,NULL,3,82),(233,'loadUsergroupOverviewGrid',NULL,NULL,3,83),(234,'usergroupOverviewInit',NULL,NULL,3,84),(235,'loadRolesUsergroupEditor',NULL,NULL,3,85),(236,'loadPermissionsUsergroupEditor',NULL,NULL,3,86),(237,'deleteUsergroupEditor',NULL,NULL,3,87),(238,'saveUsergroupEditor',NULL,NULL,3,88),(239,'loadUsersUsergroupEditor',NULL,NULL,3,89),(240,'initPermissionEditor',NULL,NULL,3,90),(241,'loadPermissionOverviewGrid',NULL,NULL,3,91),(242,'permissionOverviewInit',NULL,NULL,3,92),(243,'loadRolesPermissionEditor',NULL,NULL,3,93),(244,'loadGroupsPermissionEditor',NULL,NULL,3,94),(245,'createPermissionEditor',NULL,NULL,3,95),(246,'deletePermissionEditor',NULL,NULL,3,96),(247,'savePermissionEditor',NULL,NULL,3,97),(248,'loadUsersPermissionEditor',NULL,NULL,3,98),(249,'initCommandMatcherEditor',NULL,NULL,3,99),(250,'loadCommandMatchersOverviewGrid',NULL,NULL,3,100),(251,'loadParametersCommandMatcherEditor',NULL,NULL,3,101),(252,'createCommandMatcherEditor',NULL,NULL,3,102),(253,'deleteCommandMatcherEditor',NULL,NULL,3,103),(254,'saveCommandMatcherEditor',NULL,NULL,3,104),(255,'createAttributeRegistryEdit',NULL,NULL,3,105),(256,'saveAttributeRegistryEditor',NULL,NULL,3,105),(257,'deleteAttributeRegistryEdit',NULL,NULL,3,105),(258,'createAttributeAttributeRegistryEdit',NULL,NULL,3,105),(259,'moveAttributeRegistryEdit',NULL,NULL,3,105),(260,'editAttributeRegistryEdit',NULL,NULL,3,105),(261,'attributeRegistryTreeInit',NULL,NULL,3,106),(262,'loadAdminEditRolesAttributeRegistryEditor',NULL,NULL,3,105),(263,'loadSelfEditRolesAttributeRegistryEditor',NULL,NULL,3,105),(264,'loadSelfViewRolesAttributeRegistryEditor',NULL,NULL,3,105),(265,'loadTriggeredRolesAttributeRegistryEditor',NULL,NULL,3,105),(266,'setCheckAttributeRegistryEditor',NULL,NULL,3,105),(267,'loadAdminViewRolesAttributeRegistryEditor',NULL,NULL,3,105),(268,'loadChecksAttributeRegistryEditor',NULL,NULL,3,105),(269,'browseAttributeRegistryEdit',NULL,NULL,3,107),(270,'browseAttributeRegistrySelect',NULL,NULL,3,108),(271,'initSubEditorSelectionAttribute',NULL,NULL,3,109),(272,'vfsPermissionOverviewInit',NULL,NULL,3,110),(273,'previewVirtualFileSystemVFSPermissionEditor',NULL,NULL,3,111),(274,'initPermissionsPanelVFSPermissionEditor',NULL,NULL,3,112),(275,'loadReadPermissionsVFSPermissionEditor',NULL,NULL,3,113),(276,'loadWritePermissionsVFSPermissionEditor',NULL,NULL,3,114),(277,'savePermissionsPanelVFSPermissionEditor',NULL,NULL,3,115),(278,'previewVirtualFileSystem',NULL,NULL,3,116),(279,'browseVirtualFileSystem',NULL,NULL,3,116),(280,'uploadToVirtualFileSystem',NULL,NULL,3,116),(281,'initThemesEditor',NULL,NULL,3,117),(282,'removeTheme',NULL,NULL,3,117),(283,'applyTheme',NULL,NULL,3,117),(284,'loadTheme',NULL,NULL,3,117),(285,'sitemapNodeRemoveView',NULL,NULL,3,118),(286,'initViewEditor',NULL,NULL,3,118),(287,'initSitemapSectionTagEditor',NULL,NULL,3,119),(288,'saveViewEditor',NULL,NULL,3,120),(289,'viewEditorCreateNewView',NULL,NULL,3,118),(290,'loadRolesViewEditor',NULL,NULL,3,121),(291,'createSitemapSectionTag',NULL,NULL,3,122),(292,'deleteSitemapSectionTag',NULL,NULL,3,123),(293,'editSitemapSectionTag',NULL,NULL,3,124),(294,'initSitemapDurationEditor',NULL,NULL,3,125),(295,'removeSitemapDuration',NULL,NULL,3,126),(296,'applyStyle',NULL,NULL,3,127),(297,'contentRegistryCreate',NULL,NULL,3,128),(298,'createURLContent',NULL,NULL,3,128),(299,'createFileContent',NULL,NULL,3,128),(300,'createFilterContent',NULL,NULL,3,128),(301,'moveRegistryLocaleNode',NULL,NULL,3,128),(302,'getContentRegistryIdPathContent',NULL,NULL,3,128),(303,'deleteAbstractContentNode',NULL,NULL,3,128),(304,'renameRegistryLocaleNode',NULL,NULL,3,128),(305,'deleteRegistryLocaleNode',NULL,NULL,3,128),(306,'createContentFolderNode',NULL,NULL,3,128),(307,'createContentGroup',NULL,NULL,3,128),(308,'contentRegistryTreeInit',NULL,NULL,3,128),(309,'browseContentRegistrySelect',NULL,NULL,3,128),(310,'browseContentRegistryEdit',NULL,NULL,3,128),(311,'sitemapTreeGetChildren',NULL,NULL,3,129),(312,'sitemapTreeRenameNode',NULL,NULL,3,130),(313,'sitemapTreeCreateNode',NULL,NULL,3,130),(314,'sitemapTreeMoveNode',NULL,NULL,3,130),(315,'sitemapTreeDeleteNode',NULL,NULL,3,130),(316,'sitemapTreeLoadNode',NULL,NULL,3,129),(317,'sitemapTreeInit',NULL,NULL,3,129),(318,'sitemapTreeToggleNode',NULL,NULL,3,130),(319,'removeReferenceDuration',NULL,NULL,3,131),(320,'initSummaryEditor',NULL,NULL,3,132),(321,'saveSummary',NULL,NULL,3,131),(322,'loadSummary',NULL,NULL,3,132),(323,'initContentLocalizationMap',NULL,NULL,3,133),(324,'contentLocalizationMapAdd',NULL,NULL,3,134),(325,'contentLocalizationMapRemove',NULL,NULL,3,134),(326,'loadSitemapNodesForContent',NULL,NULL,3,132),(327,'loadAttachmentsForContent',NULL,NULL,3,132),(328,'addAttachmentToContent',NULL,NULL,3,131),(329,'editAttachmentOfContent',NULL,NULL,3,131),(330,'removeAttachmentFromContent',NULL,NULL,3,131),(331,'initAttachmentDescriptionEditor',NULL,NULL,3,131),(332,'loadAttachmentDescription',NULL,NULL,3,131),(333,'saveAttachmentDescriptionEditor',NULL,NULL,3,131),(334,'initFileBrowserForAttachmentsForContent',NULL,NULL,3,131),(335,'initReferenceDurationEditor',NULL,NULL,3,131),(336,'saveContentGroup',NULL,NULL,3,135),(337,'copyContentGroup',NULL,NULL,3,135),(338,'saveContentGroupDescription',NULL,NULL,3,135),(339,'loadContentGroupDescription',NULL,NULL,3,135),(340,'initContentGroupDescriptionEditor',NULL,NULL,3,135),(341,'initContentGroupEditor',NULL,NULL,3,135),(342,'removeReferenceDuration',NULL,NULL,3,136),(343,'initSummaryEditor',NULL,NULL,3,137),(344,'saveSummary',NULL,NULL,3,136),(345,'loadSummary',NULL,NULL,3,137),(346,'initContentLocalizationMap',NULL,NULL,3,138),(347,'contentLocalizationMapAdd',NULL,NULL,3,139),(348,'contentLocalizationMapRemove',NULL,NULL,3,139),(349,'loadSitemapNodesForContent',NULL,NULL,3,137),(350,'loadAttachmentsForContent',NULL,NULL,3,137),(351,'addAttachmentToContent',NULL,NULL,3,136),(352,'editAttachmentOfContent',NULL,NULL,3,136),(353,'removeAttachmentFromContent',NULL,NULL,3,136),(354,'initAttachmentDescriptionEditor',NULL,NULL,3,136),(355,'loadAttachmentDescription',NULL,NULL,3,136),(356,'saveAttachmentDescriptionEditor',NULL,NULL,3,136),(357,'initFileBrowserForAttachmentsForContent',NULL,NULL,3,136),(358,'initReferenceDurationEditor',NULL,NULL,3,136),(359,'saveFileContent',NULL,NULL,3,140),(360,'initFileContentEditor',NULL,NULL,3,140),(361,'initFileEditor',NULL,NULL,3,140),(362,'copyFileContent',NULL,NULL,3,140),(363,'removeReferenceDuration',NULL,NULL,3,141),(364,'initSummaryEditor',NULL,NULL,3,142),(365,'saveSummary',NULL,NULL,3,141),(366,'loadSummary',NULL,NULL,3,142),(367,'initContentLocalizationMap',NULL,NULL,3,143),(368,'contentLocalizationMapAdd',NULL,NULL,3,144),(369,'contentLocalizationMapRemove',NULL,NULL,3,144),(370,'loadSitemapNodesForContent',NULL,NULL,3,142),(371,'loadAttachmentsForContent',NULL,NULL,3,142),(372,'addAttachmentToContent',NULL,NULL,3,141),(373,'editAttachmentOfContent',NULL,NULL,3,141),(374,'removeAttachmentFromContent',NULL,NULL,3,141),(375,'initAttachmentDescriptionEditor',NULL,NULL,3,141),(376,'loadAttachmentDescription',NULL,NULL,3,141),(377,'saveAttachmentDescriptionEditor',NULL,NULL,3,141),(378,'initFileBrowserForAttachmentsForContent',NULL,NULL,3,141),(379,'initReferenceDurationEditor',NULL,NULL,3,141),(380,'saveURLContent',NULL,NULL,3,145),(381,'initURLContentEditor',NULL,NULL,3,145),(382,'copyURLContent',NULL,NULL,3,145),(383,'removeReferenceDuration',NULL,NULL,3,146),(384,'initSummaryEditor',NULL,NULL,3,147),(385,'saveSummary',NULL,NULL,3,146),(386,'loadSummary',NULL,NULL,3,147),(387,'initContentLocalizationMap',NULL,NULL,3,148),(388,'contentLocalizationMapAdd',NULL,NULL,3,149),(389,'contentLocalizationMapRemove',NULL,NULL,3,149),(390,'loadSitemapNodesForContent',NULL,NULL,3,147),(391,'loadAttachmentsForContent',NULL,NULL,3,147),(392,'addAttachmentToContent',NULL,NULL,3,146),(393,'editAttachmentOfContent',NULL,NULL,3,146),(394,'removeAttachmentFromContent',NULL,NULL,3,146),(395,'initAttachmentDescriptionEditor',NULL,NULL,3,146),(396,'loadAttachmentDescription',NULL,NULL,3,146),(397,'saveAttachmentDescriptionEditor',NULL,NULL,3,146),(398,'initFileBrowserForAttachmentsForContent',NULL,NULL,3,146),(399,'initReferenceDurationEditor',NULL,NULL,3,146),(400,'filterContentAddFilter',NULL,NULL,3,150),(401,'copyContent',NULL,NULL,3,150),(402,'initEditor',NULL,NULL,3,151),(403,'filterContentRemoveFilter',NULL,NULL,3,150),(404,'saveContent',NULL,NULL,3,150),(405,'filterContentLoadFilter',NULL,NULL,3,151),(406,'createFilter',NULL,NULL,3,152),(407,'filterAdminInit',NULL,NULL,3,152),(408,'filterOverviewInit',NULL,NULL,3,153),(409,'removeFilter',NULL,NULL,3,152),(410,'editFilter',NULL,NULL,3,153),(411,'loadFilters',NULL,NULL,3,153),(412,'saveFilter',NULL,NULL,3,152),(413,'createFilterCopy',NULL,NULL,3,153),(414,'initFilterRuleEditor',NULL,NULL,3,154),(415,'createFilterRuleProperty',NULL,NULL,3,155),(416,'removeFilterRuleProperty',NULL,NULL,3,155),(417,'saveFilterRule',NULL,NULL,3,156),(418,'moveFilterRuleProperty',NULL,NULL,3,155),(419,'createFilterRule',NULL,NULL,3,156),(420,'moveFilterRule',NULL,NULL,3,156),(421,'removeFilterRule',NULL,NULL,3,156),(422,'loadFilterRuleLocalizations',NULL,NULL,3,157),(423,'loadFilterRules',NULL,NULL,3,154),(424,'loadFilterRuleProperties',NULL,NULL,3,158),(425,'initFilterMatchEditor',NULL,NULL,3,159),(426,'createFilterMatch',NULL,NULL,3,160),(427,'removeFilterMatch',NULL,NULL,3,160),(428,'moveFilterMatch',NULL,NULL,3,160),(429,'loadFilterMatchesRules',NULL,NULL,3,159),(430,'loadPropertiesForRule',NULL,NULL,3,159),(431,'saveRulePropertiesForMatch',NULL,NULL,3,160),(432,'loadFilterMatches',NULL,NULL,3,159),(433,'initUtilWestPanel',NULL,NULL,3,161),(434,'initRepresentativesEditor',NULL,NULL,3,162),(435,'loadRepresentatives',NULL,NULL,3,163),(436,'loadRepresentative',NULL,NULL,3,164),(437,'deleteRepresentative',NULL,NULL,3,165),(438,'saveRepresentative',NULL,NULL,3,166),(439,'initRepresentativeEditor',NULL,NULL,3,167),(440,'initRetailersEditor',NULL,NULL,3,168),(441,'loadRetailers',NULL,NULL,3,169),(442,'loadRetailer',NULL,NULL,3,170),(443,'deleteRetailer',NULL,NULL,3,171),(444,'saveRetailer',NULL,NULL,3,172),(445,'exportRetailersCSV',NULL,NULL,3,173),(446,'exportRetailersXLSX',NULL,NULL,3,174),(447,'initRetailerEditor',NULL,NULL,3,175),(448,'hibernateStatisticsStatus',NULL,NULL,3,176),(449,'hibernateStatisticsEntities',NULL,NULL,3,177),(450,'hibernateStatisticsCache',NULL,NULL,3,178),(451,'hibernateStatisticsCollections',NULL,NULL,3,179),(452,'hibernateStatisticsToggle',NULL,NULL,3,180),(453,'hibernateStatisticsSummary',NULL,NULL,3,181),(454,'copyLocale',NULL,NULL,3,182),(455,'copySitemap',NULL,NULL,3,183),(456,'manipulateRolesOfSitemapNodes',NULL,NULL,3,184),(457,'changeVisiblityOfSitemapNodes',NULL,NULL,3,185),(458,'siteSearchRebuild',NULL,NULL,3,186),(459,'getThemeXML',NULL,NULL,3,187),(460,'record',NULL,NULL,4,188),(461,'createUserStatisticsPDF',NULL,NULL,4,189),(462,'loadYearChart',NULL,NULL,4,190),(463,'loadMonthChart',NULL,NULL,4,191),(464,'initUserStatistics',NULL,NULL,4,192),(465,'generatePDFReportGroupAnalysisView',NULL,NULL,4,193),(466,'initStatisticsGroupAnalysisView',NULL,NULL,4,194),(467,'loadTreeStatisticsGroupAnalysisView',NULL,NULL,4,195),(468,'removeNodeGroupAnalysisView',NULL,NULL,4,196),(469,'degunkChildLeafNodesGroupAnalysisView',NULL,NULL,4,197),(470,'generatePDFReportRefererAnalysisView',NULL,NULL,4,198),(471,'initStatisticsRefererAnalysisView',NULL,NULL,4,199),(472,'loadTreeStatisticsRefererAnalysisView',NULL,NULL,4,200),(473,'generatePDFReportOverView',NULL,NULL,4,201),(474,'loadOverViewCountryChart',NULL,NULL,4,202),(475,'loadOverViewDataChart',NULL,NULL,4,203),(476,'initStatisticsOverView',NULL,NULL,4,204),(477,'clearSessionDataOverView',NULL,NULL,4,205),(478,'generatePDFReportTechnicalInformationView',NULL,NULL,4,206),(479,'initStatisticsTechnicalInformationView',NULL,NULL,4,207),(480,'generatePDFReportTimeAnalysisView',NULL,NULL,4,208),(481,'loadTimeAnalysisChart',NULL,NULL,4,209),(482,'initStatisticsTimeAnalysisView',NULL,NULL,4,210),(483,'clearSessionDataTimeAnalysis',NULL,NULL,4,211),(484,'initStatisticsWestPanel',NULL,NULL,4,212),(485,'executeSurveyController',NULL,NULL,5,213),(486,'updateSurvey',NULL,NULL,5,214),(487,'createSurvey',NULL,NULL,5,215),(488,'removeSurvey',NULL,NULL,5,216),(489,'removeQuestionnaire',NULL,NULL,5,217),(490,'displayShop',NULL,NULL,6,218),(491,'updateCart',NULL,NULL,6,219),(492,'displayCart',NULL,NULL,6,219),(493,'removeCartPosition',NULL,NULL,6,219),(494,'addCartPosition',NULL,NULL,6,219),(495,'modifyCartPosition',NULL,NULL,6,219),(496,'getPrice',NULL,NULL,6,219),(497,'startCheckout',NULL,NULL,6,220),(498,'finishCheckout',NULL,NULL,6,221),(499,'cancelCheckout',NULL,NULL,6,222),(500,'getOrder',NULL,NULL,6,223),(501,'editDeliveryAddress',NULL,NULL,6,224),(502,'editBillingAddress',NULL,NULL,6,225),(503,'editDispatchData',NULL,NULL,6,226),(504,'editCustomer',NULL,NULL,6,227),(505,'capturePayment',NULL,NULL,6,228),(506,'editPaymentData',NULL,NULL,6,229),(507,'editOrderDetails',NULL,NULL,6,230),(508,'editOrder',NULL,NULL,6,231),(509,'authorizePayment',NULL,NULL,6,232),(510,'captureInvoicePayment',NULL,NULL,6,233),(511,'authorizeInvoicePayment',NULL,NULL,6,234),(512,'startPayPalPaymentCapture',NULL,NULL,6,235),(513,'cancelPayPalPayment',NULL,NULL,6,236),(514,'finishPayPalPaymentAuthorization',NULL,NULL,6,237),(515,'finishPayPalPaymentCaptureWithGiropay',NULL,NULL,6,238),(516,'startPayPalPaymentAuthorization',NULL,NULL,6,239),(517,'captureWirecardCCPayment',NULL,NULL,6,240),(518,'finishWirecardCCPaymentAuthorization',NULL,NULL,6,241),(519,'startWirecardCCPaymentAuthorization',NULL,NULL,6,242),(520,'captureWirecardEFTPayment',NULL,NULL,6,243),(521,'authorizeWirecardEFTPayment',NULL,NULL,6,244),(522,'removeReferenceDuration',NULL,NULL,6,245),(523,'initSummaryEditor',NULL,NULL,6,246),(524,'saveSummary',NULL,NULL,6,245),(525,'loadSummary',NULL,NULL,6,246),(526,'initContentLocalizationMap',NULL,NULL,6,247),(527,'contentLocalizationMapAdd',NULL,NULL,6,248),(528,'contentLocalizationMapRemove',NULL,NULL,6,248),(529,'loadSitemapNodesForContent',NULL,NULL,6,246),(530,'loadAttachmentsForContent',NULL,NULL,6,246),(531,'addAttachmentToContent',NULL,NULL,6,245),(532,'editAttachmentOfContent',NULL,NULL,6,245),(533,'removeAttachmentFromContent',NULL,NULL,6,245),(534,'initAttachmentDescriptionEditor',NULL,NULL,6,245),(535,'loadAttachmentDescription',NULL,NULL,6,245),(536,'saveAttachmentDescriptionEditor',NULL,NULL,6,245),(537,'initFileBrowserForAttachmentsForContent',NULL,NULL,6,245),(538,'initReferenceDurationEditor',NULL,NULL,6,245),(539,'saveContentGroup',NULL,NULL,6,249),(540,'copyContentGroup',NULL,NULL,6,249),(541,'saveContentGroupDescription',NULL,NULL,6,249),(542,'loadContentGroupDescription',NULL,NULL,6,249),(543,'initContentGroupDescriptionEditor',NULL,NULL,6,249),(544,'initContentGroupEditor',NULL,NULL,6,249),(545,'removeReferenceDuration',NULL,NULL,6,250),(546,'initSummaryEditor',NULL,NULL,6,251),(547,'saveSummary',NULL,NULL,6,250),(548,'loadSummary',NULL,NULL,6,251),(549,'initContentLocalizationMap',NULL,NULL,6,252),(550,'contentLocalizationMapAdd',NULL,NULL,6,253),(551,'contentLocalizationMapRemove',NULL,NULL,6,253),(552,'loadSitemapNodesForContent',NULL,NULL,6,251),(553,'loadAttachmentsForContent',NULL,NULL,6,251),(554,'addAttachmentToContent',NULL,NULL,6,250),(555,'editAttachmentOfContent',NULL,NULL,6,250),(556,'removeAttachmentFromContent',NULL,NULL,6,250),(557,'initAttachmentDescriptionEditor',NULL,NULL,6,250),(558,'loadAttachmentDescription',NULL,NULL,6,250),(559,'saveAttachmentDescriptionEditor',NULL,NULL,6,250),(560,'initFileBrowserForAttachmentsForContent',NULL,NULL,6,250),(561,'initReferenceDurationEditor',NULL,NULL,6,250),(562,'saveShopContent',NULL,NULL,6,254),(563,'copyShopContent',NULL,NULL,6,254),(564,'initVariantEditor',NULL,NULL,6,254),(565,'createShopVariant',NULL,NULL,6,254),(566,'createShopSubVariant',NULL,NULL,6,254),(567,'initPricesEditor',NULL,NULL,6,254),(568,'initPricesEditorVariant',NULL,NULL,6,254),(569,'loadPricesEditorGrid',NULL,NULL,6,254),(570,'loadPricesEditorGridVariant',NULL,NULL,6,254),(571,'loadPriceRoleEditor',NULL,NULL,6,254),(572,'loadPriceRoleEditorVariant',NULL,NULL,6,254),(573,'loadPriceRoles',NULL,NULL,6,254),(574,'savePriceRoles',NULL,NULL,6,254),(575,'savePriceRolesVariant',NULL,NULL,6,254),(576,'getPriceJSON',NULL,NULL,6,254),(577,'initEditor',NULL,NULL,6,254),(578,'saveDescription',NULL,NULL,6,255),(579,'loadDescription',NULL,NULL,6,255),(580,'copyStoreContent',NULL,NULL,6,255),(581,'removeAllVariants',NULL,NULL,6,255),(582,'removeVariant',NULL,NULL,6,255),(583,'removeSubVariant',NULL,NULL,6,255),(584,'loadVariantOrOrderCode',NULL,NULL,6,255),(585,'loadVariantOrOrderCodeSubVariant',NULL,NULL,6,255),(586,'initVariantDescriptionEditor',NULL,NULL,6,255),(587,'saveVariantDescription',NULL,NULL,6,255),(588,'loadVariantDescription',NULL,NULL,6,255),(589,'initVariantSummaryEditor',NULL,NULL,6,255),(590,'initDescriptionEditor',NULL,NULL,6,255),(591,'saveVariantSummary',NULL,NULL,6,255),(592,'loadVariantSummary',NULL,NULL,6,255),(593,'removeReferenceDuration',NULL,NULL,6,256),(594,'initSummaryEditor',NULL,NULL,6,257),(595,'saveSummary',NULL,NULL,6,256),(596,'loadSummary',NULL,NULL,6,257),(597,'initContentLocalizationMap',NULL,NULL,6,258),(598,'contentLocalizationMapAdd',NULL,NULL,6,259),(599,'contentLocalizationMapRemove',NULL,NULL,6,259),(600,'loadSitemapNodesForContent',NULL,NULL,6,257),(601,'loadAttachmentsForContent',NULL,NULL,6,257),(602,'addAttachmentToContent',NULL,NULL,6,256),(603,'editAttachmentOfContent',NULL,NULL,6,256),(604,'removeAttachmentFromContent',NULL,NULL,6,256),(605,'initAttachmentDescriptionEditor',NULL,NULL,6,256),(606,'loadAttachmentDescription',NULL,NULL,6,256),(607,'saveAttachmentDescriptionEditor',NULL,NULL,6,256),(608,'initFileBrowserForAttachmentsForContent',NULL,NULL,6,256),(609,'initReferenceDurationEditor',NULL,NULL,6,256),(610,'contentRegistryCreate',NULL,NULL,6,260),(611,'createShopContent',NULL,NULL,6,260),(612,'moveRegistryLocaleNode',NULL,NULL,6,260),(613,'getContentRegistryIdPathContent',NULL,NULL,6,260),(614,'deleteAbstractContentNode',NULL,NULL,6,260),(615,'renameRegistryLocaleNode',NULL,NULL,6,260),(616,'deleteRegistryLocaleNode',NULL,NULL,6,260),(617,'createContentFolderNode',NULL,NULL,6,260),(618,'createContentGroup',NULL,NULL,6,260),(619,'contentRegistryTreeInit',NULL,NULL,6,260),(620,'browseContentRegistrySelect',NULL,NULL,6,260),(621,'browseContentRegistryEdit',NULL,NULL,6,260),(622,'initTaxgroupsEditor',NULL,NULL,6,261),(623,'loadTaxgroupsEditor',NULL,NULL,6,261),(624,'deleteTaxgroupsEditor',NULL,NULL,6,261),(625,'saveShopSettings',NULL,NULL,6,261),(626,'initShopSettingsWestPanel',NULL,NULL,6,261),(627,'editShopSettings',NULL,NULL,6,261),(628,'initShopSettingsWestTree',NULL,NULL,6,261),(629,'createShopSettings',NULL,NULL,6,261),(630,'updateFromPriceList',NULL,NULL,6,262),(631,'getPriceList',NULL,NULL,6,263);
+/*!40000 ALTER TABLE `CommandMatcher` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CommandMatcher_Parameter`
+--
+
 DROP TABLE IF EXISTS `CommandMatcher_Parameter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CommandMatcher_Parameter` (
   `CommandMatcher_id` bigint(20) NOT NULL,
   `parameters_id` bigint(20) NOT NULL,
@@ -270,9 +593,24 @@ CREATE TABLE `CommandMatcher_Parameter` (
   CONSTRAINT `FK4B67A4D19D7246A` FOREIGN KEY (`parameters_id`) REFERENCES `Parameter` (`id`),
   CONSTRAINT `FK4B67A4D1A36381E6` FOREIGN KEY (`CommandMatcher_id`) REFERENCES `CommandMatcher` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CommandMatcher_Parameter`
+--
+
 LOCK TABLES `CommandMatcher_Parameter` WRITE;
+/*!40000 ALTER TABLE `CommandMatcher_Parameter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CommandMatcher_Parameter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Content`
+--
+
 DROP TABLE IF EXISTS `Content`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Content` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -296,20 +634,50 @@ CREATE TABLE `Content` (
   CONSTRAINT `FK9BEFCC59D47C2F66` FOREIGN KEY (`localizationMap_id`) REFERENCES `ContentLocalizationMap` (`id`),
   CONSTRAINT `FK9BEFCC59F1E43E85` FOREIGN KEY (`creator_id`) REFERENCES `User` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Content`
+--
+
 LOCK TABLES `Content` WRITE;
+/*!40000 ALTER TABLE `Content` DISABLE KEYS */;
 INSERT INTO `Content` VALUES (2,'pics','2016-03-29 11:28:37','2016-03-30 16:08:32','en_US',NULL,NULL,2,1,1,2),(5,'Have a good day','2016-03-30 16:04:29','2016-03-30 16:08:48','en_US',NULL,NULL,2,1,1,5),(6,'Ocean','2016-03-31 09:18:26','2016-03-31 09:18:26','en_US',NULL,NULL,2,1,1,6);
+/*!40000 ALTER TABLE `Content` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ContentFolderNode`
+--
+
 DROP TABLE IF EXISTS `ContentFolderNode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ContentFolderNode` (
   `id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK49724C922BC0999` (`id`),
   CONSTRAINT `FK49724C922BC0999` FOREIGN KEY (`id`) REFERENCES `RegistryLocaleNode` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ContentFolderNode`
+--
+
 LOCK TABLES `ContentFolderNode` WRITE;
+/*!40000 ALTER TABLE `ContentFolderNode` DISABLE KEYS */;
 INSERT INTO `ContentFolderNode` VALUES (26),(37),(39);
+/*!40000 ALTER TABLE `ContentFolderNode` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ContentGroup`
+--
+
 DROP TABLE IF EXISTS `ContentGroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ContentGroup` (
   `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `metaDescription` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -323,18 +691,48 @@ CREATE TABLE `ContentGroup` (
   KEY `FK3A0D09A6B3E279CF` (`id`),
   CONSTRAINT `FK3A0D09A6B3E279CF` FOREIGN KEY (`id`) REFERENCES `Content` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ContentGroup`
+--
+
 LOCK TABLES `ContentGroup` WRITE;
+/*!40000 ALTER TABLE `ContentGroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ContentGroup` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ContentLocalizationMap`
+--
+
 DROP TABLE IF EXISTS `ContentLocalizationMap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ContentLocalizationMap` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ContentLocalizationMap`
+--
+
 LOCK TABLES `ContentLocalizationMap` WRITE;
+/*!40000 ALTER TABLE `ContentLocalizationMap` DISABLE KEYS */;
 INSERT INTO `ContentLocalizationMap` VALUES (2),(5),(6);
+/*!40000 ALTER TABLE `ContentLocalizationMap` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ContentLocalizationMap_Content`
+--
+
 DROP TABLE IF EXISTS `ContentLocalizationMap_Content`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ContentLocalizationMap_Content` (
   `ContentLocalizationMap_id` bigint(20) NOT NULL,
   `map_id` bigint(20) NOT NULL,
@@ -346,10 +744,25 @@ CREATE TABLE `ContentLocalizationMap_Content` (
   CONSTRAINT `FK4A2B84736DEB92` FOREIGN KEY (`map_id`) REFERENCES `Content` (`id`),
   CONSTRAINT `FK4A2B84BED6979F` FOREIGN KEY (`ContentLocalizationMap_id`) REFERENCES `ContentLocalizationMap` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ContentLocalizationMap_Content`
+--
+
 LOCK TABLES `ContentLocalizationMap_Content` WRITE;
+/*!40000 ALTER TABLE `ContentLocalizationMap_Content` DISABLE KEYS */;
 INSERT INTO `ContentLocalizationMap_Content` VALUES (2,2,'en_US'),(5,5,'en_US'),(6,6,'en_US');
+/*!40000 ALTER TABLE `ContentLocalizationMap_Content` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ContentNode`
+--
+
 DROP TABLE IF EXISTS `ContentNode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ContentNode` (
   `id` bigint(20) NOT NULL,
   `content_id` bigint(20) NOT NULL,
@@ -360,19 +773,49 @@ CREATE TABLE `ContentNode` (
   CONSTRAINT `FK4C3519FB22BC0999` FOREIGN KEY (`id`) REFERENCES `RegistryLocaleNode` (`id`),
   CONSTRAINT `FK4C3519FBC3A72B55` FOREIGN KEY (`content_id`) REFERENCES `Content` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ContentNode`
+--
+
 LOCK TABLES `ContentNode` WRITE;
+/*!40000 ALTER TABLE `ContentNode` DISABLE KEYS */;
 INSERT INTO `ContentNode` VALUES (28,2),(38,5),(40,6);
+/*!40000 ALTER TABLE `ContentNode` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ContentRegistry`
+--
+
 DROP TABLE IF EXISTS `ContentRegistry`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ContentRegistry` (
   `id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ContentRegistry`
+--
+
 LOCK TABLES `ContentRegistry` WRITE;
+/*!40000 ALTER TABLE `ContentRegistry` DISABLE KEYS */;
 INSERT INTO `ContentRegistry` VALUES (1);
+/*!40000 ALTER TABLE `ContentRegistry` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ContentRegistry_RegistryBundleNode`
+--
+
 DROP TABLE IF EXISTS `ContentRegistry_RegistryBundleNode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ContentRegistry_RegistryBundleNode` (
   `ContentRegistry_id` bigint(20) NOT NULL,
   `rootNodes_id` bigint(20) NOT NULL,
@@ -383,10 +826,25 @@ CREATE TABLE `ContentRegistry_RegistryBundleNode` (
   CONSTRAINT `FK8D42F90A80F5DEF1` FOREIGN KEY (`rootNodes_id`) REFERENCES `RegistryBundleNode` (`id`),
   CONSTRAINT `FK8D42F90AE4957F55` FOREIGN KEY (`ContentRegistry_id`) REFERENCES `ContentRegistry` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ContentRegistry_RegistryBundleNode`
+--
+
 LOCK TABLES `ContentRegistry_RegistryBundleNode` WRITE;
+/*!40000 ALTER TABLE `ContentRegistry_RegistryBundleNode` DISABLE KEYS */;
 INSERT INTO `ContentRegistry_RegistryBundleNode` VALUES (1,4),(1,8),(1,12),(1,16);
+/*!40000 ALTER TABLE `ContentRegistry_RegistryBundleNode` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Content_Attachment`
+--
+
 DROP TABLE IF EXISTS `Content_Attachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Content_Attachment` (
   `Content_id` bigint(20) NOT NULL,
   `attachments_id` bigint(20) NOT NULL,
@@ -397,9 +855,24 @@ CREATE TABLE `Content_Attachment` (
   CONSTRAINT `FK67E2BCE9C3A72B55` FOREIGN KEY (`Content_id`) REFERENCES `Content` (`id`),
   CONSTRAINT `FK67E2BCE9F541BB12` FOREIGN KEY (`attachments_id`) REFERENCES `Attachment` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Content_Attachment`
+--
+
 LOCK TABLES `Content_Attachment` WRITE;
+/*!40000 ALTER TABLE `Content_Attachment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Content_Attachment` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Content_VirtualFile`
+--
+
 DROP TABLE IF EXISTS `Content_VirtualFile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Content_VirtualFile` (
   `content_id` bigint(20) NOT NULL,
   `virtualfile_id` bigint(20) NOT NULL,
@@ -409,9 +882,24 @@ CREATE TABLE `Content_VirtualFile` (
   CONSTRAINT `FK855F2021C3A72B55` FOREIGN KEY (`content_id`) REFERENCES `Content` (`id`),
   CONSTRAINT `FK855F2021EC6EEAD8` FOREIGN KEY (`virtualfile_id`) REFERENCES `VirtualFile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Content_VirtualFile`
+--
+
 LOCK TABLES `Content_VirtualFile` WRITE;
+/*!40000 ALTER TABLE `Content_VirtualFile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Content_VirtualFile` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CountryHitCounter`
+--
+
 DROP TABLE IF EXISTS `CountryHitCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CountryHitCounter` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `counter` int(11) NOT NULL,
@@ -419,10 +907,25 @@ CREATE TABLE `CountryHitCounter` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CountryHitCounter`
+--
+
 LOCK TABLES `CountryHitCounter` WRITE;
+/*!40000 ALTER TABLE `CountryHitCounter` DISABLE KEYS */;
 INSERT INTO `CountryHitCounter` VALUES (1,5,'??'),(2,2,'??'),(3,8,'??'),(4,2,'??'),(5,3,'??'),(6,6,'??');
+/*!40000 ALTER TABLE `CountryHitCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CountryPerPIRecordAggregation`
+--
+
 DROP TABLE IF EXISTS `CountryPerPIRecordAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CountryPerPIRecordAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -433,10 +936,25 @@ CREATE TABLE `CountryPerPIRecordAggregation` (
   KEY `FK3455F3B18E487982` (`statisticsServer_id`),
   CONSTRAINT `FK3455F3B18E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CountryPerPIRecordAggregation`
+--
+
 LOCK TABLES `CountryPerPIRecordAggregation` WRITE;
+/*!40000 ALTER TABLE `CountryPerPIRecordAggregation` DISABLE KEYS */;
 INSERT INTO `CountryPerPIRecordAggregation` VALUES (1,1459382399999,1459296000000,1),(2,1459468799999,1459382400000,1),(3,1459555199999,1459468800000,1);
+/*!40000 ALTER TABLE `CountryPerPIRecordAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CountryPerPIRecordAggregation_CountryHitCounter`
+--
+
 DROP TABLE IF EXISTS `CountryPerPIRecordAggregation_CountryHitCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CountryPerPIRecordAggregation_CountryHitCounter` (
   `CountryPerPIRecordAggregation_id` bigint(20) NOT NULL,
   `counters_id` bigint(20) NOT NULL,
@@ -447,10 +965,25 @@ CREATE TABLE `CountryPerPIRecordAggregation_CountryHitCounter` (
   CONSTRAINT `FKA5BCE1F1781C1D86` FOREIGN KEY (`CountryPerPIRecordAggregation_id`) REFERENCES `CountryPerPIRecordAggregation` (`id`),
   CONSTRAINT `FKA5BCE1F178A0770E` FOREIGN KEY (`counters_id`) REFERENCES `CountryHitCounter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CountryPerPIRecordAggregation_CountryHitCounter`
+--
+
 LOCK TABLES `CountryPerPIRecordAggregation_CountryHitCounter` WRITE;
+/*!40000 ALTER TABLE `CountryPerPIRecordAggregation_CountryHitCounter` DISABLE KEYS */;
 INSERT INTO `CountryPerPIRecordAggregation_CountryHitCounter` VALUES (1,1),(2,3),(3,6);
+/*!40000 ALTER TABLE `CountryPerPIRecordAggregation_CountryHitCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CountryPerVisitAggregation`
+--
+
 DROP TABLE IF EXISTS `CountryPerVisitAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CountryPerVisitAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -461,10 +994,25 @@ CREATE TABLE `CountryPerVisitAggregation` (
   KEY `FKA3EDB87E8E487982` (`statisticsServer_id`),
   CONSTRAINT `FKA3EDB87E8E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CountryPerVisitAggregation`
+--
+
 LOCK TABLES `CountryPerVisitAggregation` WRITE;
+/*!40000 ALTER TABLE `CountryPerVisitAggregation` DISABLE KEYS */;
 INSERT INTO `CountryPerVisitAggregation` VALUES (1,1459382399999,1459296000000,1),(2,1459468799999,1459382400000,1),(3,1459555199999,1459468800000,1);
+/*!40000 ALTER TABLE `CountryPerVisitAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `CountryPerVisitAggregation_CountryHitCounter`
+--
+
 DROP TABLE IF EXISTS `CountryPerVisitAggregation_CountryHitCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CountryPerVisitAggregation_CountryHitCounter` (
   `CountryPerVisitAggregation_id` bigint(20) NOT NULL,
   `counters_id` bigint(20) NOT NULL,
@@ -475,10 +1023,25 @@ CREATE TABLE `CountryPerVisitAggregation_CountryHitCounter` (
   CONSTRAINT `FK21DBED7E357152CE` FOREIGN KEY (`CountryPerVisitAggregation_id`) REFERENCES `CountryPerVisitAggregation` (`id`),
   CONSTRAINT `FK21DBED7E78A0770E` FOREIGN KEY (`counters_id`) REFERENCES `CountryHitCounter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CountryPerVisitAggregation_CountryHitCounter`
+--
+
 LOCK TABLES `CountryPerVisitAggregation_CountryHitCounter` WRITE;
+/*!40000 ALTER TABLE `CountryPerVisitAggregation_CountryHitCounter` DISABLE KEYS */;
 INSERT INTO `CountryPerVisitAggregation_CountryHitCounter` VALUES (1,2),(2,4),(3,5);
+/*!40000 ALTER TABLE `CountryPerVisitAggregation_CountryHitCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `DeadProperty`
+--
+
 DROP TABLE IF EXISTS `DeadProperty`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `DeadProperty` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `namespaceURI` longtext COLLATE utf8_bin NOT NULL,
@@ -487,9 +1050,24 @@ CREATE TABLE `DeadProperty` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `DeadProperty`
+--
+
 LOCK TABLES `DeadProperty` WRITE;
+/*!40000 ALTER TABLE `DeadProperty` DISABLE KEYS */;
+/*!40000 ALTER TABLE `DeadProperty` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `FileContent`
+--
+
 DROP TABLE IF EXISTS `FileContent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FileContent` (
   `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `metaDescription` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -506,9 +1084,24 @@ CREATE TABLE `FileContent` (
   CONSTRAINT `FKD4D9B3D713BFC43` FOREIGN KEY (`file_id`) REFERENCES `VirtualFile` (`id`),
   CONSTRAINT `FKD4D9B3DB3E279CF` FOREIGN KEY (`id`) REFERENCES `Content` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FileContent`
+--
+
 LOCK TABLES `FileContent` WRITE;
+/*!40000 ALTER TABLE `FileContent` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FileContent` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Filter`
+--
+
 DROP TABLE IF EXISTS `Filter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Filter` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -517,9 +1110,24 @@ CREATE TABLE `Filter` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Filter`
+--
+
 LOCK TABLES `Filter` WRITE;
+/*!40000 ALTER TABLE `Filter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Filter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `FilterContent`
+--
+
 DROP TABLE IF EXISTS `FilterContent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FilterContent` (
   `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `metaDescription` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -535,9 +1143,24 @@ CREATE TABLE `FilterContent` (
   CONSTRAINT `FK3EA8D9C1B3E279CF` FOREIGN KEY (`id`) REFERENCES `Content` (`id`),
   CONSTRAINT `FK3EA8D9C1CAAF3E2B` FOREIGN KEY (`filter_id`) REFERENCES `Filter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FilterContent`
+--
+
 LOCK TABLES `FilterContent` WRITE;
+/*!40000 ALTER TABLE `FilterContent` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FilterContent` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `FilterMatches`
+--
+
 DROP TABLE IF EXISTS `FilterMatches`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FilterMatches` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `contentMap_id` bigint(20) NOT NULL,
@@ -550,9 +1173,24 @@ CREATE TABLE `FilterMatches` (
   CONSTRAINT `FK38102E7B8487B546` FOREIGN KEY (`contentMap_id`) REFERENCES `ContentLocalizationMap` (`id`),
   CONSTRAINT `FK38102E7BCAAF3E2B` FOREIGN KEY (`filter_id`) REFERENCES `Filter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FilterMatches`
+--
+
 LOCK TABLES `FilterMatches` WRITE;
+/*!40000 ALTER TABLE `FilterMatches` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FilterMatches` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `FilterMatches_FilterRuleProperty`
+--
+
 DROP TABLE IF EXISTS `FilterMatches_FilterRuleProperty`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FilterMatches_FilterRuleProperty` (
   `FilterMatches_id` bigint(20) NOT NULL,
   `properties_id` bigint(20) NOT NULL,
@@ -562,9 +1200,24 @@ CREATE TABLE `FilterMatches_FilterRuleProperty` (
   CONSTRAINT `FKC2E0DCED403E3A21` FOREIGN KEY (`properties_id`) REFERENCES `FilterRuleProperty` (`id`),
   CONSTRAINT `FKC2E0DCED97B21B29` FOREIGN KEY (`FilterMatches_id`) REFERENCES `FilterMatches` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FilterMatches_FilterRuleProperty`
+--
+
 LOCK TABLES `FilterMatches_FilterRuleProperty` WRITE;
+/*!40000 ALTER TABLE `FilterMatches_FilterRuleProperty` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FilterMatches_FilterRuleProperty` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `FilterRule`
+--
+
 DROP TABLE IF EXISTS `FilterRule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FilterRule` (
   `id` bigint(20) NOT NULL,
   `filter_id` bigint(20) NOT NULL,
@@ -574,18 +1227,48 @@ CREATE TABLE `FilterRule` (
   CONSTRAINT `FK1A3F36B41571E611` FOREIGN KEY (`id`) REFERENCES `Localized` (`id`),
   CONSTRAINT `FK1A3F36B4CAAF3E2B` FOREIGN KEY (`filter_id`) REFERENCES `Filter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FilterRule`
+--
+
 LOCK TABLES `FilterRule` WRITE;
+/*!40000 ALTER TABLE `FilterRule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FilterRule` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `FilterRuleProperty`
+--
+
 DROP TABLE IF EXISTS `FilterRuleProperty`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FilterRuleProperty` (
   `id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKE36F84A91571E611` (`id`),
   CONSTRAINT `FKE36F84A91571E611` FOREIGN KEY (`id`) REFERENCES `Localized` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FilterRuleProperty`
+--
+
 LOCK TABLES `FilterRuleProperty` WRITE;
+/*!40000 ALTER TABLE `FilterRuleProperty` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FilterRuleProperty` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Group`
+--
+
 DROP TABLE IF EXISTS `Group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Group` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -593,10 +1276,25 @@ CREATE TABLE `Group` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Group`
+--
+
 LOCK TABLES `Group` WRITE;
+/*!40000 ALTER TABLE `Group` DISABLE KEYS */;
 INSERT INTO `Group` VALUES (1,'~Store:ContentAdministrator',''),(2,'~Store:CoreAdministrator',''),(3,'~Store:StoreAdministrator',''),(4,'~Store:Admin-UI',''),(5,'~CMS:ContentAdministrator',''),(6,'~CMS:CoreAdministrator',''),(7,'~CMS:CMSAdministrator',''),(8,'~CMS:Admin-UI',''),(9,'~Core:Admin-UI',''),(10,'~Core:AccessControl:Administrator',''),(11,'~Core:AccessControl:UserEditor',''),(12,'~Core:AccessControl:RoleEditor',''),(13,'~Core:AccessControl:GroupEditor',''),(14,'~Core:AccessControl:PermissionEditor',''),(15,'~Core:AccessControl:CommandMatcherEditor',''),(16,'~Core:AttributeRegistryAdministrator',''),(17,'~Core:VFSPermissionAdministrator',''),(18,'~Core:Styling',''),(19,'~Core:ViewEditor',''),(20,'~Core:CoreAdministrator',''),(21,'~Core:SitemapEditor',''),(22,'~Core:SitemapViewer',''),(23,'~Core:ContentAdministrator',''),(24,'~Core:FilterContentEditor',''),(25,'~Core:FilterEditor',''),(26,'~Core:FilterMatchesEditor',''),(27,'~Core:FilterRuleEditor',''),(28,'~Core:FilterPropertyEditor',''),(29,'~Core:RepresentativeAdministrator',''),(30,'~Core:RetailerAdministrator',''),(31,'~Core:hibernateStatisicsUser',''),(32,'~Core:hibernateStatisicsManager',''),(33,'~Core:hibernateStatisticsUser',''),(34,'~Core:User',''),(35,'~Statistics:Admin.Report.User.Statistics',''),(36,'~Statistics:Admin.User.Statistics',''),(37,'~Statistics:Admin.Report.Site.Statistics',''),(38,'~Statistics:Admin.Site.Statistics',''),(39,'~Statistics:Admin.Site.Statistics.GroupAnalysisViewDegunk',''),(40,'~Shop:checkout',''),(41,'~Shop:ContentAdministrator',''),(42,'~Shop:CoreAdministrator',''),(43,'~Shop:ShopAdministrator',''),(44,'~Shop:StoreAdministrator',''),(45,'~Shop:Admin-UI','');
+/*!40000 ALTER TABLE `Group` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Group_Permission`
+--
+
 DROP TABLE IF EXISTS `Group_Permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Group_Permission` (
   `Group_id` bigint(20) NOT NULL,
   `permissions_id` bigint(20) NOT NULL,
@@ -606,18 +1304,48 @@ CREATE TABLE `Group_Permission` (
   CONSTRAINT `FK7AC48FCF1B59F431` FOREIGN KEY (`permissions_id`) REFERENCES `Permission` (`id`),
   CONSTRAINT `FK7AC48FCF773F864E` FOREIGN KEY (`Group_id`) REFERENCES `Group` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Group_Permission`
+--
+
 LOCK TABLES `Group_Permission` WRITE;
+/*!40000 ALTER TABLE `Group_Permission` DISABLE KEYS */;
 INSERT INTO `Group_Permission` VALUES (1,2),(1,3),(1,4),(1,5),(2,6),(1,7),(1,8),(1,9),(1,10),(3,11),(1,12),(1,13),(1,14),(1,15),(3,16),(2,17),(3,17),(4,17),(5,21),(5,22),(5,23),(5,24),(6,25),(5,26),(5,27),(5,28),(5,29),(7,30),(7,31),(5,32),(5,33),(5,34),(5,35),(7,36),(7,37),(6,38),(7,38),(8,38),(9,56),(9,57),(10,59),(10,60),(11,60),(10,61),(11,61),(10,62),(11,62),(10,63),(11,63),(10,64),(11,64),(10,65),(11,65),(10,66),(11,66),(10,67),(11,67),(10,68),(11,68),(10,69),(11,69),(10,70),(11,70),(10,71),(11,71),(10,72),(12,72),(10,73),(12,73),(10,74),(12,74),(10,75),(12,75),(10,76),(12,76),(10,77),(12,77),(10,78),(12,78),(10,79),(12,79),(10,80),(12,80),(10,81),(13,81),(10,82),(13,82),(10,83),(13,83),(10,84),(13,84),(10,85),(13,85),(10,86),(13,86),(10,87),(13,87),(10,88),(13,88),(10,89),(13,89),(10,90),(14,90),(10,91),(14,91),(10,92),(14,92),(10,93),(14,93),(10,94),(14,94),(10,95),(14,95),(10,96),(14,96),(10,97),(14,97),(10,98),(14,98),(10,99),(15,99),(10,100),(15,100),(10,101),(15,101),(10,102),(15,102),(10,103),(15,103),(10,104),(15,104),(16,105),(16,106),(16,107),(16,108),(16,109),(17,110),(17,111),(17,112),(17,113),(17,114),(17,115),(9,116),(18,117),(19,118),(19,119),(19,120),(19,121),(19,122),(19,123),(19,124),(19,125),(19,126),(18,127),(9,128),(20,128),(21,129),(22,129),(21,130),(23,131),(23,132),(23,133),(23,134),(20,135),(23,136),(23,137),(23,138),(23,139),(20,140),(23,141),(23,142),(23,143),(23,144),(20,145),(23,146),(23,147),(23,148),(23,149),(24,150),(24,151),(25,152),(26,152),(27,152),(28,152),(25,153),(26,153),(27,153),(28,153),(25,154),(27,154),(28,154),(25,155),(27,155),(28,155),(25,156),(27,156),(25,157),(27,157),(28,157),(25,158),(27,158),(28,158),(25,159),(26,159),(25,160),(26,160),(29,162),(29,163),(29,164),(29,165),(29,166),(29,167),(30,168),(30,169),(30,170),(30,171),(30,172),(30,173),(30,174),(30,175),(31,176),(32,177),(33,177),(32,178),(33,178),(32,179),(33,179),(32,180),(32,181),(33,181),(20,182),(20,183),(20,184),(20,185),(34,187),(35,189),(36,190),(36,191),(36,192),(37,193),(38,194),(38,195),(39,196),(39,197),(37,198),(38,199),(38,200),(37,201),(38,202),(38,203),(38,204),(38,205),(37,206),(38,207),(37,208),(38,209),(38,210),(38,211),(38,212),(40,220),(40,221),(40,222),(40,223),(40,224),(40,225),(40,226),(40,227),(40,228),(40,229),(40,230),(40,231),(40,232),(40,233),(40,234),(40,235),(40,236),(40,237),(40,238),(40,239),(40,240),(40,241),(40,242),(40,243),(40,244),(41,245),(41,246),(41,247),(41,248),(42,249),(41,250),(41,251),(41,252),(41,253),(43,254),(44,255),(41,256),(41,257),(41,258),(41,259),(42,260),(43,260),(45,260),(43,261),(43,262),(43,263);
+/*!40000 ALTER TABLE `Group_Permission` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Localized`
+--
+
 DROP TABLE IF EXISTS `Localized`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Localized` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Localized`
+--
+
 LOCK TABLES `Localized` WRITE;
+/*!40000 ALTER TABLE `Localized` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Localized` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Localized_localizations`
+--
+
 DROP TABLE IF EXISTS `Localized_localizations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Localized_localizations` (
   `Localized_id` bigint(20) NOT NULL,
   `localizations` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -626,9 +1354,24 @@ CREATE TABLE `Localized_localizations` (
   KEY `FKE0084716E53C9155` (`Localized_id`),
   CONSTRAINT `FKE0084716E53C9155` FOREIGN KEY (`Localized_id`) REFERENCES `Localized` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Localized_localizations`
+--
+
 LOCK TABLES `Localized_localizations` WRITE;
+/*!40000 ALTER TABLE `Localized_localizations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Localized_localizations` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Node`
+--
+
 DROP TABLE IF EXISTS `Node`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Node` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `hasChildren` bit(1) NOT NULL,
@@ -639,10 +1382,25 @@ CREATE TABLE `Node` (
   KEY `FK25222221DABB28` (`parent_id`),
   CONSTRAINT `FK25222221DABB28` FOREIGN KEY (`parent_id`) REFERENCES `Node` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Node`
+--
+
 LOCK TABLES `Node` WRITE;
+/*!40000 ALTER TABLE `Node` DISABLE KEYS */;
 INSERT INTO `Node` VALUES (1,'\0',0,NULL),(2,'\0',0,NULL),(3,'\0',0,NULL),(4,'',0,NULL),(5,'',0,4),(6,'\0',1,4),(7,'\0',2,4),(8,'',0,NULL),(9,'\0',0,8),(10,'\0',1,8),(11,'\0',2,8),(12,'',0,NULL),(13,'\0',0,12),(14,'\0',1,12),(15,'\0',2,12),(16,'',0,NULL),(17,'\0',0,16),(18,'\0',1,16),(19,'\0',2,16),(20,'\0',0,NULL),(21,'\0',0,NULL),(22,'\0',0,NULL),(23,'\0',0,NULL),(24,'\0',0,NULL),(25,'\0',0,NULL),(26,'',0,5),(28,'\0',0,26),(32,'',0,NULL),(33,'\0',0,32),(34,'',0,NULL),(35,'\0',0,34),(37,'',1,26),(38,'\0',0,37),(39,'',1,5),(40,'\0',0,39),(43,'',1,34),(44,'',0,43),(45,'\0',0,44);
+/*!40000 ALTER TABLE `Node` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `OpenQuestion`
+--
+
 DROP TABLE IF EXISTS `OpenQuestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OpenQuestion` (
   `regexpression` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `id` bigint(20) NOT NULL,
@@ -650,9 +1408,24 @@ CREATE TABLE `OpenQuestion` (
   KEY `FK589E30702E512894` (`id`),
   CONSTRAINT `FK589E30702E512894` FOREIGN KEY (`id`) REFERENCES `AbstractQuestion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OpenQuestion`
+--
+
 LOCK TABLES `OpenQuestion` WRITE;
+/*!40000 ALTER TABLE `OpenQuestion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `OpenQuestion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `OpenQuestionAnswer`
+--
+
 DROP TABLE IF EXISTS `OpenQuestionAnswer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OpenQuestionAnswer` (
   `value` longtext COLLATE utf8_bin,
   `id` bigint(20) NOT NULL,
@@ -660,9 +1433,24 @@ CREATE TABLE `OpenQuestionAnswer` (
   KEY `FKAF23484E9E50AD70` (`id`),
   CONSTRAINT `FKAF23484E9E50AD70` FOREIGN KEY (`id`) REFERENCES `AbstractTypedAnswer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OpenQuestionAnswer`
+--
+
 LOCK TABLES `OpenQuestionAnswer` WRITE;
+/*!40000 ALTER TABLE `OpenQuestionAnswer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `OpenQuestionAnswer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `OperatingSystem`
+--
+
 DROP TABLE IF EXISTS `OperatingSystem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OperatingSystem` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -672,10 +1460,25 @@ CREATE TABLE `OperatingSystem` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `regex` (`regex`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OperatingSystem`
+--
+
 LOCK TABLES `OperatingSystem` WRITE;
+/*!40000 ALTER TABLE `OperatingSystem` DISABLE KEYS */;
 INSERT INTO `OperatingSystem` VALUES (1,'unknown','unknown',''),(2,'Mac OS','Apple','.*Mac.*'),(3,'Win other','Microsoft','.*Win.*');
+/*!40000 ALTER TABLE `OperatingSystem` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `OperatingSystemPerVisitAggregation`
+--
+
 DROP TABLE IF EXISTS `OperatingSystemPerVisitAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OperatingSystemPerVisitAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -690,10 +1493,25 @@ CREATE TABLE `OperatingSystemPerVisitAggregation` (
   CONSTRAINT `FKAAECA3048E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`),
   CONSTRAINT `FKAAECA304B4184974` FOREIGN KEY (`counted_id`) REFERENCES `OperatingSystem` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OperatingSystemPerVisitAggregation`
+--
+
 LOCK TABLES `OperatingSystemPerVisitAggregation` WRITE;
+/*!40000 ALTER TABLE `OperatingSystemPerVisitAggregation` DISABLE KEYS */;
 INSERT INTO `OperatingSystemPerVisitAggregation` VALUES (1,1459382399999,1459296000000,2,1,3),(2,1459468799999,1459382400000,2,1,3),(3,1459555199999,1459468800000,3,1,3);
+/*!40000 ALTER TABLE `OperatingSystemPerVisitAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter`
+--
+
 DROP TABLE IF EXISTS `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter` (
   `OperatingSystemPerVisitAggregation_id` bigint(20) NOT NULL,
   `counters_id` bigint(20) NOT NULL,
@@ -704,10 +1522,25 @@ CREATE TABLE `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter` 
   CONSTRAINT `FK1FBEF0D990BFB4EE` FOREIGN KEY (`OperatingSystemPerVisitAggregation_id`) REFERENCES `OperatingSystemPerVisitAggregation` (`id`),
   CONSTRAINT `FK1FBEF0D9E5ABE2E3` FOREIGN KEY (`counters_id`) REFERENCES `OperatingSystemVersionCounter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter`
+--
+
 LOCK TABLES `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter` WRITE;
+/*!40000 ALTER TABLE `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter` DISABLE KEYS */;
 INSERT INTO `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter` VALUES (1,1),(3,2);
+/*!40000 ALTER TABLE `OperatingSystemPerVisitAggregation_OperatingSystemVersionCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `OperatingSystemVersionCounter`
+--
+
 DROP TABLE IF EXISTS `OperatingSystemVersionCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OperatingSystemVersionCounter` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `counter` int(11) NOT NULL,
@@ -720,10 +1553,25 @@ CREATE TABLE `OperatingSystemVersionCounter` (
   CONSTRAINT `FK8E9ABCD4108C45DB` FOREIGN KEY (`version_id`) REFERENCES `RegexVersion` (`id`),
   CONSTRAINT `FK8E9ABCD4B737AD12` FOREIGN KEY (`abstractAggregation_id`) REFERENCES `OperatingSystemPerVisitAggregation` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OperatingSystemVersionCounter`
+--
+
 LOCK TABLES `OperatingSystemVersionCounter` WRITE;
+/*!40000 ALTER TABLE `OperatingSystemVersionCounter` DISABLE KEYS */;
 INSERT INTO `OperatingSystemVersionCounter` VALUES (1,1,1,10),(2,2,3,10);
+/*!40000 ALTER TABLE `OperatingSystemVersionCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `OperatingSystem_RegexVersion`
+--
+
 DROP TABLE IF EXISTS `OperatingSystem_RegexVersion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OperatingSystem_RegexVersion` (
   `OperatingSystem_id` bigint(20) NOT NULL,
   `versions_id` bigint(20) NOT NULL,
@@ -733,10 +1581,25 @@ CREATE TABLE `OperatingSystem_RegexVersion` (
   CONSTRAINT `FK329A1BE061A3E938` FOREIGN KEY (`versions_id`) REFERENCES `RegexVersion` (`id`),
   CONSTRAINT `FK329A1BE0D0B5BD72` FOREIGN KEY (`OperatingSystem_id`) REFERENCES `OperatingSystem` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OperatingSystem_RegexVersion`
+--
+
 LOCK TABLES `OperatingSystem_RegexVersion` WRITE;
+/*!40000 ALTER TABLE `OperatingSystem_RegexVersion` DISABLE KEYS */;
 INSERT INTO `OperatingSystem_RegexVersion` VALUES (3,10),(3,11);
+/*!40000 ALTER TABLE `OperatingSystem_RegexVersion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Option`
+--
+
 DROP TABLE IF EXISTS `Option`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Option` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -749,18 +1612,48 @@ CREATE TABLE `Option` (
   CONSTRAINT `FK8D2F74951411AF19` FOREIGN KEY (`attribute_id`) REFERENCES `SelectionAttribute` (`id`),
   CONSTRAINT `FK8D2F74954A89DDCD` FOREIGN KEY (`attribute_id`) REFERENCES `AbstractAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Option`
+--
+
 LOCK TABLES `Option` WRITE;
+/*!40000 ALTER TABLE `Option` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Option` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `OrderMetaData_successfulFinishingTasks`
+--
+
 DROP TABLE IF EXISTS `OrderMetaData_successfulFinishingTasks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OrderMetaData_successfulFinishingTasks` (
   `OrderMetaData_id` bigint(20) NOT NULL,
   `successfulFinishingTasks` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   KEY `FK7412ECFBA893C602` (`OrderMetaData_id`),
   CONSTRAINT `FK7412ECFBA893C602` FOREIGN KEY (`OrderMetaData_id`) REFERENCES `checkout_OrderMetaData` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OrderMetaData_successfulFinishingTasks`
+--
+
 LOCK TABLES `OrderMetaData_successfulFinishingTasks` WRITE;
+/*!40000 ALTER TABLE `OrderMetaData_successfulFinishingTasks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `OrderMetaData_successfulFinishingTasks` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `PIRecord`
+--
+
 DROP TABLE IF EXISTS `PIRecord`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PIRecord` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `country` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -783,10 +1676,25 @@ CREATE TABLE `PIRecord` (
   KEY `FK1DB043AA73E39345` (`server_id`),
   CONSTRAINT `FK1DB043AA73E39345` FOREIGN KEY (`server_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PIRecord`
+--
+
 LOCK TABLES `PIRecord` WRITE;
+/*!40000 ALTER TABLE `PIRecord` DISABLE KEYS */;
 INSERT INTO `PIRecord` VALUES (6,'??','-1CKAzrvOl0nXTFK6U13D1r5cdOWypXbXMOriznFNwpKzAHYliOCNz4VfpnqaXcxIfMXAadFoPaLBUt31QCT8jD','/en_US/Autogenerated Node',1459407000012,'\0',1459406064112,'','','ADF02D8C7DA307C6E23A509883C43BEF','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1600,900,1),(7,'??','-1CKAzrvOl0nXTFK6U13D1r5cdOWypXbXMOriznFNwpKzAHYliOCNz4VfpnqaXcxIfMXAadFoPaLBUt31QCT8jD','/en_US/Autogenerated Node',1459407000012,'\0',1459406071150,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures','ADF02D8C7DA307C6E23A509883C43BEF','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1600,900,1),(8,'??','-1CKAzrvOl0nXTFK6U13D1r5cdOWypXbXMOriznFNwpKzAHYliOCNz4VfpnqaXcxIfMXAadFoPaLBUt31QCT8jD','/en_US/Autogenerated Node',1459407000012,'\0',1459406076451,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures?page=1','ADF02D8C7DA307C6E23A509883C43BEF','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1600,900,1),(9,'??','-1CKAzrvOl0nXTFK6U13D1r5cdOWypXbXMOriznFNwpKzAHYliOCNz4VfpnqaXcxIfMXAadFoPaLBUt31QCT8jD','/en_US/Autogenerated Node',1459407000012,'\0',1459406089422,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures?page=0','ADF02D8C7DA307C6E23A509883C43BEF','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1600,900,1),(10,'??','-1CKAzrvOl0nXTFK6U13D1r5cdOWypXbXMOriznFNwpKzAHYliOCNz4VfpnqaXcxIfMXAadFoPaLBUt31QCT8jD','/en_US/Autogenerated Node',1459407000012,'\0',1459406094310,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures?page=1','ADF02D8C7DA307C6E23A509883C43BEF','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1600,900,1),(11,'??','-1CKAzrvOl0nXTFK6U13D1r5cdOWypXbXMOriznFNwpKzAHYliOCNz4VfpnqaXcxIfMXAadFoPaLBUt31QCT8jD','/en_US/Autogenerated Node',1459407000012,'\0',1459406112346,'','','ADF02D8C7DA307C6E23A509883C43BEF','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1600,900,1),(12,'??','-1CKAzrvOl0nXTFK6U13D1r5cdOWypXbXMOriznFNwpKzAHYliOCNz4VfpnqaXcxIfMXAadFoPaLBUt31QCT8jD','/en_US/Autogenerated Node',1459407000012,'\0',1459406124328,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures?page=0','ADF02D8C7DA307C6E23A509883C43BEF','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1600,900,1),(13,'??','-leC8UFEmzda2hhHfN5p7tFNhC3yBsYe7ZQdXNuk5almASdqRPXgQVdzAyNe7kNiucsNYK0SL7xcCs0nbrSz2jy','/en_US/Autogenerated Node',1459441200019,'\0',1459440440747,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures','A8DEAC7B40AD403C6C801BCF56F32B2E','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36',NULL,NULL,1600,900,1),(14,'??','-leC8UFEmzda2hhHfN5p7tFNhC3yBsYe7ZQdXNuk5almASdqRPXgQVdzAyNe7kNiucsNYK0SL7xcCs0nbrSz2jy','/en_US/Autogenerated Node',1459494300016,'\0',1459493209944,'','','A9015EFAB7FE8DE8BD6090676D1940F4','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36',NULL,NULL,1680,1050,1),(15,'??','-leC8UFEmzda2hhHfN5p7tFNhC3yBsYe7ZQdXNuk5almASdqRPXgQVdzAyNe7kNiucsNYK0SL7xcCs0nbrSz2jy','/en_US/Autogenerated Node',1459494300016,'\0',1459493213952,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures','A9015EFAB7FE8DE8BD6090676D1940F4','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36',NULL,NULL,1680,1050,1),(16,'??','-leC8UFEmzda2hhHfN5p7tFNhC3yBsYe7ZQdXNuk5almASdqRPXgQVdzAyNe7kNiucsNYK0SL7xcCs0nbrSz2jy','/en_US/Autogenerated Node',1459494300016,'\0',1459493423081,'','','A9015EFAB7FE8DE8BD6090676D1940F4','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36',NULL,NULL,1680,1050,1),(17,'??','-leC8UFEmzda2hhHfN5p7tFNhC3yBsYe7ZQdXNuk5almASdqRPXgQVdzAyNe7kNiucsNYK0SL7xcCs0nbrSz2jy','/en_US/Autogenerated Node',1459494300016,'\0',1459493440317,'','','A9015EFAB7FE8DE8BD6090676D1940F4','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36',NULL,NULL,1680,1050,1),(18,'??','DrDWkBBDPZ93OpyjMrTzaIilxQFVmlgdjYLuYe9GroQSVE0sB5UVFKMYrHkuCI7etlL7U5a49YYq0tLIuNYic2','/en_US/Autogenerated Node',1459494300016,'\0',1459493579330,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures','A76C1590EE82D5FF663347505D416177','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1920,1080,1),(19,'??','DrDWkBBDPZ93OpyjMrTzaIilxQFVmlgdjYLuYe9GroQSVE0sB5UVFKMYrHkuCI7etlL7U5a49YYq0tLIuNYic2','/en_US/Autogenerated Node',1459500300011,'\0',1459499673226,'','http://ecsc00104473.epam.com:8080/pulse/Pulsar/en_US.CMS.displayCMS.3./pictures','397BBA86B24A752BC0A70767749EAF84','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',NULL,NULL,1920,1080,1);
+/*!40000 ALTER TABLE `PIRecord` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `PIRecordCountAggregation`
+--
+
 DROP TABLE IF EXISTS `PIRecordCountAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PIRecordCountAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -798,10 +1706,25 @@ CREATE TABLE `PIRecordCountAggregation` (
   KEY `FK8BA3021D8E487982` (`statisticsServer_id`),
   CONSTRAINT `FK8BA3021D8E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PIRecordCountAggregation`
+--
+
 LOCK TABLES `PIRecordCountAggregation` WRITE;
+/*!40000 ALTER TABLE `PIRecordCountAggregation` DISABLE KEYS */;
 INSERT INTO `PIRecordCountAggregation` VALUES (1,1459382399999,1459296000000,5,1),(2,1459468799999,1459382400000,8,1),(3,1459555199999,1459468800000,6,1);
+/*!40000 ALTER TABLE `PIRecordCountAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `PIRecordCountAggregationHitCounter`
+--
+
 DROP TABLE IF EXISTS `PIRecordCountAggregationHitCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PIRecordCountAggregationHitCounter` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `counter` int(11) NOT NULL,
@@ -811,10 +1734,25 @@ CREATE TABLE `PIRecordCountAggregationHitCounter` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PIRecordCountAggregationHitCounter`
+--
+
 LOCK TABLES `PIRecordCountAggregationHitCounter` WRITE;
+/*!40000 ALTER TABLE `PIRecordCountAggregationHitCounter` DISABLE KEYS */;
 INSERT INTO `PIRecordCountAggregationHitCounter` VALUES (1,2,1459324799999,'SEVEN',1459321200000),(2,3,1459346399999,'THIRTEEN',1459342800000),(3,7,1459407599999,'SIX',1459404000000),(4,1,1459443599999,'SIXTEEN',1459440000000),(5,5,1459493999999,'SIX',1459490400000),(6,1,1459501199999,'EIGHT',1459497600000);
+/*!40000 ALTER TABLE `PIRecordCountAggregationHitCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `PIRecordCountAggregation_PIRecordCountAggregationHitCounter`
+--
+
 DROP TABLE IF EXISTS `PIRecordCountAggregation_PIRecordCountAggregationHitCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PIRecordCountAggregation_PIRecordCountAggregationHitCounter` (
   `PIRecordCountAggregation_id` bigint(20) NOT NULL,
   `counters_id` bigint(20) NOT NULL,
@@ -825,38 +1763,98 @@ CREATE TABLE `PIRecordCountAggregation_PIRecordCountAggregationHitCounter` (
   CONSTRAINT `FKC3C8A648A6DB978E` FOREIGN KEY (`PIRecordCountAggregation_id`) REFERENCES `PIRecordCountAggregation` (`id`),
   CONSTRAINT `FKC3C8A648F507431D` FOREIGN KEY (`counters_id`) REFERENCES `PIRecordCountAggregationHitCounter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PIRecordCountAggregation_PIRecordCountAggregationHitCounter`
+--
+
 LOCK TABLES `PIRecordCountAggregation_PIRecordCountAggregationHitCounter` WRITE;
+/*!40000 ALTER TABLE `PIRecordCountAggregation_PIRecordCountAggregationHitCounter` DISABLE KEYS */;
 INSERT INTO `PIRecordCountAggregation_PIRecordCountAggregationHitCounter` VALUES (1,1),(1,2),(2,3),(2,4),(3,5),(3,6);
+/*!40000 ALTER TABLE `PIRecordCountAggregation_PIRecordCountAggregationHitCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Page`
+--
+
 DROP TABLE IF EXISTS `Page`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Page` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `contentString` longtext COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Page`
+--
+
 LOCK TABLES `Page` WRITE;
+/*!40000 ALTER TABLE `Page` DISABLE KEYS */;
 INSERT INTO `Page` VALUES (1,'<body><p><img src=\"http://www.wallpapereast.com/static/images/909f6f83b88148324e6b4c174eeaeb15_large_NBnVln2.jpeg\" alt=\"\" /></p><p>A hackathon (also known as a hack day, hackfest or codefest) is an event in which computer programmers and others involved in software development and hardware development, including graphic designers, interface designers and project managers, collaborate intensively on software projects.[1] Occasionally, there is a hardware component as well. Hackathons typically last between a day and a week. Some hackathons are intended simply for educational or social purposes, although in many cases the goal is to create usable software.A hackathon (also known as a hack day, hackfest or codefest) is an event in which computer programmers and others involved in software development and hardware development, including graphic designers, interface designers and project managers, collaborate intensively on software projects.[1] Occasionally, there is a hardware component as well. Hackathons typically last between a day and a week. Some hackathons are intended simply for educational or social purposes, although in many cases the goal is to create usable software.A hackathon (also known as a hack day, hackfest or codefest) is an event in which computer programmers and others involved in software development and hardware development, including graphic designers, interface designers and project managers, collaborate intensively on software projects.[1] Occasionally, there is a hardware component as well. Hackathons typically last between a day and a week. Some hackathons are intended simply for educational or social purposes, although in many cases the goal is to create usable software.A hackathon (also known as a hack day, hackfest or codefest) is an event in which computer programmers and others involved in software development and hardware development, including graphic designers, interface designers and project managers, collaborate intensively on software projects.[1] Occasionally, there is a hardware component as well. Hackathons typically last between a day and a week. Some hackathons are intended simply for educational or social purposes, although in many cases the goal is to create usable software.</p></body>\r\n'),(5,'<body><p><img src=\"http://www.coffeearea.org/wp-content/uploads/2014/04/how-to-store-coffee-beans.jpg\" alt=\"\" /></p><p> </p></body>\r\n'),(6,'<body><p> Nature</p><p><img src=\"https://pixabay.com/static/uploads/photo/2016/02/05/22/00/melbourne-1182174_960_720.jpg\" alt=\"\" /></p></body>\r\n'),(7,'<body><p><img src=\"https://pixabay.com/static/uploads/photo/2016/02/05/22/00/melbourne-1182174_960_720.jpg\" alt=\"\" /></p><p> </p></body>\r\n');
+/*!40000 ALTER TABLE `Page` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Parameter`
+--
+
 DROP TABLE IF EXISTS `Parameter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Parameter` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Parameter`
+--
+
 LOCK TABLES `Parameter` WRITE;
+/*!40000 ALTER TABLE `Parameter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Parameter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Parameter_values`
+--
+
 DROP TABLE IF EXISTS `Parameter_values`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Parameter_values` (
   `Parameter_id` bigint(20) NOT NULL,
   `value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   KEY `FK65E26A98C4D5664B` (`Parameter_id`),
   CONSTRAINT `FK65E26A98C4D5664B` FOREIGN KEY (`Parameter_id`) REFERENCES `Parameter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Parameter_values`
+--
+
 LOCK TABLES `Parameter_values` WRITE;
+/*!40000 ALTER TABLE `Parameter_values` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Parameter_values` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `PathTreeAggregation`
+--
+
 DROP TABLE IF EXISTS `PathTreeAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PathTreeAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -876,10 +1874,25 @@ CREATE TABLE `PathTreeAggregation` (
   CONSTRAINT `FKB9DCB95F7D7CEA1A` FOREIGN KEY (`path_id`) REFERENCES `PathTreeElement` (`id`),
   CONSTRAINT `FKB9DCB95F8E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PathTreeAggregation`
+--
+
 LOCK TABLES `PathTreeAggregation` WRITE;
+/*!40000 ALTER TABLE `PathTreeAggregation` DISABLE KEYS */;
 INSERT INTO `PathTreeAggregation` VALUES (1,1459382399999,1459296000000,0,0,0,5,0,0,1,32),(2,1459382399999,1459296000000,5,0,0,0,2,2,1,33),(3,1459468799999,1459382400000,0,0,1,8,0,0,1,32),(4,1459468799999,1459382400000,8,1,0,0,2,2,1,33),(5,1459555199999,1459468800000,0,0,2,6,0,0,1,32),(6,1459555199999,1459468800000,6,2,0,0,3,3,1,33);
+/*!40000 ALTER TABLE `PathTreeAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `PathTreeElement`
+--
+
 DROP TABLE IF EXISTS `PathTreeElement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PathTreeElement` (
   `pathString` varchar(255) COLLATE utf8_bin NOT NULL,
   `rootNode` bit(1) NOT NULL,
@@ -891,10 +1904,25 @@ CREATE TABLE `PathTreeElement` (
   CONSTRAINT `FKFBD5F7F973E39345` FOREIGN KEY (`server_id`) REFERENCES `StatisticsServer` (`id`),
   CONSTRAINT `FKFBD5F7F9A6741773` FOREIGN KEY (`id`) REFERENCES `Node` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PathTreeElement`
+--
+
 LOCK TABLES `PathTreeElement` WRITE;
+/*!40000 ALTER TABLE `PathTreeElement` DISABLE KEYS */;
 INSERT INTO `PathTreeElement` VALUES ('','',32,1),('/en_US/Autogenerated Node','\0',33,1);
+/*!40000 ALTER TABLE `PathTreeElement` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Permission`
+--
+
 DROP TABLE IF EXISTS `Permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Permission` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -902,10 +1930,25 @@ CREATE TABLE `Permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Permission`
+--
+
 LOCK TABLES `Permission` WRITE;
+/*!40000 ALTER TABLE `Permission` DISABLE KEYS */;
 INSERT INTO `Permission` VALUES (1,'~Store:StoreContentDisplayer:displayStore','auto-generated permission'),(2,'~Store:AbstractBasicContentEditor:editAbstractBasicContent','auto-generated permission'),(3,'~Store:AbstractBasicContentEditor:viewAbstractBasicContent','auto-generated permission'),(4,'~Store:AbstractBasicContentEditor:viewLocalizationMaps','auto-generated permission'),(5,'~Store:AbstractBasicContentEditor:editLocalizationMaps','auto-generated permission'),(6,'~Store:ContentGroupEditor:editContentGroup','auto-generated permission'),(7,'~Store:ContentGroupEditor:editAbstractBasicContent','auto-generated permission'),(8,'~Store:ContentGroupEditor:viewAbstractBasicContent','auto-generated permission'),(9,'~Store:ContentGroupEditor:viewLocalizationMaps','auto-generated permission'),(10,'~Store:ContentGroupEditor:editLocalizationMaps','auto-generated permission'),(11,'~Store:StoreContentEditor:editStoreContent','auto-generated permission'),(12,'~Store:StoreContentEditor:editAbstractBasicContent','auto-generated permission'),(13,'~Store:StoreContentEditor:viewAbstractBasicContent','auto-generated permission'),(14,'~Store:StoreContentEditor:viewLocalizationMaps','auto-generated permission'),(15,'~Store:StoreContentEditor:editLocalizationMaps','auto-generated permission'),(16,'~Store:StoreContentImageGroupEditor:editStoreContentImageGroup','auto-generated permission'),(17,'~Store:StoreContentRegistryEditor:useContentRegistry','auto-generated permission'),(18,'~CMS:CMSContentDisplayer:displayCMS','auto-generated permission'),(19,'~CMS:CMSFormMailer:sendMail','auto-generated permission'),(20,'~CMS:CMSFormProcessor:processForm','auto-generated permission'),(21,'~CMS:AbstractBasicContentEditor:editAbstractBasicContent','auto-generated permission'),(22,'~CMS:AbstractBasicContentEditor:viewAbstractBasicContent','auto-generated permission'),(23,'~CMS:AbstractBasicContentEditor:viewLocalizationMaps','auto-generated permission'),(24,'~CMS:AbstractBasicContentEditor:editLocalizationMaps','auto-generated permission'),(25,'~CMS:ContentGroupEditor:editContentGroup','auto-generated permission'),(26,'~CMS:ContentGroupEditor:editAbstractBasicContent','auto-generated permission'),(27,'~CMS:ContentGroupEditor:viewAbstractBasicContent','auto-generated permission'),(28,'~CMS:ContentGroupEditor:viewLocalizationMaps','auto-generated permission'),(29,'~CMS:ContentGroupEditor:editLocalizationMaps','auto-generated permission'),(30,'~CMS:CMSContentEditor:editCMSContent','auto-generated permission'),(31,'~CMS:CMSContentEditor:viewCMSContent','auto-generated permission'),(32,'~CMS:CMSContentEditor:editAbstractBasicContent','auto-generated permission'),(33,'~CMS:CMSContentEditor:viewAbstractBasicContent','auto-generated permission'),(34,'~CMS:CMSContentEditor:viewLocalizationMaps','auto-generated permission'),(35,'~CMS:CMSContentEditor:editLocalizationMaps','auto-generated permission'),(36,'~CMS:CMSPageEditor:viewPages','auto-generated permission'),(37,'~CMS:CMSPageEditor:editPages','auto-generated permission'),(38,'~CMS:CMSContentRegistryEditor:useContentRegistry','auto-generated permission'),(39,'~Core:SearchSiteSuggestions:searchSuggestions','auto-generated permission'),(40,'~Core:HomepageRedirector:user','auto-generated permission'),(41,'~Core:LocalizationLocator:findLocalization','auto-generated permission'),(42,'~Core:UploadProgressCheck:uploadProgress','auto-generated permission'),(43,'~Core:CoreContentDisplayer:displayCore','auto-generated permission'),(44,'~Core:URLContentDisplayer:displayURLContent','auto-generated permission'),(45,'~Core:FilterContentDisplayer:displayFilterContent','auto-generated permission'),(46,'~Core:SignUpController:signUp','auto-generated permission'),(47,'~Core:SignUpController:resetPassword','auto-generated permission'),(48,'~Core:GetFullSitemap:seeSitemap','auto-generated permission'),(49,'~Core:SearchSite:searchSite','auto-generated permission'),(50,'~Core:SearchSite:initAdvancedSearch','auto-generated permission'),(51,'~Core:UserSelfEditController:saveUserSelfEdit','auto-generated permission'),(52,'~Core:UserSelfEditController:initUserSelfEdit','auto-generated permission'),(53,'~Core:UserSelfEditController:userChangePassword','auto-generated permission'),(54,'~Core:UserSelfEditController:userChangeEmail','auto-generated permission'),(55,'~Core:UserSelfEditController:saveEmailChange','auto-generated permission'),(56,'~Core:FCKEditorBrowser:useFCKEditorBrowser','auto-generated permission'),(57,'~Core:InitWebsiteAdministration:useAdmin','auto-generated permission'),(58,'~Core:Status:statusControl','auto-generated permission'),(59,'~Core:AccessControlEditor:viewAccessControl','auto-generated permission'),(60,'~Core:UserEditor:createUserEditor','auto-generated permission'),(61,'~Core:UserEditor:initUserEditor','auto-generated permission'),(62,'~Core:UserEditor:loadUserOverviewGrid','auto-generated permission'),(63,'~Core:UserEditor:deleteUserEditor','auto-generated permission'),(64,'~Core:UserEditor:userOverviewInit','auto-generated permission'),(65,'~Core:UserEditor:saveUserEditor','auto-generated permission'),(66,'~Core:UserEditor:toggleStateUserEditor','auto-generated permission'),(67,'~Core:UserEditor:editUsers','auto-generated permission'),(68,'~Core:UserEditor:loadRolesUserEditor','auto-generated permission'),(69,'~Core:UserEditor:loadGroupsUserEditor','auto-generated permission'),(70,'~Core:UserEditor:loadPermissionsUserEditor','auto-generated permission'),(71,'~Core:UserEditor:loadAttributeUserEditor','auto-generated permission'),(72,'~Core:RoleEditor:createRoleEditor','auto-generated permission'),(73,'~Core:RoleEditor:initRoleEditor','auto-generated permission'),(74,'~Core:RoleEditor:loadRoleOverviewGrid','auto-generated permission'),(75,'~Core:RoleEditor:roleOverviewInit','auto-generated permission'),(76,'~Core:RoleEditor:deleteRoleEditor','auto-generated permission'),(77,'~Core:RoleEditor:loadGroupsRoleEditor','auto-generated permission'),(78,'~Core:RoleEditor:loadPermissionsRoleEditor','auto-generated permission'),(79,'~Core:RoleEditor:saveRoleEditor','auto-generated permission'),(80,'~Core:RoleEditor:loadUsersRoleEditor','auto-generated permission'),(81,'~Core:GroupEditor:createUsergroupEditor','auto-generated permission'),(82,'~Core:GroupEditor:initUsergroupEditor','auto-generated permission'),(83,'~Core:GroupEditor:loadUsergroupOverviewGrid','auto-generated permission'),(84,'~Core:GroupEditor:usergroupOverviewInit','auto-generated permission'),(85,'~Core:GroupEditor:loadRolesUsergroupEditor','auto-generated permission'),(86,'~Core:GroupEditor:loadPermissionsUsergroupEditor','auto-generated permission'),(87,'~Core:GroupEditor:deleteUsergroupEditor','auto-generated permission'),(88,'~Core:GroupEditor:saveUsergroupEditor','auto-generated permission'),(89,'~Core:GroupEditor:loadUsersUsergroupEditor','auto-generated permission'),(90,'~Core:PermissionEditor:initPermissionEditor','auto-generated permission'),(91,'~Core:PermissionEditor:loadPermissionOverviewGrid','auto-generated permission'),(92,'~Core:PermissionEditor:permissionOverviewInit','auto-generated permission'),(93,'~Core:PermissionEditor:loadRolesPermissionEditor','auto-generated permission'),(94,'~Core:PermissionEditor:loadGroupsPermissionEditor','auto-generated permission'),(95,'~Core:PermissionEditor:createPermissionEditor','auto-generated permission'),(96,'~Core:PermissionEditor:deletePermissionEditor','auto-generated permission'),(97,'~Core:PermissionEditor:savePermissionEditor','auto-generated permission'),(98,'~Core:PermissionEditor:loadUsersPermissionEditor','auto-generated permission'),(99,'~Core:CommandMatcherEditor:initCommandMatcherEditor','auto-generated permission'),(100,'~Core:CommandMatcherEditor:loadCommandMatchersOverviewGrid','auto-generated permission'),(101,'~Core:CommandMatcherEditor:loadParametersCommandMatcherEditor','auto-generated permission'),(102,'~Core:CommandMatcherEditor:createCommandMatcherEditor','auto-generated permission'),(103,'~Core:CommandMatcherEditor:deleteCommandMatcherEditor','auto-generated permission'),(104,'~Core:CommandMatcherEditor:saveCommandMatcherEditor','auto-generated permission'),(105,'~Core:AttributeRegistryEditor:editAttributeRegistry','auto-generated permission'),(106,'~Core:AttributeRegistryEditor:useAttributeRegistry','auto-generated permission'),(107,'~Core:AttributeRegistryEditor:browseAttributeRegistryEdit','auto-generated permission'),(108,'~Core:AttributeRegistryEditor:browseAttributeRegistrySelect','auto-generated permission'),(109,'~Core:SubEditorSelectionAttribute:useAttributeRegistry','auto-generated permission'),(110,'~Core:VFSPermissionEditor:vfsPermissionOverviewInit','auto-generated permission'),(111,'~Core:VFSPermissionEditor:previewVirtualFileSystemVFSPermissionEditor','auto-generated permission'),(112,'~Core:VFSPermissionEditor:initPermissionsPanelVFSPermissionEditor','auto-generated permission'),(113,'~Core:VFSPermissionEditor:loadReadPermissionsVFSPermissionEditor','auto-generated permission'),(114,'~Core:VFSPermissionEditor:loadWritePermissionsVFSPermissionEditor','auto-generated permission'),(115,'~Core:VFSPermissionEditor:savePermissionsPanelVFSPermissionEditor','auto-generated permission'),(116,'~Core:FileBrowser:useFileBrowser','auto-generated permission'),(117,'~Core:ThemesEditor:editThemes','auto-generated permission'),(118,'~Core:ViewEditor:editViews','auto-generated permission'),(119,'~Core:ViewEditor:initSitemapSectionTagEditor','auto-generated permission'),(120,'~Core:ViewEditor:saveViewEditor','auto-generated permission'),(121,'~Core:ViewEditor:loadRolesViewEditor','auto-generated permission'),(122,'~Core:ViewEditor:createSitemapSectionTag','auto-generated permission'),(123,'~Core:ViewEditor:deleteSitemapSectionTag','auto-generated permission'),(124,'~Core:ViewEditor:editSitemapSectionTag','auto-generated permission'),(125,'~Core:ViewEditor:initSitemapDurationEditor','auto-generated permission'),(126,'~Core:ViewEditor:removeSitemapDuration','auto-generated permission'),(127,'~Core:StyleEditor:editStyles','auto-generated permission'),(128,'~Core:CoreContentRegistryEditor:useContentRegistry','auto-generated permission'),(129,'~Core:SitemapEditor:browseSitemap','auto-generated permission'),(130,'~Core:SitemapEditor:editSitemap','auto-generated permission'),(131,'~Core:AbstractBasicContentEditor:editAbstractBasicContent','auto-generated permission'),(132,'~Core:AbstractBasicContentEditor:viewAbstractBasicContent','auto-generated permission'),(133,'~Core:AbstractBasicContentEditor:viewLocalizationMaps','auto-generated permission'),(134,'~Core:AbstractBasicContentEditor:editLocalizationMaps','auto-generated permission'),(135,'~Core:ContentGroupEditor:editContentGroup','auto-generated permission'),(136,'~Core:ContentGroupEditor:editAbstractBasicContent','auto-generated permission'),(137,'~Core:ContentGroupEditor:viewAbstractBasicContent','auto-generated permission'),(138,'~Core:ContentGroupEditor:viewLocalizationMaps','auto-generated permission'),(139,'~Core:ContentGroupEditor:editLocalizationMaps','auto-generated permission'),(140,'~Core:FileContentEditor:editFileContent','auto-generated permission'),(141,'~Core:FileContentEditor:editAbstractBasicContent','auto-generated permission'),(142,'~Core:FileContentEditor:viewAbstractBasicContent','auto-generated permission'),(143,'~Core:FileContentEditor:viewLocalizationMaps','auto-generated permission'),(144,'~Core:FileContentEditor:editLocalizationMaps','auto-generated permission'),(145,'~Core:URLContentEditor:editURLContent','auto-generated permission'),(146,'~Core:URLContentEditor:editAbstractBasicContent','auto-generated permission'),(147,'~Core:URLContentEditor:viewAbstractBasicContent','auto-generated permission'),(148,'~Core:URLContentEditor:viewLocalizationMaps','auto-generated permission'),(149,'~Core:URLContentEditor:editLocalizationMaps','auto-generated permission'),(150,'~Core:FilterContentEditor:editFilterContent','auto-generated permission'),(151,'~Core:FilterContentEditor:viewFilterContent','auto-generated permission'),(152,'~Core:FilterEditor:editFilter','auto-generated permission'),(153,'~Core:FilterEditor:viewFilter','auto-generated permission'),(154,'~Core:FilterRulesEditor:viewFilterRules','auto-generated permission'),(155,'~Core:FilterRulesEditor:editFilterRuleProperties','auto-generated permission'),(156,'~Core:FilterRulesEditor:editFilterRules','auto-generated permission'),(157,'~Core:FilterRulesEditor:viewFilterRuleLocalizations','auto-generated permission'),(158,'~Core:FilterRulesEditor:viewFilterRuleProperties','auto-generated permission'),(159,'~Core:FilterMatchesEditor:viewFilterMatches','auto-generated permission'),(160,'~Core:FilterMatchesEditor:editFilterMatches','auto-generated permission'),(161,'~Core:InitWestPanelController:initUtilWestPanel','auto-generated permission'),(162,'~Core:RepresentativeEditor:initRepresentativesEditor','auto-generated permission'),(163,'~Core:RepresentativeEditor:loadRepresentatives','auto-generated permission'),(164,'~Core:RepresentativeEditor:loadRepresentative','auto-generated permission'),(165,'~Core:RepresentativeEditor:deleteRepresentative','auto-generated permission'),(166,'~Core:RepresentativeEditor:saveRepresentative','auto-generated permission'),(167,'~Core:RepresentativeEditor:initRepresentativeEditor','auto-generated permission'),(168,'~Core:RetailerEditor:initRetailersEditor','auto-generated permission'),(169,'~Core:RetailerEditor:loadRetailers','auto-generated permission'),(170,'~Core:RetailerEditor:loadRetailer','auto-generated permission'),(171,'~Core:RetailerEditor:deleteRetailer','auto-generated permission'),(172,'~Core:RetailerEditor:saveRetailer','auto-generated permission'),(173,'~Core:RetailerEditor:exportRetailersCSV','auto-generated permission'),(174,'~Core:RetailerEditor:exportRetailersXLSX','auto-generated permission'),(175,'~Core:RetailerEditor:initRetailerEditor','auto-generated permission'),(176,'~Core:HibernateStatistics:hibernateStatisticsStatus','auto-generated permission'),(177,'~Core:HibernateStatistics:hibernateStatisticsEntities','auto-generated permission'),(178,'~Core:HibernateStatistics:hibernateStatisticsCache','auto-generated permission'),(179,'~Core:HibernateStatistics:hibernateStatisticsCollections','auto-generated permission'),(180,'~Core:HibernateStatistics:hibernateStatisticsToggle','auto-generated permission'),(181,'~Core:HibernateStatistics:hibernateStatisticsSummary','auto-generated permission'),(182,'~Core:LocaleCopy:copyLocale','auto-generated permission'),(183,'~Core:LocaleCopy:copySitemap','auto-generated permission'),(184,'~Core:SitemapManipulator:manipulateRolesOfSitemapNodes','auto-generated permission'),(185,'~Core:SitemapManipulator:changeVisiblityOfSitemapNodes','auto-generated permission'),(186,'~Core:SiteSearchRebuild:siteSearchRebuild','auto-generated permission'),(187,'~Core:ThemesController:user','auto-generated permission'),(188,'~Statistics:PageImpressionRecorder:useStatistics','auto-generated permission'),(189,'~Statistics:UserStatisticsPDFController:createUserStatisticsPDF','auto-generated permission'),(190,'~Statistics:UserStatisticsPDFController:loadYearChart','auto-generated permission'),(191,'~Statistics:UserStatisticsPDFController:loadMonthChart','auto-generated permission'),(192,'~Statistics:UserStatisticsPDFController:initUserStatistics','auto-generated permission'),(193,'~Statistics:GroupAnalysisViewReportController:generatePDFReportGroupAnalysisView','auto-generated permission'),(194,'~Statistics:GroupAnalysisViewReportController:initStatisticsGroupAnalysisView','auto-generated permission'),(195,'~Statistics:GroupAnalysisViewReportController:loadTreeStatisticsGroupAnalysisView','auto-generated permission'),(196,'~Statistics:GroupAnalysisViewDegunkController:removeNodeGroupAnalysisView','auto-generated permission'),(197,'~Statistics:GroupAnalysisViewDegunkController:degunkChildLeafNodesGroupAnalysisView','auto-generated permission'),(198,'~Statistics:RefererAnalysisViewReportController:generatePDFReportRefererAnalysisView','auto-generated permission'),(199,'~Statistics:RefererAnalysisViewReportController:initStatisticsRefererAnalysisView','auto-generated permission'),(200,'~Statistics:RefererAnalysisViewReportController:loadTreeStatisticsRefererAnalysisView','auto-generated permission'),(201,'~Statistics:OverViewReportController:generatePDFReportOverView','auto-generated permission'),(202,'~Statistics:OverViewReportController:loadOverViewCountryChart','auto-generated permission'),(203,'~Statistics:OverViewReportController:loadOverViewDataChart','auto-generated permission'),(204,'~Statistics:OverViewReportController:initStatisticsOverView','auto-generated permission'),(205,'~Statistics:OverViewReportController:clearSessionDataOverView','auto-generated permission'),(206,'~Statistics:TechnicalInformationViewReportController:generatePDFReportTechnicalInformationView','auto-generated permission'),(207,'~Statistics:TechnicalInformationViewReportController:initStatisticsTechnicalInformationView','auto-generated permission'),(208,'~Statistics:TimeAnalysisViewReportController:generatePDFReportTimeAnalysisView','auto-generated permission'),(209,'~Statistics:TimeAnalysisViewReportController:loadTimeAnalysisChart','auto-generated permission'),(210,'~Statistics:TimeAnalysisViewReportController:initStatisticsTimeAnalysisView','auto-generated permission'),(211,'~Statistics:TimeAnalysisViewReportController:clearSessionDataTimeAnalysis','auto-generated permission'),(212,'~Statistics:WestPanelController:initStatisticsWestPanel','auto-generated permission'),(213,'~Survey:SurveyController:executeSurveyController','auto-generated permission'),(214,'~Survey:SurveyCreatorController:updateSurvey','auto-generated permission'),(215,'~Survey:SurveyCreatorController:createSurvey','auto-generated permission'),(216,'~Survey:SurveyCreatorController:removeSurvey','auto-generated permission'),(217,'~Survey:SurveyCreatorController:removeQuestionnaire','auto-generated permission'),(218,'~Shop:ShopContentDisplayer:displayShop','auto-generated permission'),(219,'~Shop:ShoppingCartController:useShoppingCart','auto-generated permission'),(220,'~Shop:CheckoutController:startCheckout','auto-generated permission'),(221,'~Shop:CheckoutController:finishCheckout','auto-generated permission'),(222,'~Shop:CheckoutController:cancelCheckout','auto-generated permission'),(223,'~Shop:CheckoutController:getOrder','auto-generated permission'),(224,'~Shop:CheckoutController:editDeliveryAddress','auto-generated permission'),(225,'~Shop:CheckoutController:editBillingAddress','auto-generated permission'),(226,'~Shop:CheckoutController:editDispatchData','auto-generated permission'),(227,'~Shop:CheckoutController:editCustomer','auto-generated permission'),(228,'~Shop:CheckoutController:capturePayment','auto-generated permission'),(229,'~Shop:CheckoutController:editPaymentData','auto-generated permission'),(230,'~Shop:CheckoutController:editOrderDetails','auto-generated permission'),(231,'~Shop:CheckoutController:editOrder','auto-generated permission'),(232,'~Shop:CheckoutController:authorizePayment','auto-generated permission'),(233,'~Shop:InvoicePaymentController:captureInvoicePayment','auto-generated permission'),(234,'~Shop:InvoicePaymentController:authorizeInvoicePayment','auto-generated permission'),(235,'~Shop:PayPalPaymentController:startPayPalPaymentCapture','auto-generated permission'),(236,'~Shop:PayPalPaymentController:cancelPayPalPayment','auto-generated permission'),(237,'~Shop:PayPalPaymentController:finishPayPalPaymentAuthorization','auto-generated permission'),(238,'~Shop:PayPalPaymentController:finishPayPalPaymentCaptureWithGiropay','auto-generated permission'),(239,'~Shop:PayPalPaymentController:startPayPalPaymentAuthorization','auto-generated permission'),(240,'~Shop:WirecardCCPaymentController:captureWirecardCCPayment','auto-generated permission'),(241,'~Shop:WirecardCCPaymentController:finishWirecardCCPaymentAuthorization','auto-generated permission'),(242,'~Shop:WirecardCCPaymentController:startWirecardCCPaymentAuthorization','auto-generated permission'),(243,'~Shop:WirecardEFTPaymentController:captureWirecardEFTPayment','auto-generated permission'),(244,'~Shop:WirecardEFTPaymentController:authorizeWirecardEFTPayment','auto-generated permission'),(245,'~Shop:AbstractBasicContentEditor:editAbstractBasicContent','auto-generated permission'),(246,'~Shop:AbstractBasicContentEditor:viewAbstractBasicContent','auto-generated permission'),(247,'~Shop:AbstractBasicContentEditor:viewLocalizationMaps','auto-generated permission'),(248,'~Shop:AbstractBasicContentEditor:editLocalizationMaps','auto-generated permission'),(249,'~Shop:ContentGroupEditor:editContentGroup','auto-generated permission'),(250,'~Shop:ContentGroupEditor:editAbstractBasicContent','auto-generated permission'),(251,'~Shop:ContentGroupEditor:viewAbstractBasicContent','auto-generated permission'),(252,'~Shop:ContentGroupEditor:viewLocalizationMaps','auto-generated permission'),(253,'~Shop:ContentGroupEditor:editLocalizationMaps','auto-generated permission'),(254,'~Shop:ShopContentEditor:editShopContent','auto-generated permission'),(255,'~Shop:ShopContentEditor:editStoreContent','auto-generated permission'),(256,'~Shop:ShopContentEditor:editAbstractBasicContent','auto-generated permission'),(257,'~Shop:ShopContentEditor:viewAbstractBasicContent','auto-generated permission'),(258,'~Shop:ShopContentEditor:viewLocalizationMaps','auto-generated permission'),(259,'~Shop:ShopContentEditor:editLocalizationMaps','auto-generated permission'),(260,'~Shop:ShopContentRegistryEditor:useContentRegistry','auto-generated permission'),(261,'~Shop:ShopSettingsEditor:editShopSettings','auto-generated permission'),(262,'~Shop:PriceUpdateController:updateFromPriceList','auto-generated permission'),(263,'~Shop:PriceUpdateController:getPriceList','auto-generated permission');
+/*!40000 ALTER TABLE `Permission` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Permission_CommandMatcher`
+--
+
 DROP TABLE IF EXISTS `Permission_CommandMatcher`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Permission_CommandMatcher` (
   `Permission_id` bigint(20) NOT NULL,
   `commandMatchers_id` bigint(20) NOT NULL,
@@ -916,10 +1959,25 @@ CREATE TABLE `Permission_CommandMatcher` (
   CONSTRAINT `FK29B423D71BAB9B06` FOREIGN KEY (`Permission_id`) REFERENCES `Permission` (`id`),
   CONSTRAINT `FK29B423D7CDC38D81` FOREIGN KEY (`commandMatchers_id`) REFERENCES `CommandMatcher` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Permission_CommandMatcher`
+--
+
 LOCK TABLES `Permission_CommandMatcher` WRITE;
+/*!40000 ALTER TABLE `Permission_CommandMatcher` DISABLE KEYS */;
 INSERT INTO `Permission_CommandMatcher` VALUES (1,1),(2,2),(3,3),(2,4),(3,5),(4,6),(5,7),(5,8),(3,9),(3,10),(2,11),(2,12),(2,13),(2,14),(2,15),(2,16),(2,17),(2,18),(6,19),(6,20),(6,21),(6,22),(6,23),(6,24),(7,25),(8,26),(7,27),(8,28),(9,29),(10,30),(10,31),(8,32),(8,33),(7,34),(7,35),(7,36),(7,37),(7,38),(7,39),(7,40),(7,41),(11,42),(11,43),(11,44),(11,45),(11,46),(11,47),(11,48),(11,49),(11,50),(11,51),(11,52),(11,53),(11,54),(11,55),(11,56),(11,57),(11,58),(11,59),(11,60),(11,61),(12,62),(13,63),(12,64),(13,65),(14,66),(15,67),(15,68),(13,69),(13,70),(12,71),(12,72),(12,73),(12,74),(12,75),(12,76),(12,77),(12,78),(16,79),(16,80),(16,81),(16,82),(16,83),(16,84),(16,85),(16,86),(16,87),(16,88),(16,89),(16,90),(16,91),(17,92),(17,93),(17,94),(17,95),(17,96),(17,97),(17,98),(17,99),(17,100),(17,101),(17,102),(17,103),(18,104),(19,105),(20,106),(21,107),(22,108),(21,109),(22,110),(23,111),(24,112),(24,113),(22,114),(22,115),(21,116),(21,117),(21,118),(21,119),(21,120),(21,121),(21,122),(21,123),(25,124),(25,125),(25,126),(25,127),(25,128),(25,129),(26,130),(27,131),(26,132),(27,133),(28,134),(29,135),(29,136),(27,137),(27,138),(26,139),(26,140),(26,141),(26,142),(26,143),(26,144),(26,145),(26,146),(30,147),(31,148),(30,149),(31,150),(30,151),(32,152),(33,153),(32,154),(33,155),(34,156),(35,157),(35,158),(33,159),(33,160),(32,161),(32,162),(32,163),(32,164),(32,165),(32,166),(32,167),(32,168),(36,169),(37,170),(37,171),(36,172),(38,173),(38,174),(38,175),(38,176),(38,177),(38,178),(38,179),(38,180),(38,181),(38,182),(38,183),(38,184),(39,185),(40,186),(41,187),(42,188),(43,189),(44,190),(45,191),(45,192),(45,193),(46,194),(46,195),(47,196),(47,197),(48,198),(49,199),(50,200),(51,201),(52,202),(53,203),(54,204),(55,205),(56,206),(57,207),(58,208),(59,209),(60,210),(61,211),(62,212),(63,213),(64,214),(65,215),(66,216),(67,217),(68,218),(69,219),(70,220),(71,221),(72,222),(73,223),(74,224),(75,225),(76,226),(77,227),(78,228),(79,229),(80,230),(81,231),(82,232),(83,233),(84,234),(85,235),(86,236),(87,237),(88,238),(89,239),(90,240),(91,241),(92,242),(93,243),(94,244),(95,245),(96,246),(97,247),(98,248),(99,249),(100,250),(101,251),(102,252),(103,253),(104,254),(105,255),(105,256),(105,257),(105,258),(105,259),(105,260),(106,261),(105,262),(105,263),(105,264),(105,265),(105,266),(105,267),(105,268),(107,269),(108,270),(109,271),(110,272),(111,273),(112,274),(113,275),(114,276),(115,277),(116,278),(116,279),(116,280),(117,281),(117,282),(117,283),(117,284),(118,285),(118,286),(119,287),(120,288),(118,289),(121,290),(122,291),(123,292),(124,293),(125,294),(126,295),(127,296),(128,297),(128,298),(128,299),(128,300),(128,301),(128,302),(128,303),(128,304),(128,305),(128,306),(128,307),(128,308),(128,309),(128,310),(129,311),(130,312),(130,313),(130,314),(130,315),(129,316),(129,317),(130,318),(131,319),(132,320),(131,321),(132,322),(133,323),(134,324),(134,325),(132,326),(132,327),(131,328),(131,329),(131,330),(131,331),(131,332),(131,333),(131,334),(131,335),(135,336),(135,337),(135,338),(135,339),(135,340),(135,341),(136,342),(137,343),(136,344),(137,345),(138,346),(139,347),(139,348),(137,349),(137,350),(136,351),(136,352),(136,353),(136,354),(136,355),(136,356),(136,357),(136,358),(140,359),(140,360),(140,361),(140,362),(141,363),(142,364),(141,365),(142,366),(143,367),(144,368),(144,369),(142,370),(142,371),(141,372),(141,373),(141,374),(141,375),(141,376),(141,377),(141,378),(141,379),(145,380),(145,381),(145,382),(146,383),(147,384),(146,385),(147,386),(148,387),(149,388),(149,389),(147,390),(147,391),(146,392),(146,393),(146,394),(146,395),(146,396),(146,397),(146,398),(146,399),(150,400),(150,401),(151,402),(150,403),(150,404),(151,405),(152,406),(152,407),(153,408),(152,409),(153,410),(153,411),(152,412),(153,413),(154,414),(155,415),(155,416),(156,417),(155,418),(156,419),(156,420),(156,421),(157,422),(154,423),(158,424),(159,425),(160,426),(160,427),(160,428),(159,429),(159,430),(160,431),(159,432),(161,433),(162,434),(163,435),(164,436),(165,437),(166,438),(167,439),(168,440),(169,441),(170,442),(171,443),(172,444),(173,445),(174,446),(175,447),(176,448),(177,449),(178,450),(179,451),(180,452),(181,453),(182,454),(183,455),(184,456),(185,457),(186,458),(187,459),(188,460),(189,461),(190,462),(191,463),(192,464),(193,465),(194,466),(195,467),(196,468),(197,469),(198,470),(199,471),(200,472),(201,473),(202,474),(203,475),(204,476),(205,477),(206,478),(207,479),(208,480),(209,481),(210,482),(211,483),(212,484),(213,485),(214,486),(215,487),(216,488),(217,489),(218,490),(219,491),(219,492),(219,493),(219,494),(219,495),(219,496),(220,497),(221,498),(222,499),(223,500),(224,501),(225,502),(226,503),(227,504),(228,505),(229,506),(230,507),(231,508),(232,509),(233,510),(234,511),(235,512),(236,513),(237,514),(238,515),(239,516),(240,517),(241,518),(242,519),(243,520),(244,521),(245,522),(246,523),(245,524),(246,525),(247,526),(248,527),(248,528),(246,529),(246,530),(245,531),(245,532),(245,533),(245,534),(245,535),(245,536),(245,537),(245,538),(249,539),(249,540),(249,541),(249,542),(249,543),(249,544),(250,545),(251,546),(250,547),(251,548),(252,549),(253,550),(253,551),(251,552),(251,553),(250,554),(250,555),(250,556),(250,557),(250,558),(250,559),(250,560),(250,561),(254,562),(254,563),(254,564),(254,565),(254,566),(254,567),(254,568),(254,569),(254,570),(254,571),(254,572),(254,573),(254,574),(254,575),(254,576),(254,577),(255,578),(255,579),(255,580),(255,581),(255,582),(255,583),(255,584),(255,585),(255,586),(255,587),(255,588),(255,589),(255,590),(255,591),(255,592),(256,593),(257,594),(256,595),(257,596),(258,597),(259,598),(259,599),(257,600),(257,601),(256,602),(256,603),(256,604),(256,605),(256,606),(256,607),(256,608),(256,609),(260,610),(260,611),(260,612),(260,613),(260,614),(260,615),(260,616),(260,617),(260,618),(260,619),(260,620),(260,621),(261,622),(261,623),(261,624),(261,625),(261,626),(261,627),(261,628),(261,629),(262,630),(263,631);
+/*!40000 ALTER TABLE `Permission_CommandMatcher` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `PreliminaryUser`
+--
+
 DROP TABLE IF EXISTS `PreliminaryUser`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PreliminaryUser` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `creationTime` datetime NOT NULL,
@@ -934,9 +1992,24 @@ CREATE TABLE `PreliminaryUser` (
   KEY `index_name` (`name`),
   KEY `index_email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PreliminaryUser`
+--
+
 LOCK TABLES `PreliminaryUser` WRITE;
+/*!40000 ALTER TABLE `PreliminaryUser` DISABLE KEYS */;
+/*!40000 ALTER TABLE `PreliminaryUser` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Price`
+--
+
 DROP TABLE IF EXISTS `Price`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Price` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `amount` bigint(20) NOT NULL,
@@ -949,9 +2022,24 @@ CREATE TABLE `Price` (
   KEY `FK49CC129817FA24F` (`taxGroup_id`),
   CONSTRAINT `FK49CC129817FA24F` FOREIGN KEY (`taxGroup_id`) REFERENCES `TaxGroup` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Price`
+--
+
 LOCK TABLES `Price` WRITE;
+/*!40000 ALTER TABLE `Price` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Price` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Price_Role`
+--
+
 DROP TABLE IF EXISTS `Price_Role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Price_Role` (
   `Price_id` bigint(20) NOT NULL,
   `roles_id` bigint(20) NOT NULL,
@@ -961,27 +2049,72 @@ CREATE TABLE `Price_Role` (
   CONSTRAINT `FK1F8C3DEC2AA2805` FOREIGN KEY (`Price_id`) REFERENCES `Price` (`id`),
   CONSTRAINT `FK1F8C3DEC8FD5EEFF` FOREIGN KEY (`roles_id`) REFERENCES `Role` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Price_Role`
+--
+
 LOCK TABLES `Price_Role` WRITE;
+/*!40000 ALTER TABLE `Price_Role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Price_Role` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `QuestionGroup`
+--
+
 DROP TABLE IF EXISTS `QuestionGroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `QuestionGroup` (
   `id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKF0E27A192E512894` (`id`),
   CONSTRAINT `FKF0E27A192E512894` FOREIGN KEY (`id`) REFERENCES `AbstractQuestion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `QuestionGroup`
+--
+
 LOCK TABLES `QuestionGroup` WRITE;
+/*!40000 ALTER TABLE `QuestionGroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `QuestionGroup` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `QuestionGroupAnswer`
+--
+
 DROP TABLE IF EXISTS `QuestionGroupAnswer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `QuestionGroupAnswer` (
   `id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK9749EF379E50AD70` (`id`),
   CONSTRAINT `FK9749EF379E50AD70` FOREIGN KEY (`id`) REFERENCES `AbstractTypedAnswer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `QuestionGroupAnswer`
+--
+
 LOCK TABLES `QuestionGroupAnswer` WRITE;
+/*!40000 ALTER TABLE `QuestionGroupAnswer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `QuestionGroupAnswer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `QuestionGroupAnswer_AbstractTypedAnswer`
+--
+
 DROP TABLE IF EXISTS `QuestionGroupAnswer_AbstractTypedAnswer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `QuestionGroupAnswer_AbstractTypedAnswer` (
   `QuestionGroupAnswer_id` bigint(20) NOT NULL,
   `value_id` bigint(20) NOT NULL,
@@ -993,9 +2126,24 @@ CREATE TABLE `QuestionGroupAnswer_AbstractTypedAnswer` (
   CONSTRAINT `FK16FA3E1E4A433EFE` FOREIGN KEY (`value_id`) REFERENCES `AbstractTypedAnswer` (`id`),
   CONSTRAINT `FK16FA3E1EE85C9769` FOREIGN KEY (`QuestionGroupAnswer_id`) REFERENCES `QuestionGroupAnswer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `QuestionGroupAnswer_AbstractTypedAnswer`
+--
+
 LOCK TABLES `QuestionGroupAnswer_AbstractTypedAnswer` WRITE;
+/*!40000 ALTER TABLE `QuestionGroupAnswer_AbstractTypedAnswer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `QuestionGroupAnswer_AbstractTypedAnswer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `QuestionGroup_AbstractQuestion`
+--
+
 DROP TABLE IF EXISTS `QuestionGroup_AbstractQuestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `QuestionGroup_AbstractQuestion` (
   `QuestionGroup_id` bigint(20) NOT NULL,
   `questions_id` bigint(20) NOT NULL,
@@ -1007,9 +2155,24 @@ CREATE TABLE `QuestionGroup_AbstractQuestion` (
   CONSTRAINT `FKC9FACFAE154F5349` FOREIGN KEY (`QuestionGroup_id`) REFERENCES `QuestionGroup` (`id`),
   CONSTRAINT `FKC9FACFAE241CACC6` FOREIGN KEY (`questions_id`) REFERENCES `AbstractQuestion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `QuestionGroup_AbstractQuestion`
+--
+
 LOCK TABLES `QuestionGroup_AbstractQuestion` WRITE;
+/*!40000 ALTER TABLE `QuestionGroup_AbstractQuestion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `QuestionGroup_AbstractQuestion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Questionnaire`
+--
+
 DROP TABLE IF EXISTS `Questionnaire`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Questionnaire` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `storageDate` datetime DEFAULT NULL,
@@ -1019,9 +2182,24 @@ CREATE TABLE `Questionnaire` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Questionnaire`
+--
+
 LOCK TABLES `Questionnaire` WRITE;
+/*!40000 ALTER TABLE `Questionnaire` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Questionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Questionnaire_AbstractTypedAnswer`
+--
+
 DROP TABLE IF EXISTS `Questionnaire_AbstractTypedAnswer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Questionnaire_AbstractTypedAnswer` (
   `Questionnaire_id` bigint(20) NOT NULL,
   `answers_id` bigint(20) NOT NULL,
@@ -1031,9 +2209,24 @@ CREATE TABLE `Questionnaire_AbstractTypedAnswer` (
   CONSTRAINT `FKD3E66E6A60DF0729` FOREIGN KEY (`Questionnaire_id`) REFERENCES `Questionnaire` (`id`),
   CONSTRAINT `FKD3E66E6AD78E897A` FOREIGN KEY (`answers_id`) REFERENCES `AbstractTypedAnswer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Questionnaire_AbstractTypedAnswer`
+--
+
 LOCK TABLES `Questionnaire_AbstractTypedAnswer` WRITE;
+/*!40000 ALTER TABLE `Questionnaire_AbstractTypedAnswer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Questionnaire_AbstractTypedAnswer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `RefererTreeAggregation`
+--
+
 DROP TABLE IF EXISTS `RefererTreeAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `RefererTreeAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -1048,10 +2241,25 @@ CREATE TABLE `RefererTreeAggregation` (
   CONSTRAINT `FK15EF77978E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`),
   CONSTRAINT `FK15EF7797A57D4F7A` FOREIGN KEY (`path_id`) REFERENCES `RefererTreeElement` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RefererTreeAggregation`
+--
+
 LOCK TABLES `RefererTreeAggregation` WRITE;
+/*!40000 ALTER TABLE `RefererTreeAggregation` DISABLE KEYS */;
 INSERT INTO `RefererTreeAggregation` VALUES (1,1459382399999,1459296000000,2,1,35),(2,1459382399999,1459296000000,2,1,34),(3,1459468799999,1459382400000,1,1,35),(4,1459468799999,1459382400000,2,1,34),(5,1459468799999,1459382400000,1,1,43),(6,1459468799999,1459382400000,1,1,44),(7,1459468799999,1459382400000,1,1,45),(8,1459555199999,1459468800000,1,1,35),(9,1459555199999,1459468800000,3,1,34),(10,1459555199999,1459468800000,2,1,43),(11,1459555199999,1459468800000,2,1,44),(12,1459555199999,1459468800000,2,1,45);
+/*!40000 ALTER TABLE `RefererTreeAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `RefererTreeElement`
+--
+
 DROP TABLE IF EXISTS `RefererTreeElement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `RefererTreeElement` (
   `pathString` varchar(255) COLLATE utf8_bin NOT NULL,
   `rootNode` bit(1) NOT NULL,
@@ -1063,10 +2271,25 @@ CREATE TABLE `RefererTreeElement` (
   CONSTRAINT `FK57B0923173E39345` FOREIGN KEY (`server_id`) REFERENCES `StatisticsServer` (`id`),
   CONSTRAINT `FK57B09231A6741773` FOREIGN KEY (`id`) REFERENCES `Node` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RefererTreeElement`
+--
+
 LOCK TABLES `RefererTreeElement` WRITE;
+/*!40000 ALTER TABLE `RefererTreeElement` DISABLE KEYS */;
 INSERT INTO `RefererTreeElement` VALUES ('','',34,1),('?','\0',35,1),('com','\0',43,1),('epam','\0',44,1),('ecsc00104473','\0',45,1);
+/*!40000 ALTER TABLE `RefererTreeElement` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `RegexVersion`
+--
+
 DROP TABLE IF EXISTS `RegexVersion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `RegexVersion` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1075,20 +2298,50 @@ CREATE TABLE `RegexVersion` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `regex` (`regex`,`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RegexVersion`
+--
+
 LOCK TABLES `RegexVersion` WRITE;
+/*!40000 ALTER TABLE `RegexVersion` DISABLE KEYS */;
 INSERT INTO `RegexVersion` VALUES (9,'FF 2.x','.*Firefox\\/2.*'),(8,'FF 3.0','.*Firefox\\/3\\.0.*'),(7,'FF 3.1','.*Firefox\\/3\\.1.*'),(6,'FF 3.5','.*Firefox\\/3\\.5.*'),(5,'FF 3.6','.*Firefox\\/3\\.6.*'),(4,'IE 5','.*MSIE 5.*'),(3,'IE 6','.*MSIE 6.*'),(2,'IE 7','.*MSIE 7.*'),(1,'IE 8','.*MSIE 8.*'),(11,'Win Vista','.*NT 6\\.0.*'),(10,'Win 7','.*NT 6\\.1.*');
+/*!40000 ALTER TABLE `RegexVersion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `RegistryBundleNode`
+--
+
 DROP TABLE IF EXISTS `RegistryBundleNode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `RegistryBundleNode` (
   `id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK8688A1E1D4C659E1` (`id`),
   CONSTRAINT `FK8688A1E1D4C659E1` FOREIGN KEY (`id`) REFERENCES `AbstractRegistryNode` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RegistryBundleNode`
+--
+
 LOCK TABLES `RegistryBundleNode` WRITE;
+/*!40000 ALTER TABLE `RegistryBundleNode` DISABLE KEYS */;
 INSERT INTO `RegistryBundleNode` VALUES (4),(8),(12),(16);
+/*!40000 ALTER TABLE `RegistryBundleNode` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `RegistryLocaleNode`
+--
+
 DROP TABLE IF EXISTS `RegistryLocaleNode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `RegistryLocaleNode` (
   `locale` varchar(255) COLLATE utf8_bin NOT NULL,
   `id` bigint(20) NOT NULL,
@@ -1096,10 +2349,25 @@ CREATE TABLE `RegistryLocaleNode` (
   KEY `FK826CD3B9D4C659E1` (`id`),
   CONSTRAINT `FK826CD3B9D4C659E1` FOREIGN KEY (`id`) REFERENCES `AbstractRegistryNode` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RegistryLocaleNode`
+--
+
 LOCK TABLES `RegistryLocaleNode` WRITE;
+/*!40000 ALTER TABLE `RegistryLocaleNode` DISABLE KEYS */;
 INSERT INTO `RegistryLocaleNode` VALUES ('en_US',5),('fr_FR',6),('de_DE',7),('en_US',9),('fr_FR',10),('de_DE',11),('en_US',13),('fr_FR',14),('de_DE',15),('en_US',17),('fr_FR',18),('de_DE',19),('en_US',26),('en_US',28),('en_US',37),('en_US',38),('en_US',39),('en_US',40);
+/*!40000 ALTER TABLE `RegistryLocaleNode` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Representative`
+--
+
 DROP TABLE IF EXISTS `Representative`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Representative` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1122,9 +2390,24 @@ CREATE TABLE `Representative` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Representative`
+--
+
 LOCK TABLES `Representative` WRITE;
+/*!40000 ALTER TABLE `Representative` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Representative` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Retailer`
+--
+
 DROP TABLE IF EXISTS `Retailer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Retailer` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1149,9 +2432,24 @@ CREATE TABLE `Retailer` (
   KEY `FKF0702D10B89C89B4` (`logo_id`),
   CONSTRAINT `FKF0702D10B89C89B4` FOREIGN KEY (`logo_id`) REFERENCES `VirtualFile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Retailer`
+--
+
 LOCK TABLES `Retailer` WRITE;
+/*!40000 ALTER TABLE `Retailer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Retailer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Role`
+--
+
 DROP TABLE IF EXISTS `Role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Role` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1175,10 +2473,25 @@ CREATE TABLE `Role` (
   CONSTRAINT `FK26F4967BA17CFD` FOREIGN KEY (`selfViewRoles_id`) REFERENCES `AbstractAttribute` (`id`),
   CONSTRAINT `FK26F496CBCE0763` FOREIGN KEY (`triggeredRoles_id`) REFERENCES `AbstractAttribute` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Role`
+--
+
 LOCK TABLES `Role` WRITE;
+/*!40000 ALTER TABLE `Role` DISABLE KEYS */;
 INSERT INTO `Role` VALUES (1,'~Everybody','',NULL,NULL,NULL,NULL,NULL),(2,'~StatisticsServer.???','',NULL,NULL,NULL,NULL,NULL),(3,'~StatisticsServer.192.168.1.3','',NULL,NULL,NULL,NULL,NULL),(4,'~StatisticsServer.localhost','',NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `Role` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Role_Group`
+--
+
 DROP TABLE IF EXISTS `Role_Group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Role_Group` (
   `Role_id` bigint(20) NOT NULL,
   `groups_id` bigint(20) NOT NULL,
@@ -1188,9 +2501,24 @@ CREATE TABLE `Role_Group` (
   CONSTRAINT `FKE1411576F1BD76A6` FOREIGN KEY (`Role_id`) REFERENCES `Role` (`id`),
   CONSTRAINT `FKE1411576FCE002B9` FOREIGN KEY (`groups_id`) REFERENCES `Group` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Role_Group`
+--
+
 LOCK TABLES `Role_Group` WRITE;
+/*!40000 ALTER TABLE `Role_Group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Role_Group` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Role_Permission`
+--
+
 DROP TABLE IF EXISTS `Role_Permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Role_Permission` (
   `Role_id` bigint(20) NOT NULL,
   `permissions_id` bigint(20) NOT NULL,
@@ -1200,10 +2528,25 @@ CREATE TABLE `Role_Permission` (
   CONSTRAINT `FKF8A569381B59F431` FOREIGN KEY (`permissions_id`) REFERENCES `Permission` (`id`),
   CONSTRAINT `FKF8A56938F1BD76A6` FOREIGN KEY (`Role_id`) REFERENCES `Role` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Role_Permission`
+--
+
 LOCK TABLES `Role_Permission` WRITE;
+/*!40000 ALTER TABLE `Role_Permission` DISABLE KEYS */;
 INSERT INTO `Role_Permission` VALUES (1,18),(1,40);
+/*!40000 ALTER TABLE `Role_Permission` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ScreenResolution`
+--
+
 DROP TABLE IF EXISTS `ScreenResolution`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ScreenResolution` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `format` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1213,10 +2556,25 @@ CREATE TABLE `ScreenResolution` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `x` (`x`,`y`,`format`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ScreenResolution`
+--
+
 LOCK TABLES `ScreenResolution` WRITE;
+/*!40000 ALTER TABLE `ScreenResolution` DISABLE KEYS */;
 INSERT INTO `ScreenResolution` VALUES (2,'WIDE',1600,900),(3,'WIDE',1680,1050),(1,'WIDE',1920,1080);
+/*!40000 ALTER TABLE `ScreenResolution` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ScreenResolutionPerVisitAggregation`
+--
+
 DROP TABLE IF EXISTS `ScreenResolutionPerVisitAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ScreenResolutionPerVisitAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -1231,10 +2589,25 @@ CREATE TABLE `ScreenResolutionPerVisitAggregation` (
   CONSTRAINT `FK8C8EE65C33B60C42` FOREIGN KEY (`screenResolution_id`) REFERENCES `ScreenResolution` (`id`),
   CONSTRAINT `FK8C8EE65C8E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ScreenResolutionPerVisitAggregation`
+--
+
 LOCK TABLES `ScreenResolutionPerVisitAggregation` WRITE;
+/*!40000 ALTER TABLE `ScreenResolutionPerVisitAggregation` DISABLE KEYS */;
 INSERT INTO `ScreenResolutionPerVisitAggregation` VALUES (1,1459382399999,1459296000000,1,1,1),(2,1459382399999,1459296000000,1,1,2),(3,1459468799999,1459382400000,2,1,2),(4,1459555199999,1459468800000,1,1,3),(5,1459555199999,1459468800000,2,1,1);
+/*!40000 ALTER TABLE `ScreenResolutionPerVisitAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SearchFailure`
+--
+
 DROP TABLE IF EXISTS `SearchFailure`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SearchFailure` (
   `id` varchar(255) COLLATE utf8_bin NOT NULL,
   `lastRecurrence` bigint(20) DEFAULT NULL,
@@ -1244,9 +2617,24 @@ CREATE TABLE `SearchFailure` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SearchFailure`
+--
+
 LOCK TABLES `SearchFailure` WRITE;
+/*!40000 ALTER TABLE `SearchFailure` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SearchFailure` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SearchSuggestion`
+--
+
 DROP TABLE IF EXISTS `SearchSuggestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SearchSuggestion` (
   `id` varchar(255) COLLATE utf8_bin NOT NULL,
   `importance` double DEFAULT NULL,
@@ -1259,9 +2647,24 @@ CREATE TABLE `SearchSuggestion` (
   KEY `index_searchQuery` (`searchQuery`),
   KEY `index_locale` (`locale`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SearchSuggestion`
+--
+
 LOCK TABLES `SearchSuggestion` WRITE;
+/*!40000 ALTER TABLE `SearchSuggestion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SearchSuggestion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SectionAttribute`
+--
+
 DROP TABLE IF EXISTS `SectionAttribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SectionAttribute` (
   `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `id` bigint(20) NOT NULL,
@@ -1272,9 +2675,24 @@ CREATE TABLE `SectionAttribute` (
   CONSTRAINT `FK28CE815765F7CF3D` FOREIGN KEY (`check_id`) REFERENCES `AbstractTypedCheck` (`id`),
   CONSTRAINT `FK28CE81578721794A` FOREIGN KEY (`id`) REFERENCES `AbstractAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SectionAttribute`
+--
+
 LOCK TABLES `SectionAttribute` WRITE;
+/*!40000 ALTER TABLE `SectionAttribute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SectionAttribute` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SectionValue`
+--
+
 DROP TABLE IF EXISTS `SectionValue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SectionValue` (
   `id` bigint(20) NOT NULL,
   `attribute_id` bigint(20) DEFAULT NULL,
@@ -1284,9 +2702,24 @@ CREATE TABLE `SectionValue` (
   CONSTRAINT `FK3009FDAC1174219F` FOREIGN KEY (`id`) REFERENCES `AbstractValue` (`id`),
   CONSTRAINT `FK3009FDAC9A95DCA0` FOREIGN KEY (`attribute_id`) REFERENCES `SectionAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SectionValue`
+--
+
 LOCK TABLES `SectionValue` WRITE;
+/*!40000 ALTER TABLE `SectionValue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SectionValue` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SelectQuestion`
+--
+
 DROP TABLE IF EXISTS `SelectQuestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SelectQuestion` (
   `customValue` bit(1) NOT NULL,
   `noOfSelects` int(11) NOT NULL,
@@ -1296,9 +2729,24 @@ CREATE TABLE `SelectQuestion` (
   KEY `FKB78BE5222E512894` (`id`),
   CONSTRAINT `FKB78BE5222E512894` FOREIGN KEY (`id`) REFERENCES `AbstractQuestion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SelectQuestion`
+--
+
 LOCK TABLES `SelectQuestion` WRITE;
+/*!40000 ALTER TABLE `SelectQuestion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SelectQuestion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SelectQuestionAnswer`
+--
+
 DROP TABLE IF EXISTS `SelectQuestionAnswer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SelectQuestionAnswer` (
   `customValue` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `id` bigint(20) NOT NULL,
@@ -1306,35 +2754,95 @@ CREATE TABLE `SelectQuestionAnswer` (
   KEY `FK120F2F809E50AD70` (`id`),
   CONSTRAINT `FK120F2F809E50AD70` FOREIGN KEY (`id`) REFERENCES `AbstractTypedAnswer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SelectQuestionAnswer`
+--
+
 LOCK TABLES `SelectQuestionAnswer` WRITE;
+/*!40000 ALTER TABLE `SelectQuestionAnswer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SelectQuestionAnswer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SelectQuestionAnswer_values`
+--
+
 DROP TABLE IF EXISTS `SelectQuestionAnswer_values`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SelectQuestionAnswer_values` (
   `SelectQuestionAnswer_id` bigint(20) NOT NULL,
   `value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   KEY `FK739FAC15BBB92CB` (`SelectQuestionAnswer_id`),
   CONSTRAINT `FK739FAC15BBB92CB` FOREIGN KEY (`SelectQuestionAnswer_id`) REFERENCES `SelectQuestionAnswer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SelectQuestionAnswer_values`
+--
+
 LOCK TABLES `SelectQuestionAnswer_values` WRITE;
+/*!40000 ALTER TABLE `SelectQuestionAnswer_values` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SelectQuestionAnswer_values` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SelectQuestion_selectValues`
+--
+
 DROP TABLE IF EXISTS `SelectQuestion_selectValues`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SelectQuestion_selectValues` (
   `SelectQuestion_id` bigint(20) NOT NULL,
   `selectValue` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   KEY `FK87797D3B4CDF002B` (`SelectQuestion_id`),
   CONSTRAINT `FK87797D3B4CDF002B` FOREIGN KEY (`SelectQuestion_id`) REFERENCES `SelectQuestion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SelectQuestion_selectValues`
+--
+
 LOCK TABLES `SelectQuestion_selectValues` WRITE;
+/*!40000 ALTER TABLE `SelectQuestion_selectValues` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SelectQuestion_selectValues` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Selection`
+--
+
 DROP TABLE IF EXISTS `Selection`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Selection` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Selection`
+--
+
 LOCK TABLES `Selection` WRITE;
+/*!40000 ALTER TABLE `Selection` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Selection` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SelectionAttribute`
+--
+
 DROP TABLE IF EXISTS `SelectionAttribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SelectionAttribute` (
   `multiselect` bit(1) NOT NULL,
   `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -1346,9 +2854,24 @@ CREATE TABLE `SelectionAttribute` (
   CONSTRAINT `FKBE5E129065F7CF3D` FOREIGN KEY (`check_id`) REFERENCES `AbstractTypedCheck` (`id`),
   CONSTRAINT `FKBE5E12908721794A` FOREIGN KEY (`id`) REFERENCES `AbstractAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SelectionAttribute`
+--
+
 LOCK TABLES `SelectionAttribute` WRITE;
+/*!40000 ALTER TABLE `SelectionAttribute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SelectionAttribute` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SelectionValue`
+--
+
 DROP TABLE IF EXISTS `SelectionValue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SelectionValue` (
   `id` bigint(20) NOT NULL,
   `attribute_id` bigint(20) DEFAULT NULL,
@@ -1361,9 +2884,24 @@ CREATE TABLE `SelectionValue` (
   CONSTRAINT `FK44FD13651411AF19` FOREIGN KEY (`attribute_id`) REFERENCES `SelectionAttribute` (`id`),
   CONSTRAINT `FK44FD1365454D0DD5` FOREIGN KEY (`value_id`) REFERENCES `Selection` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SelectionValue`
+--
+
 LOCK TABLES `SelectionValue` WRITE;
+/*!40000 ALTER TABLE `SelectionValue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SelectionValue` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ShopContent`
+--
+
 DROP TABLE IF EXISTS `ShopContent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ShopContent` (
   `status` varchar(255) COLLATE utf8_bin NOT NULL,
   `stock` int(11) DEFAULT NULL,
@@ -1372,9 +2910,24 @@ CREATE TABLE `ShopContent` (
   KEY `FKDC1B7883B6A49B6D` (`id`),
   CONSTRAINT `FKDC1B7883B6A49B6D` FOREIGN KEY (`id`) REFERENCES `StoreContent` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ShopContent`
+--
+
 LOCK TABLES `ShopContent` WRITE;
+/*!40000 ALTER TABLE `ShopContent` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ShopContent` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ShopContent_Price`
+--
+
 DROP TABLE IF EXISTS `ShopContent_Price`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ShopContent_Price` (
   `ShopContent_id` bigint(20) NOT NULL,
   `prices_id` bigint(20) NOT NULL,
@@ -1385,9 +2938,24 @@ CREATE TABLE `ShopContent_Price` (
   CONSTRAINT `FKC02AEE6D43CB965` FOREIGN KEY (`ShopContent_id`) REFERENCES `ShopContent` (`id`),
   CONSTRAINT `FKC02AEE6DCA2A7564` FOREIGN KEY (`prices_id`) REFERENCES `Price` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ShopContent_Price`
+--
+
 LOCK TABLES `ShopContent_Price` WRITE;
+/*!40000 ALTER TABLE `ShopContent_Price` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ShopContent_Price` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ShopContent_ShopVariant`
+--
+
 DROP TABLE IF EXISTS `ShopContent_ShopVariant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ShopContent_ShopVariant` (
   `ShopContent_id` bigint(20) NOT NULL,
   `shopVariants_id` bigint(20) NOT NULL,
@@ -1398,9 +2966,24 @@ CREATE TABLE `ShopContent_ShopVariant` (
   CONSTRAINT `FK90217ED343CB965` FOREIGN KEY (`ShopContent_id`) REFERENCES `ShopContent` (`id`),
   CONSTRAINT `FK90217ED37CBC8510` FOREIGN KEY (`shopVariants_id`) REFERENCES `ShopVariant` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ShopContent_ShopVariant`
+--
+
 LOCK TABLES `ShopContent_ShopVariant` WRITE;
+/*!40000 ALTER TABLE `ShopContent_ShopVariant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ShopContent_ShopVariant` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ShopSettings`
+--
+
 DROP TABLE IF EXISTS `ShopSettings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ShopSettings` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `currency` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1413,9 +2996,24 @@ CREATE TABLE `ShopSettings` (
   KEY `FK1EA6F9591AF247EF` (`bundle_id`),
   CONSTRAINT `FK1EA6F9591AF247EF` FOREIGN KEY (`bundle_id`) REFERENCES `Bundle` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ShopSettings`
+--
+
 LOCK TABLES `ShopSettings` WRITE;
+/*!40000 ALTER TABLE `ShopSettings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ShopSettings` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ShopVariant`
+--
+
 DROP TABLE IF EXISTS `ShopVariant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ShopVariant` (
   `status` varchar(255) COLLATE utf8_bin NOT NULL,
   `stock` int(11) DEFAULT NULL,
@@ -1424,9 +3022,24 @@ CREATE TABLE `ShopVariant` (
   KEY `FKB181548F8C0A7779` (`id`),
   CONSTRAINT `FKB181548F8C0A7779` FOREIGN KEY (`id`) REFERENCES `StoreVariant` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ShopVariant`
+--
+
 LOCK TABLES `ShopVariant` WRITE;
+/*!40000 ALTER TABLE `ShopVariant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ShopVariant` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ShopVariant_Price`
+--
+
 DROP TABLE IF EXISTS `ShopVariant_Price`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ShopVariant_Price` (
   `ShopVariant_id` bigint(20) NOT NULL,
   `prices_id` bigint(20) NOT NULL,
@@ -1437,9 +3050,24 @@ CREATE TABLE `ShopVariant_Price` (
   CONSTRAINT `FK8B8691793224ADE5` FOREIGN KEY (`ShopVariant_id`) REFERENCES `ShopVariant` (`id`),
   CONSTRAINT `FK8B869179CA2A7564` FOREIGN KEY (`prices_id`) REFERENCES `Price` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ShopVariant_Price`
+--
+
 LOCK TABLES `ShopVariant_Price` WRITE;
+/*!40000 ALTER TABLE `ShopVariant_Price` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ShopVariant_Price` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Sitemap`
+--
+
 DROP TABLE IF EXISTS `Sitemap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Sitemap` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `locale` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1451,10 +3079,25 @@ CREATE TABLE `Sitemap` (
   KEY `idx_locale` (`locale`),
   CONSTRAINT `FKE06444955BFC34CB` FOREIGN KEY (`rootNode_id`) REFERENCES `SitemapNode` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Sitemap`
+--
+
 LOCK TABLES `Sitemap` WRITE;
+/*!40000 ALTER TABLE `Sitemap` DISABLE KEYS */;
 INSERT INTO `Sitemap` VALUES (1,'fr_FR',1),(2,'de_DE',2),(3,'en_US',3);
+/*!40000 ALTER TABLE `Sitemap` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SitemapNode`
+--
+
 DROP TABLE IF EXISTS `SitemapNode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SitemapNode` (
   `contentId` bigint(20) DEFAULT NULL,
   `endDate` bigint(20) DEFAULT NULL,
@@ -1474,10 +3117,25 @@ CREATE TABLE `SitemapNode` (
   CONSTRAINT `FKD4FB1437A6741773` FOREIGN KEY (`id`) REFERENCES `Node` (`id`),
   CONSTRAINT `FKD4FB1437B05DD0AD` FOREIGN KEY (`sectionTag_id`) REFERENCES `SitemapSectionTag` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SitemapNode`
+--
+
 LOCK TABLES `SitemapNode` WRITE;
+/*!40000 ALTER TABLE `SitemapNode` DISABLE KEYS */;
 INSERT INTO `SitemapNode` VALUES (NULL,NULL,'fr_FR','Autogenerated Node',NULL,'DEFAULT','\0',1,NULL,NULL),(NULL,NULL,'de_DE','Autogenerated Node',NULL,'DEFAULT','\0',2,NULL,NULL),(5,NULL,'en_US','Autogenerated Node',NULL,'DEFAULT','',3,NULL,4);
+/*!40000 ALTER TABLE `SitemapNode` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SitemapNode_Role`
+--
+
 DROP TABLE IF EXISTS `SitemapNode_Role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SitemapNode_Role` (
   `SitemapNode_id` bigint(20) NOT NULL,
   `roles_id` bigint(20) NOT NULL,
@@ -1487,10 +3145,25 @@ CREATE TABLE `SitemapNode_Role` (
   CONSTRAINT `FK940DA39E8FD5EEFF` FOREIGN KEY (`roles_id`) REFERENCES `Role` (`id`),
   CONSTRAINT `FK940DA39EEF67A598` FOREIGN KEY (`SitemapNode_id`) REFERENCES `SitemapNode` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SitemapNode_Role`
+--
+
 LOCK TABLES `SitemapNode_Role` WRITE;
+/*!40000 ALTER TABLE `SitemapNode_Role` DISABLE KEYS */;
 INSERT INTO `SitemapNode_Role` VALUES (3,1),(3,2),(3,3),(3,4);
+/*!40000 ALTER TABLE `SitemapNode_Role` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SitemapNode_attributes`
+--
+
 DROP TABLE IF EXISTS `SitemapNode_attributes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SitemapNode_attributes` (
   `SitemapNode_id` bigint(20) NOT NULL,
   `attributes` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -1499,10 +3172,25 @@ CREATE TABLE `SitemapNode_attributes` (
   KEY `FKB146F25FEF67A598` (`SitemapNode_id`),
   CONSTRAINT `FKB146F25FEF67A598` FOREIGN KEY (`SitemapNode_id`) REFERENCES `SitemapNode` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SitemapNode_attributes`
+--
+
 LOCK TABLES `SitemapNode_attributes` WRITE;
+/*!40000 ALTER TABLE `SitemapNode_attributes` DISABLE KEYS */;
 INSERT INTO `SitemapNode_attributes` VALUES (3,'grey','style'),(3,'theme group','theme');
+/*!40000 ALTER TABLE `SitemapNode_attributes` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SitemapSectionTag`
+--
+
 DROP TABLE IF EXISTS `SitemapSectionTag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SitemapSectionTag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1510,10 +3198,25 @@ CREATE TABLE `SitemapSectionTag` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SitemapSectionTag`
+--
+
 LOCK TABLES `SitemapSectionTag` WRITE;
+/*!40000 ALTER TABLE `SitemapSectionTag` DISABLE KEYS */;
 INSERT INTO `SitemapSectionTag` VALUES (2,'Tab_002'),(1,'Tag_001');
+/*!40000 ALTER TABLE `SitemapSectionTag` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StatisticsServer`
+--
+
 DROP TABLE IF EXISTS `StatisticsServer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StatisticsServer` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `allowProxy` bit(1) NOT NULL,
@@ -1524,10 +3227,25 @@ CREATE TABLE `StatisticsServer` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `hostName` (`hostName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StatisticsServer`
+--
+
 LOCK TABLES `StatisticsServer` WRITE;
+/*!40000 ALTER TABLE `StatisticsServer` DISABLE KEYS */;
 INSERT INTO `StatisticsServer` VALUES (1,'\0','???',259200000,'§'),(2,'\0','192.168.1.3',NULL,'#'),(3,'\0','localhost',NULL,'___');
+/*!40000 ALTER TABLE `StatisticsServer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StoreContent`
+--
+
 DROP TABLE IF EXISTS `StoreContent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StoreContent` (
   `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `metaDescription` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -1546,9 +3264,24 @@ CREATE TABLE `StoreContent` (
   CONSTRAINT `FK80519878B3E279CF` FOREIGN KEY (`id`) REFERENCES `Content` (`id`),
   CONSTRAINT `FK80519878CB21ED0E` FOREIGN KEY (`mainImage_id`) REFERENCES `StoreContentImageGroup` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StoreContent`
+--
+
 LOCK TABLES `StoreContent` WRITE;
+/*!40000 ALTER TABLE `StoreContent` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StoreContent` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StoreContentImageGroup`
+--
+
 DROP TABLE IF EXISTS `StoreContentImageGroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StoreContentImageGroup` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1558,9 +3291,24 @@ CREATE TABLE `StoreContentImageGroup` (
   KEY `FKC3E73C7C1AF247EF` (`bundle_id`),
   CONSTRAINT `FKC3E73C7C1AF247EF` FOREIGN KEY (`bundle_id`) REFERENCES `Bundle` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StoreContentImageGroup`
+--
+
 LOCK TABLES `StoreContentImageGroup` WRITE;
+/*!40000 ALTER TABLE `StoreContentImageGroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StoreContentImageGroup` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StoreContentImageGroup_VirtualFile`
+--
+
 DROP TABLE IF EXISTS `StoreContentImageGroup_VirtualFile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StoreContentImageGroup_VirtualFile` (
   `StoreContentImageGroup_id` bigint(20) NOT NULL,
   `imageVersions_id` bigint(20) NOT NULL,
@@ -1571,9 +3319,24 @@ CREATE TABLE `StoreContentImageGroup_VirtualFile` (
   CONSTRAINT `FK619873C426901594` FOREIGN KEY (`StoreContentImageGroup_id`) REFERENCES `StoreContentImageGroup` (`id`),
   CONSTRAINT `FK619873C4296A6A89` FOREIGN KEY (`imageVersions_id`) REFERENCES `VirtualFile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StoreContentImageGroup_VirtualFile`
+--
+
 LOCK TABLES `StoreContentImageGroup_VirtualFile` WRITE;
+/*!40000 ALTER TABLE `StoreContentImageGroup_VirtualFile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StoreContentImageGroup_VirtualFile` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StoreContent_StoreContentImageGroup`
+--
+
 DROP TABLE IF EXISTS `StoreContent_StoreContentImageGroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StoreContent_StoreContentImageGroup` (
   `StoreContent_id` bigint(20) NOT NULL,
   `alternativeImages_id` bigint(20) NOT NULL,
@@ -1583,9 +3346,24 @@ CREATE TABLE `StoreContent_StoreContentImageGroup` (
   CONSTRAINT `FKE6D7C23129F6094` FOREIGN KEY (`StoreContent_id`) REFERENCES `StoreContent` (`id`),
   CONSTRAINT `FKE6D7C23807A910B` FOREIGN KEY (`alternativeImages_id`) REFERENCES `StoreContentImageGroup` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StoreContent_StoreContentImageGroup`
+--
+
 LOCK TABLES `StoreContent_StoreContentImageGroup` WRITE;
+/*!40000 ALTER TABLE `StoreContent_StoreContentImageGroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StoreContent_StoreContentImageGroup` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StoreContent_StoreVariant`
+--
+
 DROP TABLE IF EXISTS `StoreContent_StoreVariant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StoreContent_StoreVariant` (
   `StoreContent_id` bigint(20) NOT NULL,
   `storeVariants_id` bigint(20) NOT NULL,
@@ -1596,9 +3374,24 @@ CREATE TABLE `StoreContent_StoreVariant` (
   CONSTRAINT `FKB352C8EB129F6094` FOREIGN KEY (`StoreContent_id`) REFERENCES `StoreContent` (`id`),
   CONSTRAINT `FKB352C8EB6733C949` FOREIGN KEY (`storeVariants_id`) REFERENCES `StoreVariant` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StoreContent_StoreVariant`
+--
+
 LOCK TABLES `StoreContent_StoreVariant` WRITE;
+/*!40000 ALTER TABLE `StoreContent_StoreVariant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StoreContent_StoreVariant` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StoreVariant`
+--
+
 DROP TABLE IF EXISTS `StoreVariant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StoreVariant` (
   `summary` longtext COLLATE utf8_bin,
   `description` longtext COLLATE utf8_bin NOT NULL,
@@ -1615,9 +3408,24 @@ CREATE TABLE `StoreVariant` (
   CONSTRAINT `FK55B77484C3A72B55` FOREIGN KEY (`content_id`) REFERENCES `Content` (`id`),
   CONSTRAINT `FK55B77484CB21ED0E` FOREIGN KEY (`mainImage_id`) REFERENCES `StoreContentImageGroup` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StoreVariant`
+--
+
 LOCK TABLES `StoreVariant` WRITE;
+/*!40000 ALTER TABLE `StoreVariant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StoreVariant` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StoreVariant_StoreContentImageGroup`
+--
+
 DROP TABLE IF EXISTS `StoreVariant_StoreContentImageGroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StoreVariant_StoreContentImageGroup` (
   `StoreVariant_id` bigint(20) NOT NULL,
   `alternativeImages_id` bigint(20) NOT NULL,
@@ -1627,9 +3435,24 @@ CREATE TABLE `StoreVariant_StoreContentImageGroup` (
   CONSTRAINT `FK1E42D29740875514` FOREIGN KEY (`StoreVariant_id`) REFERENCES `StoreVariant` (`id`),
   CONSTRAINT `FK1E42D297807A910B` FOREIGN KEY (`alternativeImages_id`) REFERENCES `StoreContentImageGroup` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StoreVariant_StoreContentImageGroup`
+--
+
 LOCK TABLES `StoreVariant_StoreContentImageGroup` WRITE;
+/*!40000 ALTER TABLE `StoreVariant_StoreContentImageGroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StoreVariant_StoreContentImageGroup` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StringAttribute`
+--
+
 DROP TABLE IF EXISTS `StringAttribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StringAttribute` (
   `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `id` bigint(20) NOT NULL,
@@ -1640,9 +3463,24 @@ CREATE TABLE `StringAttribute` (
   CONSTRAINT `FK94E3A56B65F7CF3D` FOREIGN KEY (`check_id`) REFERENCES `AbstractTypedCheck` (`id`),
   CONSTRAINT `FK94E3A56B8721794A` FOREIGN KEY (`id`) REFERENCES `AbstractAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StringAttribute`
+--
+
 LOCK TABLES `StringAttribute` WRITE;
+/*!40000 ALTER TABLE `StringAttribute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StringAttribute` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `StringValue`
+--
+
 DROP TABLE IF EXISTS `StringValue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `StringValue` (
   `value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `id` bigint(20) NOT NULL,
@@ -1653,9 +3491,24 @@ CREATE TABLE `StringValue` (
   CONSTRAINT `FK8DC4BC01174219F` FOREIGN KEY (`id`) REFERENCES `AbstractValue` (`id`),
   CONSTRAINT `FK8DC4BC03CE3CBFE` FOREIGN KEY (`attribute_id`) REFERENCES `StringAttribute` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StringValue`
+--
+
 LOCK TABLES `StringValue` WRITE;
+/*!40000 ALTER TABLE `StringValue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `StringValue` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Survey`
+--
+
 DROP TABLE IF EXISTS `Survey`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Survey` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `anonymous` bit(1) NOT NULL,
@@ -1670,9 +3523,24 @@ CREATE TABLE `Survey` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Survey`
+--
+
 LOCK TABLES `Survey` WRITE;
+/*!40000 ALTER TABLE `Survey` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Survey` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `SurveyToken`
+--
+
 DROP TABLE IF EXISTS `SurveyToken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SurveyToken` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `surveyId` bigint(20) NOT NULL,
@@ -1682,9 +3550,24 @@ CREATE TABLE `SurveyToken` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `token` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SurveyToken`
+--
+
 LOCK TABLES `SurveyToken` WRITE;
+/*!40000 ALTER TABLE `SurveyToken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SurveyToken` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Survey_AbstractQuestion`
+--
+
 DROP TABLE IF EXISTS `Survey_AbstractQuestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Survey_AbstractQuestion` (
   `Survey_id` bigint(20) NOT NULL,
   `questions_id` bigint(20) NOT NULL,
@@ -1694,18 +3577,48 @@ CREATE TABLE `Survey_AbstractQuestion` (
   CONSTRAINT `FK59B0846D1F690A0B` FOREIGN KEY (`Survey_id`) REFERENCES `Survey` (`id`),
   CONSTRAINT `FK59B0846D241CACC6` FOREIGN KEY (`questions_id`) REFERENCES `AbstractQuestion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Survey_AbstractQuestion`
+--
+
 LOCK TABLES `Survey_AbstractQuestion` WRITE;
+/*!40000 ALTER TABLE `Survey_AbstractQuestion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Survey_AbstractQuestion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Survey_roleIds`
+--
+
 DROP TABLE IF EXISTS `Survey_roleIds`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Survey_roleIds` (
   `Survey_id` bigint(20) NOT NULL,
   `role_id` bigint(20) DEFAULT NULL,
   KEY `FK9F43629D1F690A0B` (`Survey_id`),
   CONSTRAINT `FK9F43629D1F690A0B` FOREIGN KEY (`Survey_id`) REFERENCES `Survey` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Survey_roleIds`
+--
+
 LOCK TABLES `Survey_roleIds` WRITE;
+/*!40000 ALTER TABLE `Survey_roleIds` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Survey_roleIds` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `TaxGroup`
+--
+
 DROP TABLE IF EXISTS `TaxGroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TaxGroup` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1718,9 +3631,24 @@ CREATE TABLE `TaxGroup` (
   KEY `FKF202BDB4A9FDDEF` (`shopSettings_id`),
   CONSTRAINT `FKF202BDB4A9FDDEF` FOREIGN KEY (`shopSettings_id`) REFERENCES `ShopSettings` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TaxGroup`
+--
+
 LOCK TABLES `TaxGroup` WRITE;
+/*!40000 ALTER TABLE `TaxGroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `TaxGroup` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `URLContent`
+--
+
 DROP TABLE IF EXISTS `URLContent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `URLContent` (
   `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `metaDescription` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -1734,9 +3662,24 @@ CREATE TABLE `URLContent` (
   KEY `FKD173C2AB3E279CF` (`id`),
   CONSTRAINT `FKD173C2AB3E279CF` FOREIGN KEY (`id`) REFERENCES `Content` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `URLContent`
+--
+
 LOCK TABLES `URLContent` WRITE;
+/*!40000 ALTER TABLE `URLContent` DISABLE KEYS */;
+/*!40000 ALTER TABLE `URLContent` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `User`
+--
+
 DROP TABLE IF EXISTS `User`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `User` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1755,10 +3698,25 @@ CREATE TABLE `User` (
   UNIQUE KEY `name` (`name`),
   KEY `index_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User`
+--
+
 LOCK TABLES `User` WRITE;
+/*!40000 ALTER TABLE `User` DISABLE KEYS */;
 INSERT INTO `User` VALUES (1,'root','2016-03-18 18:03:21','user@domain','2016-04-01 15:16:39','2016-03-18 18:03:21','422CCAECC1850E73598FEA2386921E96FFDEDEEF7113CB0656C413F90C2D5ADBB4FE2B6ABB00ADDED1613D300F2FA25C69C2C7180867F80D8D501ED9861A6065',NULL,'ACTIVE','',''),(2,'Bill','2016-03-28 14:59:03','bill@pulse.com','2016-04-01 12:58:16','2016-03-29 11:20:31','A10D01A2A0ACF51AB5F8570351B35E8C69830BE2E8619AFB4D9248583BE8FE6685FF40BB0CD25B3528F4B4FFF478BB5AEB6C0786FBD30A1D26F8EBA11AD22EBD',NULL,'ACTIVE','\0',''),(3,'Tom','2016-03-28 16:54:25','tom@pulse.com','2016-04-01 13:01:22','2016-03-28 16:54:25','A10D01A2A0ACF51AB5F8570351B35E8C69830BE2E8619AFB4D9248583BE8FE6685FF40BB0CD25B3528F4B4FFF478BB5AEB6C0786FBD30A1D26F8EBA11AD22EBD',NULL,'ACTIVE','\0',''),(4,'John','2016-03-29 10:54:51','john@pulse.com','2016-04-01 13:01:23','2016-03-29 10:54:51','A10D01A2A0ACF51AB5F8570351B35E8C69830BE2E8619AFB4D9248583BE8FE6685FF40BB0CD25B3528F4B4FFF478BB5AEB6C0786FBD30A1D26F8EBA11AD22EBD',NULL,'ACTIVE','\0',''),(5,'Bob','2016-03-29 10:57:17','bob@pulse.com','2016-04-01 13:00:23','2016-03-29 11:21:18','A10D01A2A0ACF51AB5F8570351B35E8C69830BE2E8619AFB4D9248583BE8FE6685FF40BB0CD25B3528F4B4FFF478BB5AEB6C0786FBD30A1D26F8EBA11AD22EBD',NULL,'ACTIVE','\0','');
+/*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `UserAgent`
+--
+
 DROP TABLE IF EXISTS `UserAgent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `UserAgent` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1768,10 +3726,25 @@ CREATE TABLE `UserAgent` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `regex` (`regex`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `UserAgent`
+--
+
 LOCK TABLES `UserAgent` WRITE;
+/*!40000 ALTER TABLE `UserAgent` DISABLE KEYS */;
 INSERT INTO `UserAgent` VALUES (1,'unknown','unknown',''),(2,'IE other','Microsoft','.*MSIE.*'),(3,'FF other','Firefox','.*Firefox.*'),(4,'Safari','Apple','.*Safari.*');
+/*!40000 ALTER TABLE `UserAgent` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `UserAgentPerVisitAggregation`
+--
+
 DROP TABLE IF EXISTS `UserAgentPerVisitAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `UserAgentPerVisitAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -1786,10 +3759,25 @@ CREATE TABLE `UserAgentPerVisitAggregation` (
   CONSTRAINT `FK521E779A296EA9E` FOREIGN KEY (`counted_id`) REFERENCES `UserAgent` (`id`),
   CONSTRAINT `FK521E779A8E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `UserAgentPerVisitAggregation`
+--
+
 LOCK TABLES `UserAgentPerVisitAggregation` WRITE;
+/*!40000 ALTER TABLE `UserAgentPerVisitAggregation` DISABLE KEYS */;
 INSERT INTO `UserAgentPerVisitAggregation` VALUES (1,1459382399999,1459296000000,1,1,3),(2,1459382399999,1459296000000,1,1,4),(3,1459468799999,1459382400000,2,1,4),(4,1459555199999,1459468800000,3,1,4);
+/*!40000 ALTER TABLE `UserAgentPerVisitAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `UserAgentPerVisitAggregation_UserAgentVersionCounter`
+--
+
 DROP TABLE IF EXISTS `UserAgentPerVisitAggregation_UserAgentVersionCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `UserAgentPerVisitAggregation_UserAgentVersionCounter` (
   `UserAgentPerVisitAggregation_id` bigint(20) NOT NULL,
   `counters_id` bigint(20) NOT NULL,
@@ -1800,9 +3788,24 @@ CREATE TABLE `UserAgentPerVisitAggregation_UserAgentVersionCounter` (
   CONSTRAINT `FKCF7BB0D95E85B98D` FOREIGN KEY (`counters_id`) REFERENCES `UserAgentVersionCounter` (`id`),
   CONSTRAINT `FKCF7BB0D9DEA5186E` FOREIGN KEY (`UserAgentPerVisitAggregation_id`) REFERENCES `UserAgentPerVisitAggregation` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `UserAgentPerVisitAggregation_UserAgentVersionCounter`
+--
+
 LOCK TABLES `UserAgentPerVisitAggregation_UserAgentVersionCounter` WRITE;
+/*!40000 ALTER TABLE `UserAgentPerVisitAggregation_UserAgentVersionCounter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `UserAgentPerVisitAggregation_UserAgentVersionCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `UserAgentVersionCounter`
+--
+
 DROP TABLE IF EXISTS `UserAgentVersionCounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `UserAgentVersionCounter` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `counter` int(11) NOT NULL,
@@ -1815,9 +3818,24 @@ CREATE TABLE `UserAgentVersionCounter` (
   CONSTRAINT `FKF9EFE27E108C45DB` FOREIGN KEY (`version_id`) REFERENCES `RegexVersion` (`id`),
   CONSTRAINT `FKF9EFE27E2D2B70A8` FOREIGN KEY (`abstractAggregation_id`) REFERENCES `UserAgentPerVisitAggregation` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `UserAgentVersionCounter`
+--
+
 LOCK TABLES `UserAgentVersionCounter` WRITE;
+/*!40000 ALTER TABLE `UserAgentVersionCounter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `UserAgentVersionCounter` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `UserAgent_RegexVersion`
+--
+
 DROP TABLE IF EXISTS `UserAgent_RegexVersion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `UserAgent_RegexVersion` (
   `UserAgent_id` bigint(20) NOT NULL,
   `versions_id` bigint(20) NOT NULL,
@@ -1827,10 +3845,25 @@ CREATE TABLE `UserAgent_RegexVersion` (
   CONSTRAINT `FK469498F661A3E938` FOREIGN KEY (`versions_id`) REFERENCES `RegexVersion` (`id`),
   CONSTRAINT `FK469498F665EE42F2` FOREIGN KEY (`UserAgent_id`) REFERENCES `UserAgent` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `UserAgent_RegexVersion`
+--
+
 LOCK TABLES `UserAgent_RegexVersion` WRITE;
+/*!40000 ALTER TABLE `UserAgent_RegexVersion` DISABLE KEYS */;
 INSERT INTO `UserAgent_RegexVersion` VALUES (2,1),(2,2),(2,3),(2,4),(3,5),(3,6),(3,7),(3,8),(3,9);
+/*!40000 ALTER TABLE `UserAgent_RegexVersion` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `User_Group`
+--
+
 DROP TABLE IF EXISTS `User_Group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `User_Group` (
   `User_id` bigint(20) NOT NULL,
   `groups_id` bigint(20) NOT NULL,
@@ -1840,10 +3873,25 @@ CREATE TABLE `User_Group` (
   CONSTRAINT `FKE7B7ED0BFA20D266` FOREIGN KEY (`User_id`) REFERENCES `User` (`id`),
   CONSTRAINT `FKE7B7ED0BFCE002B9` FOREIGN KEY (`groups_id`) REFERENCES `Group` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User_Group`
+--
+
 LOCK TABLES `User_Group` WRITE;
+/*!40000 ALTER TABLE `User_Group` DISABLE KEYS */;
 INSERT INTO `User_Group` VALUES (2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(2,7),(2,8),(2,9),(2,10),(2,11),(2,12),(2,13),(2,14),(2,15),(2,16),(2,17),(2,18),(2,19),(2,20),(2,21),(2,22),(2,23),(2,24),(2,25),(2,26),(2,27),(2,28),(2,29),(2,30),(2,31),(2,32),(2,33),(2,34),(2,35),(2,36),(2,37),(2,38),(2,39),(2,40),(2,41),(2,42),(2,43),(2,44),(2,45),(3,5),(3,6),(3,7),(3,8),(3,9),(3,10),(3,11),(3,12),(3,13),(3,14),(3,15),(3,16),(3,17),(3,18),(3,19),(3,20),(3,21),(3,22),(3,23),(3,24),(3,25),(3,26),(3,27),(3,28),(3,29),(3,30),(3,31),(3,32),(3,33),(3,34),(3,35),(3,37),(3,38),(3,39),(3,40),(3,41),(3,42),(3,43),(3,44),(3,45),(4,1),(4,2),(4,3),(4,4),(4,5),(4,6),(4,7),(4,8),(4,9),(4,10),(4,11),(4,12),(4,13),(4,14),(4,15),(4,16),(4,17),(4,18),(4,19),(4,20),(4,21),(4,22),(4,23),(4,24),(4,25),(4,26),(4,27),(4,28),(4,29),(4,30),(4,31),(4,32),(4,33),(4,34),(4,35),(4,36),(4,37),(4,38),(4,39),(4,40),(4,41),(4,42),(4,43),(4,44),(4,45),(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(5,7),(5,8),(5,9),(5,10),(5,11),(5,12),(5,13),(5,14),(5,15),(5,16),(5,17),(5,18),(5,19),(5,20),(5,21),(5,22),(5,23),(5,24),(5,25),(5,26),(5,27),(5,28),(5,29),(5,30),(5,31),(5,32),(5,33),(5,34),(5,35),(5,36),(5,37),(5,38),(5,39),(5,40),(5,41),(5,42),(5,43),(5,44),(5,45);
+/*!40000 ALTER TABLE `User_Group` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `User_Permission`
+--
+
 DROP TABLE IF EXISTS `User_Permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `User_Permission` (
   `User_id` bigint(20) NOT NULL,
   `permissions_id` bigint(20) NOT NULL,
@@ -1853,10 +3901,25 @@ CREATE TABLE `User_Permission` (
   CONSTRAINT `FK6C1F06C31B59F431` FOREIGN KEY (`permissions_id`) REFERENCES `Permission` (`id`),
   CONSTRAINT `FK6C1F06C3FA20D266` FOREIGN KEY (`User_id`) REFERENCES `User` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User_Permission`
+--
+
 LOCK TABLES `User_Permission` WRITE;
+/*!40000 ALTER TABLE `User_Permission` DISABLE KEYS */;
 INSERT INTO `User_Permission` VALUES (2,18),(2,19),(2,20),(2,21),(2,22),(2,23),(2,24),(2,25),(2,26),(2,27),(2,28),(2,29),(2,30),(2,31),(2,32),(2,33),(2,34),(2,35),(2,36),(2,37),(2,38),(2,39),(2,40),(2,41),(2,43),(2,45),(2,47),(2,48),(2,49),(2,50),(2,56),(2,57),(2,59),(2,72),(2,73),(2,74),(2,75),(2,76),(2,77),(2,78),(2,79),(2,80),(2,81),(2,82),(2,83),(2,84),(2,85),(2,86),(2,87),(2,88),(2,89),(2,90),(2,91),(2,92),(2,93),(2,94),(2,95),(2,96),(2,97),(2,98),(2,99),(2,100),(2,101),(2,102),(2,103),(2,104),(2,105),(2,106),(2,107),(2,108),(2,116),(2,128),(2,131),(2,132),(2,133),(2,134),(2,135),(2,136),(2,137),(2,138),(2,139),(2,140),(2,141),(2,142),(2,143),(2,144),(2,150),(2,151),(2,152),(2,153),(2,154),(2,155),(2,156),(2,157),(2,158),(2,159),(2,160),(2,161),(2,162),(2,163),(2,164),(2,165),(2,166),(2,167),(2,168),(2,169),(2,170),(2,171),(2,172),(2,173),(2,174),(2,175),(2,176),(2,177),(2,178),(2,179),(2,180),(2,181),(2,182),(2,183),(3,18),(3,19),(3,20),(3,21),(3,22),(3,23),(3,24),(3,25),(3,26),(3,27),(3,29),(3,30),(3,31),(3,32),(3,33),(3,34),(3,35),(3,36),(3,37),(3,38),(4,18),(4,19),(4,20),(4,21),(4,22),(4,23),(4,24),(4,25),(4,26),(4,27),(4,28),(4,29),(4,30),(4,31),(4,32),(4,33),(4,34),(4,35),(4,36),(4,37),(4,38),(4,43),(4,45),(4,56),(4,59),(4,99),(4,100),(4,101),(4,102),(4,103),(4,104),(4,105),(4,106),(4,107),(4,108),(4,116),(4,128),(4,131),(4,132),(4,133),(4,134),(4,135),(4,136),(4,137),(4,138),(4,139),(4,140),(4,141),(4,142),(4,143),(4,144),(4,150),(4,151),(4,152),(4,153),(4,155),(4,156),(4,157),(4,159),(4,160),(5,18),(5,19),(5,20),(5,21),(5,22),(5,23),(5,24),(5,25),(5,26),(5,27),(5,28),(5,29),(5,30),(5,31),(5,32),(5,33),(5,34),(5,35),(5,36),(5,37),(5,38),(5,43),(5,45),(5,56),(5,59),(5,99),(5,100),(5,101),(5,102),(5,103),(5,104),(5,105),(5,106),(5,107),(5,108),(5,116),(5,128),(5,131),(5,132),(5,133),(5,134),(5,135),(5,136),(5,137),(5,138),(5,139),(5,140),(5,141),(5,142),(5,143),(5,144),(5,150),(5,151),(5,152),(5,153),(5,155),(5,156),(5,157),(5,159),(5,160);
+/*!40000 ALTER TABLE `User_Permission` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `User_Role`
+--
+
 DROP TABLE IF EXISTS `User_Role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `User_Role` (
   `User_id` bigint(20) NOT NULL,
   `roles_id` bigint(20) NOT NULL,
@@ -1866,19 +3929,49 @@ CREATE TABLE `User_Role` (
   CONSTRAINT `FK8B9F886A8FD5EEFF` FOREIGN KEY (`roles_id`) REFERENCES `Role` (`id`),
   CONSTRAINT `FK8B9F886AFA20D266` FOREIGN KEY (`User_id`) REFERENCES `User` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User_Role`
+--
+
 LOCK TABLES `User_Role` WRITE;
+/*!40000 ALTER TABLE `User_Role` DISABLE KEYS */;
 INSERT INTO `User_Role` VALUES (2,1),(2,2),(2,3),(2,4),(3,1),(3,2),(3,3),(3,4),(4,1),(4,2),(4,3),(4,4),(5,1),(5,2),(5,3),(5,4);
+/*!40000 ALTER TABLE `User_Role` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `VFSDeferredDelete`
+--
+
 DROP TABLE IF EXISTS `VFSDeferredDelete`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `VFSDeferredDelete` (
   `id` bigint(20) NOT NULL,
   `timestamp` bigint(20) NOT NULL,
   `uri` longtext COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VFSDeferredDelete`
+--
+
 LOCK TABLES `VFSDeferredDelete` WRITE;
+/*!40000 ALTER TABLE `VFSDeferredDelete` DISABLE KEYS */;
+/*!40000 ALTER TABLE `VFSDeferredDelete` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Variant`
+--
+
 DROP TABLE IF EXISTS `Variant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Variant` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1888,9 +3981,24 @@ CREATE TABLE `Variant` (
   KEY `FK7155A86521EEDBFF` (`parentVariant_id`),
   CONSTRAINT `FK7155A86521EEDBFF` FOREIGN KEY (`parentVariant_id`) REFERENCES `Variant` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Variant`
+--
+
 LOCK TABLES `Variant` WRITE;
+/*!40000 ALTER TABLE `Variant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Variant` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Variant_Attachment`
+--
+
 DROP TABLE IF EXISTS `Variant_Attachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Variant_Attachment` (
   `Variant_id` bigint(20) NOT NULL,
   `attachments_id` bigint(20) NOT NULL,
@@ -1901,9 +4009,24 @@ CREATE TABLE `Variant_Attachment` (
   CONSTRAINT `FKB7CF215DF18F1FD5` FOREIGN KEY (`Variant_id`) REFERENCES `Variant` (`id`),
   CONSTRAINT `FKB7CF215DF541BB12` FOREIGN KEY (`attachments_id`) REFERENCES `Attachment` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Variant_Attachment`
+--
+
 LOCK TABLES `Variant_Attachment` WRITE;
+/*!40000 ALTER TABLE `Variant_Attachment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Variant_Attachment` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Variant_Variant`
+--
+
 DROP TABLE IF EXISTS `Variant_Variant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Variant_Variant` (
   `Variant_id` bigint(20) NOT NULL,
   `variants_id` bigint(20) NOT NULL,
@@ -1914,9 +4037,24 @@ CREATE TABLE `Variant_Variant` (
   CONSTRAINT `FKB212C28B29E5472C` FOREIGN KEY (`variants_id`) REFERENCES `Variant` (`id`),
   CONSTRAINT `FKB212C28BF18F1FD5` FOREIGN KEY (`Variant_id`) REFERENCES `Variant` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Variant_Variant`
+--
+
 LOCK TABLES `Variant_Variant` WRITE;
+/*!40000 ALTER TABLE `Variant_Variant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Variant_Variant` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Variant_VirtualFile`
+--
+
 DROP TABLE IF EXISTS `Variant_VirtualFile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Variant_VirtualFile` (
   `variant_id` bigint(20) NOT NULL,
   `virtualfile_id` bigint(20) NOT NULL,
@@ -1926,9 +4064,24 @@ CREATE TABLE `Variant_VirtualFile` (
   CONSTRAINT `FK32FF4A2DEC6EEAD8` FOREIGN KEY (`virtualfile_id`) REFERENCES `VirtualFile` (`id`),
   CONSTRAINT `FK32FF4A2DF18F1FD5` FOREIGN KEY (`variant_id`) REFERENCES `Variant` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Variant_VirtualFile`
+--
+
 LOCK TABLES `Variant_VirtualFile` WRITE;
+/*!40000 ALTER TABLE `Variant_VirtualFile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Variant_VirtualFile` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `View`
+--
+
 DROP TABLE IF EXISTS `View`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `View` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1938,10 +4091,25 @@ CREATE TABLE `View` (
   KEY `FK28AEC570B91909` (`commandBuilder_id`),
   CONSTRAINT `FK28AEC570B91909` FOREIGN KEY (`commandBuilder_id`) REFERENCES `CommandBuilder` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `View`
+--
+
 LOCK TABLES `View` WRITE;
+/*!40000 ALTER TABLE `View` DISABLE KEYS */;
 INSERT INTO `View` VALUES (4,'CMSDisplay',4);
+/*!40000 ALTER TABLE `View` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `View_Content`
+--
+
 DROP TABLE IF EXISTS `View_Content`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `View_Content` (
   `content_id` bigint(20) DEFAULT NULL,
   `view_id` bigint(20) NOT NULL,
@@ -1951,10 +4119,25 @@ CREATE TABLE `View_Content` (
   CONSTRAINT `FK1CC38CDF53F9A4EA` FOREIGN KEY (`view_id`) REFERENCES `View` (`id`),
   CONSTRAINT `FK1CC38CDFC3A72B55` FOREIGN KEY (`content_id`) REFERENCES `Content` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `View_Content`
+--
+
 LOCK TABLES `View_Content` WRITE;
+/*!40000 ALTER TABLE `View_Content` DISABLE KEYS */;
 INSERT INTO `View_Content` VALUES (5,4);
+/*!40000 ALTER TABLE `View_Content` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `VirtualFile`
+--
+
 DROP TABLE IF EXISTS `VirtualFile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `VirtualFile` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1977,10 +4160,25 @@ CREATE TABLE `VirtualFile` (
   CONSTRAINT `FK2847B307C607F384` FOREIGN KEY (`lastModifier_id`) REFERENCES `User` (`id`),
   CONSTRAINT `FK2847B307F1E43E85` FOREIGN KEY (`creator_id`) REFERENCES `User` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VirtualFile`
+--
+
 LOCK TABLES `VirtualFile` WRITE;
+/*!40000 ALTER TABLE `VirtualFile` DISABLE KEYS */;
 INSERT INTO `VirtualFile` VALUES (1,'',1458313407593,'',0,'\0',1458313407593,'private:///',1,1,NULL),(2,'',1458313407597,'',0,'',1458313407597,'public:///',1,1,NULL);
+/*!40000 ALTER TABLE `VirtualFile` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `VirtualFile_DeadProperty`
+--
+
 DROP TABLE IF EXISTS `VirtualFile_DeadProperty`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `VirtualFile_DeadProperty` (
   `VirtualFile_id` bigint(20) NOT NULL,
   `deadProperties_id` bigint(20) NOT NULL,
@@ -1991,9 +4189,24 @@ CREATE TABLE `VirtualFile_DeadProperty` (
   CONSTRAINT `FK936508B122E81AB6` FOREIGN KEY (`deadProperties_id`) REFERENCES `DeadProperty` (`id`),
   CONSTRAINT `FK936508B1EC6EEAD8` FOREIGN KEY (`VirtualFile_id`) REFERENCES `VirtualFile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VirtualFile_DeadProperty`
+--
+
 LOCK TABLES `VirtualFile_DeadProperty` WRITE;
+/*!40000 ALTER TABLE `VirtualFile_DeadProperty` DISABLE KEYS */;
+/*!40000 ALTER TABLE `VirtualFile_DeadProperty` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `VirtualFile_readRoles`
+--
+
 DROP TABLE IF EXISTS `VirtualFile_readRoles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `VirtualFile_readRoles` (
   `VirtualFile_id` bigint(20) NOT NULL,
   `readRoles_id` bigint(20) NOT NULL,
@@ -2003,9 +4216,24 @@ CREATE TABLE `VirtualFile_readRoles` (
   CONSTRAINT `FK1AEEA38F35BB5295` FOREIGN KEY (`readRoles_id`) REFERENCES `Role` (`id`),
   CONSTRAINT `FK1AEEA38FEC6EEAD8` FOREIGN KEY (`VirtualFile_id`) REFERENCES `VirtualFile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VirtualFile_readRoles`
+--
+
 LOCK TABLES `VirtualFile_readRoles` WRITE;
+/*!40000 ALTER TABLE `VirtualFile_readRoles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `VirtualFile_readRoles` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `VirtualFile_writeRoles`
+--
+
 DROP TABLE IF EXISTS `VirtualFile_writeRoles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `VirtualFile_writeRoles` (
   `VirtualFile_id` bigint(20) NOT NULL,
   `writeRoles_id` bigint(20) NOT NULL,
@@ -2015,9 +4243,24 @@ CREATE TABLE `VirtualFile_writeRoles` (
   CONSTRAINT `FK3C10A2561DEDF7DE` FOREIGN KEY (`writeRoles_id`) REFERENCES `Role` (`id`),
   CONSTRAINT `FK3C10A256EC6EEAD8` FOREIGN KEY (`VirtualFile_id`) REFERENCES `VirtualFile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VirtualFile_writeRoles`
+--
+
 LOCK TABLES `VirtualFile_writeRoles` WRITE;
+/*!40000 ALTER TABLE `VirtualFile_writeRoles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `VirtualFile_writeRoles` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `VisitCountAggregation`
+--
+
 DROP TABLE IF EXISTS `VisitCountAggregation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `VisitCountAggregation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `endTime` bigint(20) NOT NULL,
@@ -2030,10 +4273,25 @@ CREATE TABLE `VisitCountAggregation` (
   KEY `FK9526F99E8E487982` (`statisticsServer_id`),
   CONSTRAINT `FK9526F99E8E487982` FOREIGN KEY (`statisticsServer_id`) REFERENCES `StatisticsServer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VisitCountAggregation`
+--
+
 LOCK TABLES `VisitCountAggregation` WRITE;
+/*!40000 ALTER TABLE `VisitCountAggregation` DISABLE KEYS */;
 INSERT INTO `VisitCountAggregation` VALUES (1,1459382399999,1459296000000,2,0,1),(2,1459468799999,1459382400000,2,1,1),(3,1459555199999,1459468800000,3,2,1);
+/*!40000 ALTER TABLE `VisitCountAggregation` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_Address`
+--
+
 DROP TABLE IF EXISTS `checkout_Address`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_Address` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `additionalNameInfo` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -2050,9 +4308,24 @@ CREATE TABLE `checkout_Address` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_Address`
+--
+
 LOCK TABLES `checkout_Address` WRITE;
+/*!40000 ALTER TABLE `checkout_Address` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_Address` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_Customer`
+--
+
 DROP TABLE IF EXISTS `checkout_Customer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_Customer` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `emailAddress` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -2061,9 +4334,24 @@ CREATE TABLE `checkout_Customer` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_Customer`
+--
+
 LOCK TABLES `checkout_Customer` WRITE;
+/*!40000 ALTER TABLE `checkout_Customer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_Customer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_DispatchData`
+--
+
 DROP TABLE IF EXISTS `checkout_DispatchData`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_DispatchData` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `dispatchType_id` bigint(20) NOT NULL,
@@ -2073,9 +4361,24 @@ CREATE TABLE `checkout_DispatchData` (
   KEY `FK4E888DBD9F930B32` (`dispatchType_id`),
   CONSTRAINT `FK4E888DBD9F930B32` FOREIGN KEY (`dispatchType_id`) REFERENCES `checkout_DispatchType` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_DispatchData`
+--
+
 LOCK TABLES `checkout_DispatchData` WRITE;
+/*!40000 ALTER TABLE `checkout_DispatchData` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_DispatchData` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_DispatchType`
+--
+
 DROP TABLE IF EXISTS `checkout_DispatchType`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_DispatchType` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `idCode` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -2086,9 +4389,24 @@ CREATE TABLE `checkout_DispatchType` (
   KEY `FK4E902D4D9FB6D242` (`price_id`),
   CONSTRAINT `FK4E902D4D9FB6D242` FOREIGN KEY (`price_id`) REFERENCES `checkout_Price` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_DispatchType`
+--
+
 LOCK TABLES `checkout_DispatchType` WRITE;
+/*!40000 ALTER TABLE `checkout_DispatchType` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_DispatchType` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_Order`
+--
+
 DROP TABLE IF EXISTS `checkout_Order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_Order` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `billingAddress_id` bigint(20) DEFAULT NULL,
@@ -2126,9 +4444,24 @@ CREATE TABLE `checkout_Order` (
   CONSTRAINT `FK58CCBAF5BC719F52` FOREIGN KEY (`totalPrice_id`) REFERENCES `checkout_TotalPrice` (`id`),
   CONSTRAINT `FK58CCBAF5E2CCC602` FOREIGN KEY (`orderContents_id`) REFERENCES `checkout_OrderContents` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_Order`
+--
+
 LOCK TABLES `checkout_Order` WRITE;
+/*!40000 ALTER TABLE `checkout_Order` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_Order` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_OrderContents`
+--
+
 DROP TABLE IF EXISTS `checkout_OrderContents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_OrderContents` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `totalPrice_id` bigint(20) NOT NULL,
@@ -2138,9 +4471,24 @@ CREATE TABLE `checkout_OrderContents` (
   KEY `FK4CFAB52FBC719F52` (`totalPrice_id`),
   CONSTRAINT `FK4CFAB52FBC719F52` FOREIGN KEY (`totalPrice_id`) REFERENCES `checkout_TotalPrice` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_OrderContents`
+--
+
 LOCK TABLES `checkout_OrderContents` WRITE;
+/*!40000 ALTER TABLE `checkout_OrderContents` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_OrderContents` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_OrderContents_checkout_OrderPosition`
+--
+
 DROP TABLE IF EXISTS `checkout_OrderContents_checkout_OrderPosition`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_OrderContents_checkout_OrderPosition` (
   `checkout_OrderContents_id` bigint(20) NOT NULL,
   `orderPositions_id` bigint(20) NOT NULL,
@@ -2151,9 +4499,24 @@ CREATE TABLE `checkout_OrderContents_checkout_OrderPosition` (
   CONSTRAINT `FK3BD8B84E60824FDB` FOREIGN KEY (`checkout_OrderContents_id`) REFERENCES `checkout_OrderContents` (`id`),
   CONSTRAINT `FK3BD8B84E9030171D` FOREIGN KEY (`orderPositions_id`) REFERENCES `checkout_OrderPosition` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_OrderContents_checkout_OrderPosition`
+--
+
 LOCK TABLES `checkout_OrderContents_checkout_OrderPosition` WRITE;
+/*!40000 ALTER TABLE `checkout_OrderContents_checkout_OrderPosition` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_OrderContents_checkout_OrderPosition` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_OrderDetails`
+--
+
 DROP TABLE IF EXISTS `checkout_OrderDetails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_OrderDetails` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `annotation` longtext COLLATE utf8_bin,
@@ -2165,9 +4528,24 @@ CREATE TABLE `checkout_OrderDetails` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_OrderDetails`
+--
+
 LOCK TABLES `checkout_OrderDetails` WRITE;
+/*!40000 ALTER TABLE `checkout_OrderDetails` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_OrderDetails` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_OrderMetaData`
+--
+
 DROP TABLE IF EXISTS `checkout_OrderMetaData`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_OrderMetaData` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `locale` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -2180,9 +4558,24 @@ CREATE TABLE `checkout_OrderMetaData` (
   KEY `FK53EA49641AF247EF` (`bundle_id`),
   CONSTRAINT `FK53EA49641AF247EF` FOREIGN KEY (`bundle_id`) REFERENCES `Bundle` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_OrderMetaData`
+--
+
 LOCK TABLES `checkout_OrderMetaData` WRITE;
+/*!40000 ALTER TABLE `checkout_OrderMetaData` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_OrderMetaData` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_OrderPosition`
+--
+
 DROP TABLE IF EXISTS `checkout_OrderPosition`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_OrderPosition` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `itemId` bigint(20) DEFAULT NULL,
@@ -2201,9 +4594,24 @@ CREATE TABLE `checkout_OrderPosition` (
   CONSTRAINT `FK9B5DF33E7F4DE7C6` FOREIGN KEY (`unitPrice_id`) REFERENCES `checkout_Price` (`id`),
   CONSTRAINT `FK9B5DF33E9FB6D242` FOREIGN KEY (`price_id`) REFERENCES `checkout_Price` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_OrderPosition`
+--
+
 LOCK TABLES `checkout_OrderPosition` WRITE;
+/*!40000 ALTER TABLE `checkout_OrderPosition` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_OrderPosition` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_PaymentData`
+--
+
 DROP TABLE IF EXISTS `checkout_PaymentData`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_PaymentData` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `amount` decimal(19,2) NOT NULL,
@@ -2219,9 +4627,24 @@ CREATE TABLE `checkout_PaymentData` (
   KEY `FK4E61BD37F35199A2` (`paymentMethod_id`),
   CONSTRAINT `FK4E61BD37F35199A2` FOREIGN KEY (`paymentMethod_id`) REFERENCES `checkout_PaymentMethod` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_PaymentData`
+--
+
 LOCK TABLES `checkout_PaymentData` WRITE;
+/*!40000 ALTER TABLE `checkout_PaymentData` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_PaymentData` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_PaymentMethod`
+--
+
 DROP TABLE IF EXISTS `checkout_PaymentMethod`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_PaymentMethod` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `idCode` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -2232,9 +4655,24 @@ CREATE TABLE `checkout_PaymentMethod` (
   KEY `FK4C7B6F2E9FB6D242` (`price_id`),
   CONSTRAINT `FK4C7B6F2E9FB6D242` FOREIGN KEY (`price_id`) REFERENCES `checkout_Price` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_PaymentMethod`
+--
+
 LOCK TABLES `checkout_PaymentMethod` WRITE;
+/*!40000 ALTER TABLE `checkout_PaymentMethod` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_PaymentMethod` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_Price`
+--
+
 DROP TABLE IF EXISTS `checkout_Price`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_Price` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `amount` decimal(19,2) NOT NULL,
@@ -2247,9 +4685,24 @@ CREATE TABLE `checkout_Price` (
   KEY `FK58DAE4F06749AD22` (`taxRate_id`),
   CONSTRAINT `FK58DAE4F06749AD22` FOREIGN KEY (`taxRate_id`) REFERENCES `checkout_TaxRate` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_Price`
+--
+
 LOCK TABLES `checkout_Price` WRITE;
+/*!40000 ALTER TABLE `checkout_Price` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_Price` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_Quota`
+--
+
 DROP TABLE IF EXISTS `checkout_Quota`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_Quota` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `amount` decimal(19,2) NOT NULL,
@@ -2260,9 +4713,24 @@ CREATE TABLE `checkout_Quota` (
   KEY `FK58EA721F6749AD22` (`taxRate_id`),
   CONSTRAINT `FK58EA721F6749AD22` FOREIGN KEY (`taxRate_id`) REFERENCES `checkout_TaxRate` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_Quota`
+--
+
 LOCK TABLES `checkout_Quota` WRITE;
+/*!40000 ALTER TABLE `checkout_Quota` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_Quota` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_TaxRate`
+--
+
 DROP TABLE IF EXISTS `checkout_TaxRate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_TaxRate` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -2270,9 +4738,24 @@ CREATE TABLE `checkout_TaxRate` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_TaxRate`
+--
+
 LOCK TABLES `checkout_TaxRate` WRITE;
+/*!40000 ALTER TABLE `checkout_TaxRate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_TaxRate` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_TotalPrice`
+--
+
 DROP TABLE IF EXISTS `checkout_TotalPrice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_TotalPrice` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `currency` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -2280,9 +4763,24 @@ CREATE TABLE `checkout_TotalPrice` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_TotalPrice`
+--
+
 LOCK TABLES `checkout_TotalPrice` WRITE;
+/*!40000 ALTER TABLE `checkout_TotalPrice` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_TotalPrice` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `checkout_TotalPrice_checkout_Quota`
+--
+
 DROP TABLE IF EXISTS `checkout_TotalPrice_checkout_Quota`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_TotalPrice_checkout_Quota` (
   `checkout_TotalPrice_id` bigint(20) NOT NULL,
   `amountQuotas_id` bigint(20) NOT NULL,
@@ -2293,9 +4791,24 @@ CREATE TABLE `checkout_TotalPrice_checkout_Quota` (
   CONSTRAINT `FK83C4F3608F0F0C19` FOREIGN KEY (`checkout_TotalPrice_id`) REFERENCES `checkout_TotalPrice` (`id`),
   CONSTRAINT `FK83C4F360C64B68B8` FOREIGN KEY (`amountQuotas_id`) REFERENCES `checkout_Quota` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout_TotalPrice_checkout_Quota`
+--
+
 LOCK TABLES `checkout_TotalPrice_checkout_Quota` WRITE;
+/*!40000 ALTER TABLE `checkout_TotalPrice_checkout_Quota` DISABLE KEYS */;
+/*!40000 ALTER TABLE `checkout_TotalPrice_checkout_Quota` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `cmscontent_page`
+--
+
 DROP TABLE IF EXISTS `cmscontent_page`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cmscontent_page` (
   `CMSContent_id` bigint(20) NOT NULL,
   `pages_id` bigint(20) NOT NULL,
@@ -2307,10 +4820,25 @@ CREATE TABLE `cmscontent_page` (
   CONSTRAINT `FK41B7A65E190B6AAC` FOREIGN KEY (`CMSContent_id`) REFERENCES `CMSContent` (`id`),
   CONSTRAINT `FK41B7A65E6F0DCA97` FOREIGN KEY (`pages_id`) REFERENCES `Page` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cmscontent_page`
+--
+
 LOCK TABLES `cmscontent_page` WRITE;
+/*!40000 ALTER TABLE `cmscontent_page` DISABLE KEYS */;
 INSERT INTO `cmscontent_page` VALUES (2,1,0),(5,5,0),(6,6,0),(5,7,1);
+/*!40000 ALTER TABLE `cmscontent_page` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `filter_filtermatches`
+--
+
 DROP TABLE IF EXISTS `filter_filtermatches`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `filter_filtermatches` (
   `filter_id` bigint(20) NOT NULL,
   `filtermatches_id` bigint(20) NOT NULL,
@@ -2321,9 +4849,24 @@ CREATE TABLE `filter_filtermatches` (
   CONSTRAINT `FK98A9923497B21B29` FOREIGN KEY (`filtermatches_id`) REFERENCES `FilterMatches` (`id`),
   CONSTRAINT `FK98A99234CAAF3E2B` FOREIGN KEY (`filter_id`) REFERENCES `Filter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `filter_filtermatches`
+--
+
 LOCK TABLES `filter_filtermatches` WRITE;
+/*!40000 ALTER TABLE `filter_filtermatches` DISABLE KEYS */;
+/*!40000 ALTER TABLE `filter_filtermatches` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `filter_filterrule`
+--
+
 DROP TABLE IF EXISTS `filter_filterrule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `filter_filterrule` (
   `filter_id` bigint(20) NOT NULL,
   `filterrule_id` bigint(20) NOT NULL,
@@ -2334,9 +4877,24 @@ CREATE TABLE `filter_filterrule` (
   CONSTRAINT `FK54BA159B4995E04B` FOREIGN KEY (`filterrule_id`) REFERENCES `FilterRule` (`id`),
   CONSTRAINT `FK54BA159BCAAF3E2B` FOREIGN KEY (`filter_id`) REFERENCES `Filter` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `filter_filterrule`
+--
+
 LOCK TABLES `filter_filterrule` WRITE;
+/*!40000 ALTER TABLE `filter_filterrule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `filter_filterrule` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `filterrule_filterruleproperty`
+--
+
 DROP TABLE IF EXISTS `filterrule_filterruleproperty`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `filterrule_filterruleproperty` (
   `filterrule_id` bigint(20) NOT NULL,
   `filterruleproperty_id` bigint(20) NOT NULL,
@@ -2347,9 +4905,24 @@ CREATE TABLE `filterrule_filterruleproperty` (
   CONSTRAINT `FK92D3D3F44995E04B` FOREIGN KEY (`filterrule_id`) REFERENCES `FilterRule` (`id`),
   CONSTRAINT `FK92D3D3F4F19CD74B` FOREIGN KEY (`filterruleproperty_id`) REFERENCES `FilterRuleProperty` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `filterrule_filterruleproperty`
+--
+
 LOCK TABLES `filterrule_filterruleproperty` WRITE;
+/*!40000 ALTER TABLE `filterrule_filterruleproperty` DISABLE KEYS */;
+/*!40000 ALTER TABLE `filterrule_filterruleproperty` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `selection_option`
+--
+
 DROP TABLE IF EXISTS `selection_option`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `selection_option` (
   `selection_id` bigint(20) NOT NULL,
   `option_id` bigint(20) NOT NULL,
@@ -2360,9 +4933,24 @@ CREATE TABLE `selection_option` (
   CONSTRAINT `FK20757E882B8187FA` FOREIGN KEY (`option_id`) REFERENCES `Option` (`id`),
   CONSTRAINT `FK20757E88384173DA` FOREIGN KEY (`selection_id`) REFERENCES `Selection` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `selection_option`
+--
+
 LOCK TABLES `selection_option` WRITE;
+/*!40000 ALTER TABLE `selection_option` DISABLE KEYS */;
+/*!40000 ALTER TABLE `selection_option` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `shopsettings_taxgroup`
+--
+
 DROP TABLE IF EXISTS `shopsettings_taxgroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `shopsettings_taxgroup` (
   `shopsettings_id` bigint(20) NOT NULL,
   `taxgroup_id` bigint(20) NOT NULL,
@@ -2373,5 +4961,24 @@ CREATE TABLE `shopsettings_taxgroup` (
   CONSTRAINT `FKF654661A817FA24F` FOREIGN KEY (`taxgroup_id`) REFERENCES `TaxGroup` (`id`),
   CONSTRAINT `FKF654661AA9FDDEF` FOREIGN KEY (`shopsettings_id`) REFERENCES `ShopSettings` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shopsettings_taxgroup`
+--
+
 LOCK TABLES `shopsettings_taxgroup` WRITE;
+/*!40000 ALTER TABLE `shopsettings_taxgroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shopsettings_taxgroup` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-04-03  9:24:01
